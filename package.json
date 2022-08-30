@@ -1,6 +1,5 @@
 {
   "name": "root",
-  "private": true,
   "author": "Tyson Lupul <wavesrcool@icloud.com>",
   "license": "MIT",
   "workspaces": {
