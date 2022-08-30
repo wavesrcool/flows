@@ -10,6 +10,9 @@
     "directory": "packages/flows-functions",
     "url": "https://github.com/wavesrcool/flows.git"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "_0bin": "rm -rf bin",
     "_0tsc": "rm -f tsconfig.tsbuildinfo",
