@@ -1,0 +1,31 @@
+# dependencies
+node_modules/
+
+# packages javascript
+packages/*/bin
+
+packages/*/node_modules
+
+packages/*/.vscode
+
+
+# misc
+.DS_Store
+
+# vs-code
+.vscode
+
+# lerna
+lerna-debug.log
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# keys
+*.pem
+
+#dev
+edits/
+edit.txt

@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "baseUrl": "./packages",
+        "paths": {
+            "@wavesrcool/flows-core/*": [
+                "core/src/*"
+            ],
+            "@wavesrcool/flows-functions/*": [
+                "functions/src/*"
+            ],
+        }
+    },
+    "files": [],
+    "references": [
+        {
+            "path": "packages/flows-core"
+        },
+        {
+            "path": "packages/flows-functions"
+        },
+    ]
+}
