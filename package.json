@@ -15,7 +15,8 @@
     "flc": "code packages/flows-core",
     "flf": "code packages/flows-functions",
     "flm": "code packages/flows-models",
-    "flt": "code packages/flows-types"
+    "flt": "code packages/flows-types",
+    "flio": "code packages/flows-io"
   },
   "devDependencies": {
     "@tsconfig/node16": "^1.0.3",

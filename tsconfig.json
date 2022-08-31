@@ -8,6 +8,9 @@
             "@wavesrcool/flows-functions/*": [
                 "functions/src/*"
             ],
+            "@wavesrcool/flows-io/*": [
+                "io/src/*"
+            ],
             "@wavesrcool/flows-models/*": [
                 "models/src/*"
             ],
@@ -23,6 +26,9 @@
         },
         {
             "path": "packages/flows-functions"
+        },
+        {
+            "path": "packages/flows-io"
         },
         {
             "path": "packages/flows-models"
