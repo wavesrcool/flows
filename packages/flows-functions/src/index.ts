@@ -14,6 +14,8 @@ export { FlowsFunctionsModelsRelationsAccountLocalCreate } from './models/_relat
 export { FlowsFunctionsModelsRelationsAccountLocalRemove } from './models/_relations/account-local/FlowsFunctionsModelsRelationsAccountLocalRemove'
 export { FlowsFunctionsModelsRelationsEmailMessageCreate } from './models/_relations/email-message/FlowsFunctionsModelsRelationsEmailMessageCreate'
 export { FlowsFunctionsModelsRelationsEmailMessageRemove } from './models/_relations/email-message/FlowsFunctionsModelsRelationsEmailMessageRemove'
+export { FlowsFunctionsModelsRelationsLocalMessageCreate } from './models/_relations/local-message/FlowsFunctionsModelsRelationsLocalMessageCreate'
+export { FlowsFunctionsModelsRelationsLocalMessageRemove } from './models/_relations/local-message/FlowsFunctionsModelsRelationsLocalMessageRemove'
 export { FlowsFunctionsModelsAccountCreate } from './models/account/create/FlowsFunctionsModelsAccountCreate'
 export { FlowsFunctionsModelsEmailCreate } from './models/email/create/FlowsFunctionsModelsEmailCreate'
 export { FlowsFunctionsModelsLocalCreate } from './models/local/create/FlowsFunctionsModelsLocalCreate'
