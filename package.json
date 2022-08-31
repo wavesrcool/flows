@@ -14,7 +14,8 @@
     "test": "yarn jest --coverage",
     "flc": "code packages/flows-core",
     "flf": "code packages/flows-functions",
-    "flm": "code packages/flows-models"
+    "flm": "code packages/flows-models",
+    "flt": "code packages/flows-types"
   },
   "devDependencies": {
     "@tsconfig/node16": "^1.0.3",

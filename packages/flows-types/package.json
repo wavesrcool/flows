@@ -1,5 +1,5 @@
 {
-  "name": "@wavesrcool/flows-functions",
+  "name": "@wavesrcool/flows-types",
   "version": "0.2.0",
   "author": "Tyson Lupul <wavesrcool@icloud.com>",
   "license": "MIT",
@@ -7,7 +7,7 @@
   "types": "bin/index.d.ts",
   "repository": {
     "type": "git",
-    "directory": "packages/flows-functions",
+    "directory": "packages/flows-types",
     "url": "https://github.com/wavesrcool/flows.git"
   },
   "publishConfig": {
@@ -25,9 +25,7 @@
     "wl": "node --loader ts-node/esm write-lib.ts"
   },
   "devDependencies": {
-    "@types/crypto-js": "^4.1.1",
     "@types/glob": "^7.2.0",
-    "@types/jsonwebtoken": "^8.5.9",
     "@typescript-eslint/eslint-plugin": "^5.36.1",
     "@typescript-eslint/parser": "^5.36.1",
     "eslint": "^8.23.0",
@@ -42,10 +40,5 @@
     "glob": "^8.0.3",
     "prettier": "^2.7.1"
   },
-  "gitHead": "42c46fa5d36ec016a17e618641e7a1712f653099",
-  "dependencies": {
-    "@wavesrcool/flows-types": "^0.2.0",
-    "crypto-js": "^4.1.1",
-    "jsonwebtoken": "^8.5.1"
-  }
+  "gitHead": "42c46fa5d36ec016a17e618641e7a1712f653099"
 }

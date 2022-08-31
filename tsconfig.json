@@ -11,6 +11,9 @@
             "@wavesrcool/flows-models/*": [
                 "models/src/*"
             ],
+            "@wavesrcool/flows-types/*": [
+                "types/src/*"
+            ],
         }
     },
     "files": [],
@@ -23,6 +26,9 @@
         },
         {
             "path": "packages/flows-models"
+        },
+        {
+            "path": "packages/flows-types"
         },
     ]
 }
