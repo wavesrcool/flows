@@ -1,9 +1,9 @@
 /**
  * * Flows Documentation
  *
- * @created 07 02 2022
+ * @created 7 31 2022
  *
  */
-
-export { FlowsCoreText } from "./text/FlowsCoreText";
-export { FlowsCoreTextHash } from "./text/hash/FlowsCoreTextHash";
+      
+      export { FlowsCoreText } from './text/FlowsCoreText'
+export { FlowsCoreTextHash } from './text/hash/FlowsCoreTextHash'

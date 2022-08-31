@@ -20,8 +20,8 @@ writeIndex("src", (err, res) => {
 
     const date = new Date();
 
-    const day = `0${date.getDay()}`;
-    const month = `0${date.getMonth()}`;
+    const day = `${date.getDate()}`;
+    const month = `${date.getMonth()}`;
     const year = date.getFullYear();
 
     fs.writeFileSync(
@@ -29,7 +29,7 @@ writeIndex("src", (err, res) => {
       `/**
  * * Flows Documentation
  *
- * @created ${month.slice(-2)} ${day.slice(-2)} ${year}
+ * @created ${month} ${day} ${year}
  *
  */
       

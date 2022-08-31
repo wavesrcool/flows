@@ -1,8 +1,8 @@
 /**
  * * Flows Documentation
  *
- * @created 07 02 2022
+ * @created 7 31 2022
  *
  */
-
-export { FlowsFunctionsHashText } from "./hash/text/FlowsFunctionsHashText";
+      
+      export { FlowsFunctionsHashText } from './hash/text/FlowsFunctionsHashText'
