@@ -3,9 +3,6 @@ import { FlowsModelsMessageRecordsInput } from "../records/FlowsModelsMessageRec
 
 @InputType()
 export class FlowsModelsMessageCreateInput {
-  @Field(() => String)
-  value!: string;
-
   @Field(() => FlowsModelsMessageRecordsInput)
   records!: FlowsModelsMessageRecordsInput;
 }
