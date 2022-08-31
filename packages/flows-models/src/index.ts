@@ -15,3 +15,7 @@ export { FlowsModelsEmailRecords } from './email/_objects/records/FlowsModelsEma
 export { FlowsModelsEmail } from './email/FlowsModelsEmail'
 export { FlowsModelsLocalCreateInput } from './local/_inputs/create/FlowsModelsLocalCreateInput'
 export { FlowsModelsLocal } from './local/FlowsModelsLocal'
+export { FlowsModelsMessageCreateInput } from './message/_inputs/create/FlowsModelsMessageCreateInput'
+export { FlowsModelsMessageRecordsInput } from './message/_inputs/records/FlowsModelsMessageRecordsInput'
+export { FlowsModelsMessageRecords } from './message/_objects/records/FlowsModelsMessageRecords'
+export { FlowsModelsMessage } from './message/FlowsModelsMessage'
