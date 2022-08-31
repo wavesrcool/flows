@@ -17,6 +17,7 @@ export { FlowsFunctionsModelsRelationsEmailMessageRemove } from './models/_relat
 export { FlowsFunctionsModelsRelationsLocalMessageCreate } from './models/_relations/local-message/FlowsFunctionsModelsRelationsLocalMessageCreate'
 export { FlowsFunctionsModelsRelationsLocalMessageRemove } from './models/_relations/local-message/FlowsFunctionsModelsRelationsLocalMessageRemove'
 export { FlowsFunctionsModelsAccountCreate } from './models/account/create/FlowsFunctionsModelsAccountCreate'
+export { FlowsFunctionsModelsAccountRead } from './models/account/read/FlowsFunctionsModelsAccountRead'
 export { FlowsFunctionsModelsEmailCreate } from './models/email/create/FlowsFunctionsModelsEmailCreate'
 export { FlowsFunctionsModelsLocalCreate } from './models/local/create/FlowsFunctionsModelsLocalCreate'
 export { FlowsFunctionsModelsMessageCreate } from './models/message/create/FlowsFunctionsModelsMessageCreate'
