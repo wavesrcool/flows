@@ -21,4 +21,5 @@ export { FlowsFunctionsModelsAccountRead } from './models/account/read/FlowsFunc
 export { FlowsFunctionsModelsEmailCreate } from './models/email/create/FlowsFunctionsModelsEmailCreate'
 export { FlowsFunctionsModelsEmailRead } from './models/email/read/FlowsFunctionsModelsEmailRead'
 export { FlowsFunctionsModelsLocalCreate } from './models/local/create/FlowsFunctionsModelsLocalCreate'
+export { FlowsFunctionsModelsLocalRead } from './models/local/read/FlowsFunctionsModelsLocalRead'
 export { FlowsFunctionsModelsMessageCreate } from './models/message/create/FlowsFunctionsModelsMessageCreate'
