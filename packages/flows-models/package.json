@@ -1,6 +1,6 @@
 {
   "name": "@wavesrcool/flows-models",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "author": "Tyson Lupul <wavesrcool@icloud.com>",
   "license": "MIT",
   "main": "bin/index.js",
@@ -47,7 +47,7 @@
     "type-graphql": "^1.1.1",
     "typeorm": "^0.3.9"
   },
-  "resolutions":{
+  "resolutions": {
     "graphql": "15.5.0"
   }
 }
