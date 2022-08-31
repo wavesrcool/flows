@@ -1,33 +1,33 @@
 import { FlowsModelsEmail, FlowsModelsMessage } from "@wavesrcool/flows-models";
 import { DataSource } from "typeorm";
 
-export type TypesFiguresFlowsFunctionsModelsRelationsEmailLocalCreate = {
+export type TypesFiguresFlowsFunctionsModelsRelationsEmailMessageRemove = {
   ds: DataSource;
   pkEmail: number;
   pkMessage: number;
 };
 
-export const FlowsFunctionsModelsRelationsEmailLocalCreate = async ({
+export const FlowsFunctionsModelsRelationsEmailMessageRemove = async ({
   ds,
   pkEmail,
   pkMessage,
-}: TypesFiguresFlowsFunctionsModelsRelationsEmailLocalCreate): Promise<boolean> => {
+}: TypesFiguresFlowsFunctionsModelsRelationsEmailMessageRemove): Promise<boolean> => {
   try {
     await ds
       .createQueryBuilder()
       .relation(FlowsModelsEmail, "email")
       .of(pkEmail)
-      .add(pkMessage);
+      .remove(pkMessage);
 
     await ds
       .createQueryBuilder()
       .relation(FlowsModelsMessage, "message")
       .of(pkMessage)
-      .set(pkEmail);
+      .set(null);
 
     return true;
   } catch (e) {
-    console.log(e, "FlowsFunctionsModelsRelationsEmailLocalCreate");
+    console.log(e, "FlowsFunctionsModelsRelationsEmailMessageRemove");
     return false;
   }
 };
