@@ -43,11 +43,9 @@
   "gitHead": "316a829827b489b2ff94b8c1d25c64319d0952f4",
   "dependencies": {
     "class-validator": "^0.13.2",
+    "graphql": "15.5.0",
     "reflect-metadata": "^0.1.13",
     "type-graphql": "^1.1.1",
     "typeorm": "^0.3.9"
-  },
-  "resolutions": {
-    "graphql": "15.5.0"
   }
 }
