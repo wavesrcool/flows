@@ -40,7 +40,7 @@
     "glob": "^8.0.3",
     "prettier": "^2.7.1"
   },
-  "gitHead": "42c46fa5d36ec016a17e618641e7a1712f653099",
+  "gitHead": "316a829827b489b2ff94b8c1d25c64319d0952f4",
   "dependencies": {
     "class-validator": "^0.13.2",
     "reflect-metadata": "^0.1.13",
