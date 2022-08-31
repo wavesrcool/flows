@@ -23,3 +23,4 @@ export { FlowsFunctionsModelsEmailRead } from './models/email/read/FlowsFunction
 export { FlowsFunctionsModelsLocalCreate } from './models/local/create/FlowsFunctionsModelsLocalCreate'
 export { FlowsFunctionsModelsLocalRead } from './models/local/read/FlowsFunctionsModelsLocalRead'
 export { FlowsFunctionsModelsMessageCreate } from './models/message/create/FlowsFunctionsModelsMessageCreate'
+export { FlowsFunctionsModelsMessageReadKey } from './models/message/read/key/FlowsFunctionsModelsMessageReadKey'
