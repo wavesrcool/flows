@@ -25,6 +25,7 @@
     "wl": "node --loader ts-node/esm write-lib.ts"
   },
   "devDependencies": {
+    "@types/crypto-js": "^4.1.1",
     "@types/glob": "^7.2.0",
     "@typescript-eslint/eslint-plugin": "^5.36.1",
     "@typescript-eslint/parser": "^5.36.1",
@@ -40,5 +41,8 @@
     "glob": "^8.0.3",
     "prettier": "^2.7.1"
   },
-  "gitHead": "42c46fa5d36ec016a17e618641e7a1712f653099"
+  "gitHead": "42c46fa5d36ec016a17e618641e7a1712f653099",
+  "dependencies": {
+    "crypto-js": "^4.1.1"
+  }
 }
