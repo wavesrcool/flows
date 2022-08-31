@@ -13,3 +13,5 @@ export { FlowsModelsEmailCreateInput } from './email/_inputs/create/FlowsModelsE
 export { FlowsModelsEmailRecordsInput } from './email/_inputs/records/FlowsModelsEmailRecordsInput'
 export { FlowsModelsEmailRecords } from './email/_objects/records/FlowsModelsEmailRecords'
 export { FlowsModelsEmail } from './email/FlowsModelsEmail'
+export { FlowsModelsLocalCreateInput } from './local/_inputs/create/FlowsModelsLocalCreateInput'
+export { FlowsModelsLocal } from './local/FlowsModelsLocal'
