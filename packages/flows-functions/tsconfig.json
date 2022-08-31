@@ -11,6 +11,9 @@
     "references": [
         {
             "path": "../flows-types"
+        },
+        {
+            "path": "../flows-models"
         }
     ]
 }

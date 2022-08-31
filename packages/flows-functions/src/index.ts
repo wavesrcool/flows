@@ -10,3 +10,4 @@ export { FlowsFunctionsEncryptionTextEncode } from './encryption/text/encode/Flo
 export { FlowsFunctionsHashText } from './hash/text/FlowsFunctionsHashText'
 export { FlowsFunctionsJwtSign } from './jwt/sign/FlowsFunctionsJwtSign'
 export { FlowsFunctionsJwtVerify } from './jwt/verify/FlowsFunctionsJwtVerify'
+export { FlowsFunctionsModelsAccountCreate } from './models/account/create/FlowsFunctionsModelsAccountCreate'

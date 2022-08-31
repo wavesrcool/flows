@@ -4,10 +4,13 @@ import { FlowsModelsAccountRecordsInput } from "../records/FlowsModelsAccountRec
 @InputType()
 export class FlowsModelsAccountCreateInput {
   @Field(() => String)
-  name!: string;
+  value!: string;
 
   @Field(() => String)
   ipAddress!: string;
+
+  @Field(() => Boolean)
+  isAdmin!: boolean;
 
   @Field(() => FlowsModelsAccountRecordsInput)
   records!: FlowsModelsAccountRecordsInput;
