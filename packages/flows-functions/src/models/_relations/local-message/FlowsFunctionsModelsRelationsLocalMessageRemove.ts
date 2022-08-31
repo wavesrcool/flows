@@ -15,13 +15,13 @@ export const FlowsFunctionsModelsRelationsLocalMessageRemove = async ({
   try {
     await ds
       .createQueryBuilder()
-      .relation(FlowsModelsLocal, "local")
+      .relation(FlowsModelsLocal, "messages")
       .of(pkLocal)
       .remove(pkMessage);
 
     await ds
       .createQueryBuilder()
-      .relation(FlowsModelsMessage, "message")
+      .relation(FlowsModelsMessage, "local")
       .of(pkMessage)
       .set(null);
 

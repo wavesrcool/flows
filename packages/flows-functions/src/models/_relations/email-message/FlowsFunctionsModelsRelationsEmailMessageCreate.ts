@@ -15,13 +15,13 @@ export const FlowsFunctionsModelsRelationsEmailMessageCreate = async ({
   try {
     await ds
       .createQueryBuilder()
-      .relation(FlowsModelsEmail, "email")
+      .relation(FlowsModelsEmail, "messages")
       .of(pkEmail)
       .add(pkMessage);
 
     await ds
       .createQueryBuilder()
-      .relation(FlowsModelsMessage, "message")
+      .relation(FlowsModelsMessage, "email")
       .of(pkMessage)
       .set(pkEmail);
 

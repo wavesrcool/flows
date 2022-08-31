@@ -15,13 +15,13 @@ export const FlowsFunctionsModelsRelationsLocalMessageCreate = async ({
   try {
     await ds
       .createQueryBuilder()
-      .relation(FlowsModelsLocal, "local")
+      .relation(FlowsModelsLocal, "messages")
       .of(pkLocal)
       .add(pkMessage);
 
     await ds
       .createQueryBuilder()
-      .relation(FlowsModelsMessage, "message")
+      .relation(FlowsModelsMessage, "local")
       .of(pkMessage)
       .set(pkLocal);
 
