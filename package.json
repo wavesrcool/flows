@@ -13,7 +13,8 @@
     "lint": "lerna run lint --stream --parallel",
     "test": "yarn jest --coverage",
     "flc": "code packages/flows-core",
-    "flf": "code packages/flows-functions"
+    "flf": "code packages/flows-functions",
+    "flm": "code packages/flows-models"
   },
   "devDependencies": {
     "@tsconfig/node16": "^1.0.3",
