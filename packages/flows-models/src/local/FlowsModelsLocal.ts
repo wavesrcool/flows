@@ -5,9 +5,13 @@ import {
   CreateDateColumn,
   Entity,
   Generated,
+  ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
+import { FlowsModelsAccount } from "../account/FlowsModelsAccount";
+import { FlowsModelsMessage } from "../message/FlowsModelsMessage";
 
 @ObjectType()
 @Entity()
@@ -46,4 +50,16 @@ export class FlowsModelsLocal extends BaseEntity {
   //  relations
   //
   // * * * * * * * * * * * * * * * * * * *
+
+  @Field(() => Int, { nullable: true })
+  @Column({ type: "int8", nullable: true })
+  accountId!: number;
+
+  @Field(() => FlowsModelsAccount)
+  @ManyToOne(() => FlowsModelsAccount, (account) => account.locals)
+  account!: FlowsModelsAccount;
+
+  @Field(() => [FlowsModelsMessage])
+  @OneToMany(() => FlowsModelsMessage, (message) => message.local)
+  messages!: FlowsModelsMessage[];
 }

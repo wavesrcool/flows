@@ -5,9 +5,11 @@ import {
   CreateDateColumn,
   Entity,
   Generated,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
+import { FlowsModelsLocal } from "../local/FlowsModelsLocal";
 import { FlowsModelsAccountRecords } from "./_objects/records/FlowsModelsAccountRecords";
 
 @ObjectType()
@@ -72,4 +74,8 @@ export class FlowsModelsAccount extends BaseEntity {
   //  relations
   //
   // * * * * * * * * * * * * * * * * * * *
+
+  @Field(() => [FlowsModelsLocal])
+  @OneToMany(() => FlowsModelsLocal, (local) => local.account)
+  locals!: FlowsModelsLocal[];
 }

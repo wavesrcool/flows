@@ -5,9 +5,12 @@ import {
   CreateDateColumn,
   Entity,
   Generated,
+  ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
+import { FlowsModelsEmail } from "../email/FlowsModelsEmail";
+import { FlowsModelsLocal } from "../local/FlowsModelsLocal";
 
 import { FlowsModelsMessageRecords } from "./_objects/records/FlowsModelsMessageRecords";
 
@@ -48,4 +51,20 @@ export class FlowsModelsMessage extends BaseEntity {
   //  relations
   //
   // * * * * * * * * * * * * * * * * * * *
+
+  @Field(() => Int, { nullable: true })
+  @Column({ type: "int8", nullable: true })
+  emailId!: number;
+
+  @Field(() => FlowsModelsEmail)
+  @ManyToOne(() => FlowsModelsEmail, (email) => email.messages)
+  email!: FlowsModelsEmail;
+
+  @Field(() => Int, { nullable: true })
+  @Column({ type: "int8", nullable: true })
+  localId!: number;
+
+  @Field(() => FlowsModelsLocal)
+  @ManyToOne(() => FlowsModelsLocal, (local) => local.messages)
+  local!: FlowsModelsLocal;
 }

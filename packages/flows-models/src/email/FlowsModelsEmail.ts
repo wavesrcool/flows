@@ -5,9 +5,11 @@ import {
   CreateDateColumn,
   Entity,
   Generated,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
+import { FlowsModelsMessage } from "../message/FlowsModelsMessage";
 import { FlowsModelsEmailRecords } from "./_objects/records/FlowsModelsEmailRecords";
 
 @ObjectType()
@@ -68,4 +70,8 @@ export class FlowsModelsEmail extends BaseEntity {
   //  relations
   //
   // * * * * * * * * * * * * * * * * * * *
+
+  @Field(() => [FlowsModelsMessage])
+  @OneToMany(() => FlowsModelsMessage, (message) => message.email)
+  messages!: FlowsModelsMessage[];
 }
