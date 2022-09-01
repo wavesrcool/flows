@@ -1,19 +1,14 @@
 import express from "express";
 import cors from "cors";
 import helmet from "helmet";
+import { FlowsTypesIoKeysFigure } from "@wavesrcool/flows-types";
 import { routes } from "./routes/routes";
-
-export type TypesFiguresFlowsIoKeys = {
-  env: string;
-  corsOrigin: string;
-  port: string;
-};
 
 export const FlowsIoKeys = async ({
   env,
   corsOrigin,
   port,
-}: TypesFiguresFlowsIoKeys): Promise<typeof app> => {
+}: FlowsTypesIoKeysFigure): Promise<typeof app> => {
   const PROD = env === "production";
 
   const app = express();

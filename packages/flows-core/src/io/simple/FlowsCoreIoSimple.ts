@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { FlowsIoSimple } from "@wavesrcool/flows-io";
-import { TypesFiguresFlowsIoSimple } from "@wavesrcool/flows-io/bin/simple/FlowsIoSimple";
+import { FlowsTypesIoSimpleFigure } from "@wavesrcool/flows-types";
 
 export class FlowsCoreIoSimple {
-  private ioSimpleFigure: TypesFiguresFlowsIoSimple;
+  private ioSimpleFigure: FlowsTypesIoSimpleFigure;
 
-  constructor(figure: TypesFiguresFlowsIoSimple) {
+  constructor(figure: FlowsTypesIoSimpleFigure) {
     this.ioSimpleFigure = figure;
   }
 

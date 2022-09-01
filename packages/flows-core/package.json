@@ -40,7 +40,8 @@
   },
   "dependencies": {
     "@wavesrcool/flows-functions": "^0.6.7",
-    "@wavesrcool/flows-io": "^0.6.7"
+    "@wavesrcool/flows-io": "^0.6.7",
+    "@wavesrcool/flows-types": "^0.6.2"
   },
   "gitHead": "316a829827b489b2ff94b8c1d25c64319d0952f4"
 }

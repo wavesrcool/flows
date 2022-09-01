@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { FlowsIoKeys } from "@wavesrcool/flows-io";
-import { TypesFiguresFlowsIoKeys } from "@wavesrcool/flows-io/bin/keys/FlowsIoKeys";
+import { FlowsTypesIoKeysFigure } from "@wavesrcool/flows-types";
 
 export class FlowsCoreIoKeys {
-  private ioKeysFigure: TypesFiguresFlowsIoKeys;
+  private ioKeysFigure: FlowsTypesIoKeysFigure;
 
-  constructor(figure: TypesFiguresFlowsIoKeys) {
+  constructor(figure: FlowsTypesIoKeysFigure) {
     this.ioKeysFigure = figure;
   }
 
