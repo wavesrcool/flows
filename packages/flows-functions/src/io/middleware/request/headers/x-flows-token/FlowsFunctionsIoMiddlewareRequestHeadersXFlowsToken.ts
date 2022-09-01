@@ -27,19 +27,6 @@ export const FlowsFunctionsIoMiddlewareRequestHeadersXFlowsToken: RequestHandler
             encoded: xFlowsToken,
           });
 
-          console.log(
-            JSON.stringify(jwtVerifyComplete, null, 4),
-            `jwtVerifyComplete`
-          );
-          console.log(
-            JSON.stringify(jwtVerifyMessage, null, 4),
-            `jwtVerifyMessage`
-          );
-          console.log(
-            JSON.stringify(jwtVerifyRecords, null, 4),
-            `jwtVerifyRecords`
-          );
-
           if (jwtVerifyComplete && !jwtVerifyMessage && jwtVerifyRecords) {
             res.locals.xFlowsTokenRecords = jwtVerifyRecords;
             res.locals.xFlowsTokenEncoded = xFlowsToken;
