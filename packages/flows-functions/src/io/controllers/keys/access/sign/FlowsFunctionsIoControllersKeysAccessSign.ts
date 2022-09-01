@@ -17,7 +17,7 @@ export const FlowsFunctionsIoControllersKeysAccessSign = async (
     const records: FlowsTypesJwtRecords = {
       account: {
         value: xFlowAccount,
-        key: "ya",
+        key: "@todo-add-database-lookup-on-xFlowAccount",
       },
     };
 
@@ -31,23 +31,25 @@ export const FlowsFunctionsIoControllersKeysAccessSign = async (
 
     if (jwtSignComplete && jwtSignEncoded && !jwtSignMessage) {
       res.status(200).send({
-        message: `[flow-keys] Received. (${
+        message: `[flow-io] Received. (${
           res.locals.ipAddress || "no-ip-address"
         })`,
         "keys-access-sign": true,
         encoded: jwtSignEncoded,
       });
-    } else if (jwtSignMessage) {
-      res.status(400).send({ error: jwtSignMessage });
-    } else {
-      res.status(400).send({ error: "keys-sign" });
+      return;
     }
+
+    if (jwtSignMessage) {
+      res.status(400).send({ error: `keys-access-sign-${jwtSignMessage}` });
+      return;
+    }
+
+    res.status(400).send({ error: "keys-access-sign" });
   } catch (e) {
     console.log(
-      `[flow-keys] Error. FlowsFunctionsIoControllersKeysAccessSign. ${String(
-        e
-      )}`
+      `[flow-io] Error. FlowsFunctionsIoControllersKeysAccessSign. ${String(e)}`
     );
-    res.status(500).send({ error: "flow-keys" });
+    res.status(500).send({ error: "flow-io" });
   }
 };

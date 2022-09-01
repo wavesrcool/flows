@@ -2,6 +2,7 @@ import {
   FlowsFunctionsIoControllersBreathe,
   FlowsFunctionsIoControllersIndexSimple,
   FlowsFunctionsIoControllersKeysAccessSign,
+  FlowsFunctionsIoControllersKeysAccessVerify,
 } from "@wavesrcool/flows-functions";
 
 export const controllers = {
@@ -10,6 +11,7 @@ export const controllers = {
   keys: {
     access: {
       sign: FlowsFunctionsIoControllersKeysAccessSign,
+      verify: FlowsFunctionsIoControllersKeysAccessVerify,
     },
   },
 };
