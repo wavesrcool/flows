@@ -6,6 +6,7 @@ import {
 import { sign, SignOptions } from "jsonwebtoken";
 import { FlowsFunctionsEncryptionTextEncode } from "../../encryption/text/encode/FlowsFunctionsEncryptionTextEncode";
 import { FlowsFunctionsHashText } from "../../hash/text/FlowsFunctionsHashText";
+// import { FlowsFunctionsHashText } from "../../hash/text/FlowsFunctionsHashText";
 
 const signOptions: SignOptions = {
   algorithm: "HS512",
@@ -21,6 +22,7 @@ export type TypesResolveFlowsFunctionsJwtSign = {
 export type TypesFiguresFlowsFunctionsJwtSign = {
   records: FlowsTypesJwtRecords;
   secretEncryption: string;
+  secretHash: string;
   secretJwt: string;
 };
 
@@ -28,6 +30,7 @@ export const FlowsFunctionsJwtSign = async ({
   records,
   secretEncryption,
   secretJwt,
+  secretHash,
 }: TypesFiguresFlowsFunctionsJwtSign): Promise<TypesResolveFlowsFunctionsJwtSign> => {
   try {
     const text = JSON.stringify(records);
@@ -35,7 +38,7 @@ export const FlowsFunctionsJwtSign = async ({
       text,
       secret: secretEncryption,
     });
-    const hash = FlowsFunctionsHashText({ text, secret: secretEncryption });
+    const hash = FlowsFunctionsHashText({ text, secret: secretHash });
 
     const data: FlowsTypesJwtPayload = {
       aud: "all",

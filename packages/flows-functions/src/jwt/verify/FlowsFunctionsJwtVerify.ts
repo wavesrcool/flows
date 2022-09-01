@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable no-promise-executor-return */
+import { FlowsTypesJwtRecords } from "@wavesrcool/flows-types";
 import { verify, VerifyOptions } from "jsonwebtoken";
-import { FlowsFunctionsEncryptionTextDecode } from "../../encryption/text/decode/FlowsFunctionsEncryptionTextDecode";
+import { FlowsFunctionsEncryptionTextEncode } from "../../encryption/text/encode/FlowsFunctionsEncryptionTextEncode";
 import { FlowsFunctionsHashText } from "../../hash/text/FlowsFunctionsHashText";
 
 const verifyOptions: VerifyOptions = {
@@ -11,19 +12,21 @@ const verifyOptions: VerifyOptions = {
 export type TypesResolveFlowsFunctionsJwtVerify = {
   complete: boolean;
   message: string | undefined;
-  decoded: string | undefined;
+  records: FlowsTypesJwtRecords | undefined;
 };
 
 export type TypesFiguresFlowsFunctionsJwtVerify = {
   encoded: string;
   secretEncryption: string;
   secretJwt: string;
+  secretHash: string;
 };
 
 export const FlowsFunctionsJwtVerify = async ({
   encoded,
   secretEncryption,
   secretJwt,
+  secretHash,
 }: TypesFiguresFlowsFunctionsJwtVerify): Promise<TypesResolveFlowsFunctionsJwtVerify> => {
   try {
     return new Promise<TypesResolveFlowsFunctionsJwtVerify>((resolve) => {
@@ -40,7 +43,7 @@ export const FlowsFunctionsJwtVerify = async ({
                 resolve({
                   complete: false,
                   message: "jwt-hash",
-                  decoded: undefined,
+                  records: undefined,
                 });
                 return;
               }
@@ -49,40 +52,90 @@ export const FlowsFunctionsJwtVerify = async ({
                 resolve({
                   complete: false,
                   message: "jwt-cipher",
-                  decoded: undefined,
+                  records: undefined,
                 });
                 return;
               }
 
-              const decoded = FlowsFunctionsEncryptionTextDecode({
+              const decoded = FlowsFunctionsEncryptionTextEncode({
                 text: cipher0,
                 secret: secretEncryption,
               });
               const hash = FlowsFunctionsHashText({
                 text: decoded,
-                secret: secretEncryption,
+                secret: secretHash,
               });
 
               if (!(hash === hash0)) {
                 resolve({
                   complete: false,
                   message: "jwt-equivalence",
-                  decoded: undefined,
+                  records: undefined,
                 });
                 return;
               }
 
+              const records0 = JSON.parse(decoded);
+
+              if (!records0 || !(typeof records0 === "object")) {
+                resolve({
+                  complete: false,
+                  message: "jwt-records",
+                  records: undefined,
+                });
+                return;
+              }
+
+              const { account: account0 } = records0;
+
+              if (!account0 || !(typeof account0 === "object")) {
+                resolve({
+                  complete: false,
+                  message: "jwt-account",
+                  records: undefined,
+                });
+                return;
+              }
+
+              const { value: value0, key: key0 } = account0;
+
+              if (!value0 || typeof value0 !== "string") {
+                resolve({
+                  complete: false,
+                  message: "jwt-account-value",
+                  records: undefined,
+                });
+                return;
+              }
+
+              if (!key0 || typeof key0 !== "string") {
+                resolve({
+                  complete: false,
+                  message: "jwt-account-key",
+                  records: undefined,
+                });
+                return;
+              }
+
+              const value = String(value0).trim();
+              const key = String(key0).trim();
+
               resolve({
                 complete: true,
                 message: undefined,
-                decoded,
+                records: {
+                  account: {
+                    value,
+                    key,
+                  },
+                },
               });
             }
           } else {
             resolve({
               complete: false,
               message: verifyError.message,
-              decoded: undefined,
+              records: undefined,
             });
           }
 
@@ -91,11 +144,11 @@ export const FlowsFunctionsJwtVerify = async ({
       );
     });
   } catch (e) {
-    console.log(e, "FlowsFunctionsJwtVerify");
+    console.log(e, "FunctionsJwtVerify");
     return {
       complete: false,
       message: "catch",
-      decoded: undefined,
+      records: undefined,
     };
   }
 };

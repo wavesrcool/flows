@@ -12,5 +12,11 @@ export const routes = (app: Express) => {
   router.get("/", controllers.index);
   router.get("/breathe", controllers.breathe);
 
+  router.post(
+    "/keys/access/sign",
+    [middleware.request.headers.xFlowsAccount],
+    controllers.keys.access.sign
+  );
+
   app.use(router);
 };
