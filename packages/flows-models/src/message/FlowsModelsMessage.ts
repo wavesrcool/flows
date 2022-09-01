@@ -1,3 +1,4 @@
+import "reflect-metadata";
 import { Field, Int, ObjectType } from "type-graphql";
 import {
   BaseEntity,
@@ -11,7 +12,6 @@ import {
 } from "typeorm";
 import { FlowsModelsEmail } from "../email/FlowsModelsEmail";
 import { FlowsModelsLocal } from "../local/FlowsModelsLocal";
-
 import { FlowsModelsMessageRecords } from "./_objects/records/FlowsModelsMessageRecords";
 
 @ObjectType()
