@@ -18,7 +18,7 @@ export const FlowsFunctionsIoMiddlewareRequestHeadersXFlowsAccount: RequestHandl
 
         const xFlowsAccount = req.headers["x-flows-account"];
         if (xFlowsAccount && typeof xFlowsAccount === "string") {
-          res.locals.xFlowAccount = xFlowsAccount;
+          res.locals.xFlowsAccount = xFlowsAccount;
           next();
           return;
         }
