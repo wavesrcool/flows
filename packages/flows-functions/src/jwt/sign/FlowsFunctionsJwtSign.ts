@@ -21,19 +21,38 @@ export type TypesResolveFlowsFunctionsJwtSign = {
 
 export type TypesFiguresFlowsFunctionsJwtSign = {
   records: FlowsTypesJwtRecords;
-  secretEncryption: string;
-  secretHash: string;
-  secretJwt: string;
 };
 
 export const FlowsFunctionsJwtSign = async ({
   records,
-  secretEncryption,
-  secretJwt,
-  secretHash,
 }: TypesFiguresFlowsFunctionsJwtSign): Promise<TypesResolveFlowsFunctionsJwtSign> => {
   try {
     const text = JSON.stringify(records);
+
+    const secretEncryption = process.env.FLOWS_GLOBAL_SECRET_ENCRYPTION;
+
+    if (!secretEncryption) {
+      throw new Error(
+        `[flows-functions] Error. FlowsFunctionsJwtSign: secretEncryption`
+      );
+    }
+
+    const secretHash = process.env.FLOWS_GLOBAL_SECRET_HASH;
+
+    if (!secretHash) {
+      throw new Error(
+        `[flows-functions] Error. FlowsFunctionsJwtSign: secretHash`
+      );
+    }
+
+    const secretJwt = process.env.FLOWS_GLOBAL_SECRET_JWT;
+
+    if (!secretJwt) {
+      throw new Error(
+        `[flows-functions] Error. FlowsFunctionsJwtSign: secretJwt`
+      );
+    }
+
     const cipher = FlowsFunctionsEncryptionTextEncode({
       text,
       secret: secretEncryption,

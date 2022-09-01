@@ -5,22 +5,25 @@ export const FlowsFunctionsIoMiddlewareRequestHeadersXFlowsAccount: RequestHandl
   (req, res, next): ReturnType<RequestHandler> => {
     try {
       const routesUnsecured = process.env.FLOWS_GLOBAL_ROUTES_UNSECURED;
-
       if (routesUnsecured && typeof routesUnsecured === "string") {
-        const unsecuredRoutes = String(routesUnsecured).split(",");
-
-        if (unsecuredRoutes.includes(req.path)) {
+        const routesUnsecuredList = String(routesUnsecured).split(",");
+        if (
+          routesUnsecuredList &&
+          routesUnsecuredList.length &&
+          routesUnsecuredList.includes(req.path)
+        ) {
           next();
+          return;
         }
-        const xFlowsAccount = req.headers["x-flows-accounts"];
 
+        const xFlowsAccount = req.headers["x-flows-account"];
         if (xFlowsAccount && typeof xFlowsAccount === "string") {
           res.locals.xFlowAccount = xFlowsAccount;
           next();
+          return;
         }
-
-        res.status(404).send({ error: "x-flow-account" });
       }
+      res.status(404).send({ error: "x-flow-account" });
     } catch (e) {
       console.log(e, "FlowsFunctionsIoMiddlewareRequestHeadersXFlowsAccount");
       res.status(400).send({

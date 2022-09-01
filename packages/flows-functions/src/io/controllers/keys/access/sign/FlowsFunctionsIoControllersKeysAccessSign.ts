@@ -21,36 +21,12 @@ export const FlowsFunctionsIoControllersKeysAccessSign = async (
       },
     };
 
-    const secretEncryption = process.env.FLOWS_KEYS_SECRET_ENCRYPTION;
-
-    if (!secretEncryption || !(typeof secretEncryption === "string")) {
-      res.status(400).send({ error: "keys-sign-secretEncryption" });
-      return;
-    }
-
-    const secretJwt = process.env.FLOWS_KEYS_SECRET_JWT;
-
-    if (!secretJwt || !(typeof secretJwt === "string")) {
-      res.status(400).send({ error: "keys-sign-secretJwt" });
-      return;
-    }
-
-    const secretHash = process.env.FLOWS_KEYS_SECRET_HASH;
-
-    if (!secretHash || !(typeof secretHash === "string")) {
-      res.status(400).send({ error: "keys-sign-secretHash" });
-      return;
-    }
-
     const {
       complete: jwtSignComplete,
       message: jwtSignMessage,
       encoded: jwtSignEncoded,
     } = await FlowsFunctionsJwtSign({
       records,
-      secretEncryption,
-      secretJwt,
-      secretHash,
     });
 
     if (jwtSignComplete && jwtSignEncoded && !jwtSignMessage) {

@@ -17,18 +17,36 @@ export type TypesResolveFlowsFunctionsJwtVerify = {
 
 export type TypesFiguresFlowsFunctionsJwtVerify = {
   encoded: string;
-  secretEncryption: string;
-  secretJwt: string;
-  secretHash: string;
 };
 
 export const FlowsFunctionsJwtVerify = async ({
   encoded,
-  secretEncryption,
-  secretJwt,
-  secretHash,
 }: TypesFiguresFlowsFunctionsJwtVerify): Promise<TypesResolveFlowsFunctionsJwtVerify> => {
   try {
+    const secretEncryption = process.env.FLOWS_GLOBAL_SECRET_ENCRYPTION;
+
+    if (!secretEncryption) {
+      throw new Error(
+        `[flows-functions] Error. FlowsFunctionsJwtSign: secretEncryption`
+      );
+    }
+
+    const secretHash = process.env.FLOWS_GLOBAL_SECRET_HASH;
+
+    if (!secretHash) {
+      throw new Error(
+        `[flows-functions] Error. FlowsFunctionsJwtSign: secretHash`
+      );
+    }
+
+    const secretJwt = process.env.FLOWS_GLOBAL_SECRET_JWT;
+
+    if (!secretJwt) {
+      throw new Error(
+        `[flows-functions] Error. FlowsFunctionsJwtSign: secretJwt`
+      );
+    }
+
     return new Promise<TypesResolveFlowsFunctionsJwtVerify>((resolve) => {
       return verify(
         encoded,
