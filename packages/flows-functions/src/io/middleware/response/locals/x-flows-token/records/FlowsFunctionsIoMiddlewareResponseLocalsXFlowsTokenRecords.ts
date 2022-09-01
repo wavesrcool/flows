@@ -3,17 +3,17 @@ import { RequestHandler } from "express";
 export const FlowsFunctionsIoMiddlewareResponseLocalsXFlowsTokenRecords: RequestHandler =
   (_req, res, next) => {
     const {
-      xFlowTokenRecords: { account: xFlowTokenRecordsAccount },
+      xFlowsTokenRecords: { account: xFlowsTokenRecordsAccount },
     } = res.locals;
 
     if (
-      xFlowTokenRecordsAccount &&
-      "value" in xFlowTokenRecordsAccount &&
-      "key" in xFlowTokenRecordsAccount
+      xFlowsTokenRecordsAccount &&
+      "value" in xFlowsTokenRecordsAccount &&
+      "key" in xFlowsTokenRecordsAccount
     ) {
       next();
       return;
     }
 
-    res.status(404).send({ error: "response-locals-xFlowTokenDecoded" });
+    res.status(404).send({ error: "response-locals-xFlowsTokenRecords" });
   };

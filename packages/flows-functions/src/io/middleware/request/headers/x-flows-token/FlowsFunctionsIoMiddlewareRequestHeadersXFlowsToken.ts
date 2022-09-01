@@ -27,18 +27,31 @@ export const FlowsFunctionsIoMiddlewareRequestHeadersXFlowsToken: RequestHandler
             encoded: xFlowsToken,
           });
 
+          console.log(
+            JSON.stringify(jwtVerifyComplete, null, 4),
+            `jwtVerifyComplete`
+          );
+          console.log(
+            JSON.stringify(jwtVerifyMessage, null, 4),
+            `jwtVerifyMessage`
+          );
+          console.log(
+            JSON.stringify(jwtVerifyRecords, null, 4),
+            `jwtVerifyRecords`
+          );
+
           if (jwtVerifyComplete && !jwtVerifyMessage && jwtVerifyRecords) {
-            res.locals.xFlowTokenRecords = jwtVerifyRecords;
-            res.locals.xFlowTokenEncoded = xFlowsToken;
+            res.locals.xFlowsTokenRecords = jwtVerifyRecords;
+            res.locals.xFlowsTokenEncoded = xFlowsToken;
             next();
             return;
           }
         }
       }
-      res.status(404).send({ error: "x-flow-token" });
+      res.status(400).send({ error: "x-flows-token" });
     } catch (e) {
       console.log(e, "FlowsFunctionsIoMiddlewareRequestHeadersXFlowsToken");
-      res.status(400).send({
+      res.status(404).send({
         error: "FlowsFunctionsIoMiddlewareRequestHeadersXFlowsToken",
       });
     }

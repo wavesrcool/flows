@@ -25,10 +25,10 @@ export const FlowsFunctionsIoMiddlewareRequestHeadersXFlowsAccess: RequestHandle
           return;
         }
       }
-      res.status(400).send({ error: "x-flow-access" });
+      res.status(400).send({ error: "x-flows-access" });
     } catch (e) {
       console.log(e, "FlowsFunctionsIoMiddlewareRequestHeadersXFlowsAccess");
-      res.status(400).send({
+      res.status(404).send({
         error: "FlowsFunctionsIoMiddlewareRequestHeadersXFlowsAccess",
       });
     }

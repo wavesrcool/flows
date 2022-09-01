@@ -23,10 +23,10 @@ export const FlowsFunctionsIoMiddlewareRequestHeadersXFlowsAccount: RequestHandl
           return;
         }
       }
-      res.status(404).send({ error: "x-flow-account" });
+      res.status(400).send({ error: "x-flows-account" });
     } catch (e) {
       console.log(e, "FlowsFunctionsIoMiddlewareRequestHeadersXFlowsAccount");
-      res.status(400).send({
+      res.status(404).send({
         error: "FlowsFunctionsIoMiddlewareRequestHeadersXFlowsAccount",
       });
     }
