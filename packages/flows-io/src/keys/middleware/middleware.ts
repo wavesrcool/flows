@@ -4,6 +4,9 @@ import {
   FlowsFunctionsIoMiddlewareRequestHeadersXFlowsToken,
   FlowsFunctionsIoMiddlewareRequestIpAddress,
   FlowsFunctionsIoMiddlewareResponseLocalsIpAddress,
+  FlowsFunctionsIoMiddlewareResponseLocalsXFlowsAccount,
+  FlowsFunctionsIoMiddlewareResponseLocalsXFlowsTokenEncoded,
+  FlowsFunctionsIoMiddlewareResponseLocalsXFlowsTokenRecords,
 } from "@wavesrcool/flows-functions";
 
 export const middleware = {
@@ -18,6 +21,11 @@ export const middleware = {
   response: {
     locals: {
       ipAddress: FlowsFunctionsIoMiddlewareResponseLocalsIpAddress,
+      xFlowsAccount: FlowsFunctionsIoMiddlewareResponseLocalsXFlowsAccount,
+      xFlowsToken: {
+        encoded: FlowsFunctionsIoMiddlewareResponseLocalsXFlowsTokenEncoded,
+        records: FlowsFunctionsIoMiddlewareResponseLocalsXFlowsTokenRecords,
+      },
     },
   },
 };

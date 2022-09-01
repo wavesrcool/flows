@@ -1,7 +1,7 @@
 /**
  * * Flows Documentation
  *
- * @created 7 31 2022
+ * @created 8 1 2022
  *
  */
       
@@ -16,6 +16,9 @@ export { FlowsFunctionsIoMiddlewareRequestHeadersXFlowsAccount } from './io/midd
 export { FlowsFunctionsIoMiddlewareRequestHeadersXFlowsToken } from './io/middleware/request/headers/x-flows-token/FlowsFunctionsIoMiddlewareRequestHeadersXFlowsToken'
 export { FlowsFunctionsIoMiddlewareRequestIpAddress } from './io/middleware/request/ip-address/FlowsFunctionsIoMiddlewareRequestIpAddress'
 export { FlowsFunctionsIoMiddlewareResponseLocalsIpAddress } from './io/middleware/response/locals/ip-address/FlowsFunctionsIoMiddlewareResponseLocalsIpAddress'
+export { FlowsFunctionsIoMiddlewareResponseLocalsXFlowsAccount } from './io/middleware/response/locals/x-flows-account/FlowsFunctionsIoMiddlewareResponseLocalsXFlowsAccount'
+export { FlowsFunctionsIoMiddlewareResponseLocalsXFlowsTokenEncoded } from './io/middleware/response/locals/x-flows-token/encoded/FlowsFunctionsIoMiddlewareResponseLocalsXFlowsTokenEncoded'
+export { FlowsFunctionsIoMiddlewareResponseLocalsXFlowsTokenRecords } from './io/middleware/response/locals/x-flows-token/records/FlowsFunctionsIoMiddlewareResponseLocalsXFlowsTokenRecords'
 export { FlowsFunctionsJwtSign } from './jwt/sign/FlowsFunctionsJwtSign'
 export { FlowsFunctionsJwtVerify } from './jwt/verify/FlowsFunctionsJwtVerify'
 export { FlowsFunctionsMailgunVerifySignKey } from './mailgun/verify/sign-key/FlowsFunctionsMailgunVerifySignKey'
