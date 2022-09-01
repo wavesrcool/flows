@@ -26,7 +26,9 @@ writeIndex("src", (err, res) => {
 
     fs.writeFileSync(
       filepath,
-      `/**
+      `import "reflect-metadata";
+
+      /**
  * * Flows Documentation
  *
  * @created ${month} ${day} ${year}
