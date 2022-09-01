@@ -7,17 +7,17 @@ export const FlowsFunctionsIoControllersKeysAccessSign = async (
   res: Response
 ) => {
   try {
-    const { xFlowAccount } = res.locals;
+    const { xsFlowAccount } = res.locals;
 
-    if (!xFlowAccount || !(typeof xFlowAccount === "string")) {
-      res.status(400).send({ error: "keys-sign-xFlowAccount" });
+    if (!xsFlowAccount || !(typeof xsFlowAccount === "string")) {
+      res.status(400).send({ error: "keys-sign-xsFlowAccount" });
       return;
     }
 
     const records: FlowsTypesJwtRecords = {
       account: {
-        value: xFlowAccount,
-        key: "@todo-add-database-lookup-on-xFlowAccount",
+        value: xsFlowAccount,
+        key: "@todo-add-database-lookup-on-xsFlowAccount",
       },
     };
 

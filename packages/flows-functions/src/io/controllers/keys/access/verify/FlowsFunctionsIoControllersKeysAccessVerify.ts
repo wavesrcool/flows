@@ -7,20 +7,21 @@ export const FlowsFunctionsIoControllersKeysAccessVerify = async (
   res: Response
 ) => {
   try {
-    const { xFlowAccount, xFlowTokenEncoded, xFlowTokenRecords } = res.locals;
+    const { xFlowsAccount, xFlowsTokenEncoded, xFlowsTokenRecords } =
+      res.locals;
 
-    if (xFlowAccount && xFlowTokenEncoded && xFlowTokenRecords) {
+    if (xFlowsAccount && xFlowsTokenEncoded && xFlowsTokenRecords) {
       const {
         account: { value, key },
-      } = xFlowTokenRecords;
+      } = xFlowsTokenRecords;
 
-      if (xFlowAccount === value) {
+      if (xFlowsAccount === value) {
         res.status(200).send({
           message: `[flow-io] Received. (${
             res.locals.ipAddress || "no-ip-address"
           })`,
           "keys-access-verify": true,
-          encoded: xFlowTokenEncoded,
+          encoded: xFlowsTokenEncoded,
           value,
           key,
         });
