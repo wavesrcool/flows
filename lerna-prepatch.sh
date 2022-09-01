@@ -2,7 +2,9 @@
 
 echo "[Flows]: Publishing new release [PREPATCH]."
 
-if [ $1 == "all" ]; then
+const ARG1="$1"
+
+if [ ARG1 == "all" ]; then
     echo "[Flows]: ... using --force-publish"
     npx lerna version prepatch --force-publish
 else
