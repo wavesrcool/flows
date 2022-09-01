@@ -7,3 +7,5 @@ echo What is the package to receive?
 read RECEIVE
 
 lerna add @wavesrcool/$ADD --scope=@wavesrcool/$RECEIVE
+
+echo "Complete."
