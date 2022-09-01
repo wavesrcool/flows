@@ -1,6 +1,6 @@
 {
   "name": "@wavesrcool/flows-functions",
-  "version": "0.6.7",
+  "version": "0.6.8-alpha.0",
   "author": "Tyson Lupul <wavesrcool@icloud.com>",
   "license": "MIT",
   "main": "bin/index.js",
@@ -45,7 +45,7 @@
   "gitHead": "316a829827b489b2ff94b8c1d25c64319d0952f4",
   "dependencies": {
     "@wavesrcool/flows-models": "^0.6.2",
-    "@wavesrcool/flows-types": "^0.6.2",
+    "@wavesrcool/flows-types": "^0.6.3-alpha.0",
     "crypto-js": "^4.1.1",
     "express": "^4.18.1",
     "jsonwebtoken": "^8.5.1",
