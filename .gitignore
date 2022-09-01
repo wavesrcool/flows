@@ -1,13 +1,13 @@
 # dependencies
 node_modules/
 
-# packages javascript
+# packages
 packages/*/bin
-
 packages/*/node_modules
-
 packages/*/.vscode
 
+# test coverage
+coverage/
 
 # misc
 .DS_Store
