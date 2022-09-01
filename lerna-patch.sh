@@ -2,7 +2,7 @@
 
 echo "[Flows]: Publishing new release [PATCH]."
 
-const ARG1="$1"
+ARG1="$1"
 
 if [ ARG1 == "all" ]; then
     echo "[Flows]: ... using --force-publish"
