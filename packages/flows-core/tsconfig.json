@@ -11,6 +11,9 @@
     "references": [
         {
             "path": "../flows-functions"
+        },
+        {
+            "path": "../flows-io"
         }
     ]
 }

@@ -5,5 +5,5 @@
  *
  */
       
-      export { FlowsCoreText } from './text/FlowsCoreText'
-export { FlowsCoreTextHash } from './text/hash/FlowsCoreTextHash'
+      export { FlowsCoreIoKeys } from './io/keys/FlowsCoreIoKeys'
+export { FlowsCoreIoSimple } from './io/simple/FlowsCoreIoSimple'
