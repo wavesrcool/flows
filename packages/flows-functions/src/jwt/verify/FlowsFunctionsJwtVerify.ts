@@ -2,7 +2,7 @@
 /* eslint-disable no-promise-executor-return */
 import { FlowsTypesJwtRecords } from "@wavesrcool/flows-types";
 import { verify, VerifyOptions } from "jsonwebtoken";
-import { FlowsFunctionsEncryptionTextEncode } from "../../encryption/text/encode/FlowsFunctionsEncryptionTextEncode";
+import { FlowsFunctionsEncryptionTextDecode } from "../../encryption/text/decode/FlowsFunctionsEncryptionTextDecode";
 import { FlowsFunctionsHashText } from "../../hash/text/FlowsFunctionsHashText";
 
 const verifyOptions: VerifyOptions = {
@@ -75,7 +75,7 @@ export const FlowsFunctionsJwtVerify = async ({
                 return;
               }
 
-              const decoded = FlowsFunctionsEncryptionTextEncode({
+              const decoded = FlowsFunctionsEncryptionTextDecode({
                 text: cipher0,
                 secret: secretEncryption,
               });
