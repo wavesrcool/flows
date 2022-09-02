@@ -1,4 +1,7 @@
-import { FlowsModelsEmail, FlowsModelsMessage } from "@wavesrcool/flows-models";
+import {
+  FlowsModelsEmailAddress,
+  FlowsModelsEmailMessage,
+} from "@wavesrcool/flows-models";
 import { DataSource } from "typeorm";
 
 export type TypesFiguresFlowsFunctionsModelsRelationsEmailMessageRemove = {
@@ -15,13 +18,13 @@ export const FlowsFunctionsModelsRelationsEmailMessageRemove = async ({
   try {
     await ds
       .createQueryBuilder()
-      .relation(FlowsModelsEmail, "messages")
+      .relation(FlowsModelsEmailAddress, "messages")
       .of(pkEmail)
       .remove(pkMessage);
 
     await ds
       .createQueryBuilder()
-      .relation(FlowsModelsMessage, "email")
+      .relation(FlowsModelsEmailMessage, "email")
       .of(pkMessage)
       .set(null);
 

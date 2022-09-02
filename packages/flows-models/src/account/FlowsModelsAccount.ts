@@ -9,7 +9,7 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
-import { FlowsModelsLocal } from "../local/FlowsModelsLocal";
+import { FlowsModelsEmailLocal } from "../email-local/FlowsModelsEmailLocal";
 import { FlowsModelsAccountRecords } from "./_objects/records/FlowsModelsAccountRecords";
 
 @ObjectType()
@@ -75,7 +75,7 @@ export class FlowsModelsAccount extends BaseEntity {
   //
   // * * * * * * * * * * * * * * * * * * *
 
-  @Field(() => [FlowsModelsLocal])
-  @OneToMany(() => FlowsModelsLocal, (local) => local.account)
-  locals!: FlowsModelsLocal[];
+  @Field(() => [FlowsModelsEmailLocal])
+  @OneToMany(() => FlowsModelsEmailLocal, (local) => local.account)
+  locals!: FlowsModelsEmailLocal[];
 }

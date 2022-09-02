@@ -21,7 +21,7 @@
     "build": "yarn && yarn lint && yarn c",
     "prepack": "yarn build",
     "test": "yarn jest",
-    "lint": "eslint \"./src/**/*.{ts,tsx}\" --max-warnings=0",
+    "lint": "eslint \"./src/**/*.{ts,tsx}\" --max-warnings=0 --fix",
     "wl": "node --loader ts-node/esm write-lib.ts"
   },
   "devDependencies": {

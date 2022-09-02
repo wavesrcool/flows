@@ -9,12 +9,12 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
-import { FlowsModelsMessage } from "../message/FlowsModelsMessage";
-import { FlowsModelsEmailRecords } from "./_objects/records/FlowsModelsEmailRecords";
+import { FlowsModelsEmailMessage } from "../email-message/FlowsModelsEmailMessage";
+import { FlowsModelsEmailAddressRecords } from "./_objects/records/FlowsModelsEmailAddressRecords";
 
 @ObjectType()
 @Entity()
-export class FlowsModelsEmail extends BaseEntity {
+export class FlowsModelsEmailAddress extends BaseEntity {
   @Field(() => Int)
   @PrimaryGeneratedColumn()
   id!: number;
@@ -60,9 +60,9 @@ export class FlowsModelsEmail extends BaseEntity {
   //  records
   //
   // * * * * * * * * * * * * * * * * * * *
-  @Field(() => FlowsModelsEmailRecords, { nullable: true })
+  @Field(() => FlowsModelsEmailAddressRecords, { nullable: true })
   @Column({ type: "json", nullable: true })
-  records!: FlowsModelsEmailRecords | null;
+  records!: FlowsModelsEmailAddressRecords | null;
 
   // * * * * * * * * * * * * * * * * * * *
   //
@@ -71,7 +71,7 @@ export class FlowsModelsEmail extends BaseEntity {
   //
   // * * * * * * * * * * * * * * * * * * *
 
-  @Field(() => [FlowsModelsMessage])
-  @OneToMany(() => FlowsModelsMessage, (message) => message.email)
-  messages!: FlowsModelsMessage[];
+  @Field(() => [FlowsModelsEmailMessage])
+  @OneToMany(() => FlowsModelsEmailMessage, (message) => message.email)
+  messages!: FlowsModelsEmailMessage[];
 }

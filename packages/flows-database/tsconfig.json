@@ -8,12 +8,5 @@
     "include": [
         "src/**/*"
     ],
-    "references": [
-        {
-            "path": "../flows-types"
-        },
-        {
-            "path": "../flows-io"
-        }
-    ]
+    "references": []
 }

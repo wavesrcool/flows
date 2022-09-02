@@ -1,7 +1,7 @@
 import { Field, ObjectType } from "type-graphql";
 
 @ObjectType()
-export class FlowsModelsEmailRecords {
+export class FlowsModelsEmailAddressRecords {
   @Field(() => String)
   nameFirst!: string;
 

@@ -1,4 +1,4 @@
-import { FlowsModelsLocal } from "@wavesrcool/flows-models";
+import { FlowsModelsEmailLocal } from "@wavesrcool/flows-models";
 import { DataSource } from "typeorm";
 
 export type TypesFiguresFlowsFunctionsModelsLocalRead = {
@@ -10,13 +10,13 @@ export const FlowsFunctionsModelsLocalRead = async ({
   ds,
   value,
 }: TypesFiguresFlowsFunctionsModelsLocalRead): Promise<
-  FlowsModelsLocal | undefined
+  FlowsModelsEmailLocal | undefined
 > => {
   try {
     const read = await ds
       .createQueryBuilder()
       .select("local")
-      .from(FlowsModelsLocal, "local")
+      .from(FlowsModelsEmailLocal, "local")
       .where("local.value = :value", { value })
       .getOne();
 

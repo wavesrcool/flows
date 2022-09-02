@@ -1,7 +1,7 @@
 import { Field, InputType } from "type-graphql";
 
 @InputType()
-export class FlowsModelsEmailRecordsInput {
+export class FlowsModelsEmailAddressRecordsInput {
   @Field(() => String)
   nameFirst!: string;
 

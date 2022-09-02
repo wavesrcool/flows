@@ -1,4 +1,7 @@
-import { FlowsModelsAccount, FlowsModelsLocal } from "@wavesrcool/flows-models";
+import {
+  FlowsModelsAccount,
+  FlowsModelsEmailLocal,
+} from "@wavesrcool/flows-models";
 import { DataSource } from "typeorm";
 
 export type TypesFiguresFlowsFunctionsModelsRelationsAccountLocalRemove = {
@@ -21,7 +24,7 @@ export const FlowsFunctionsModelsRelationsAccountLocalRemove = async ({
 
     await ds
       .createQueryBuilder()
-      .relation(FlowsModelsLocal, "account")
+      .relation(FlowsModelsEmailLocal, "account")
       .of(pkLocal)
       .set(null);
 

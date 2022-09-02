@@ -11,11 +11,11 @@ import {
   UpdateDateColumn,
 } from "typeorm";
 import { FlowsModelsAccount } from "../account/FlowsModelsAccount";
-import { FlowsModelsMessage } from "../message/FlowsModelsMessage";
+import { FlowsModelsEmailMessage } from "../email-message/FlowsModelsEmailMessage";
 
 @ObjectType()
 @Entity()
-export class FlowsModelsLocal extends BaseEntity {
+export class FlowsModelsEmailLocal extends BaseEntity {
   @Field(() => Int)
   @PrimaryGeneratedColumn()
   id!: number;
@@ -59,7 +59,7 @@ export class FlowsModelsLocal extends BaseEntity {
   @ManyToOne(() => FlowsModelsAccount, (account) => account.locals)
   account!: FlowsModelsAccount;
 
-  @Field(() => [FlowsModelsMessage])
-  @OneToMany(() => FlowsModelsMessage, (message) => message.local)
-  messages!: FlowsModelsMessage[];
+  @Field(() => [FlowsModelsEmailMessage])
+  @OneToMany(() => FlowsModelsEmailMessage, (message) => message.local)
+  messages!: FlowsModelsEmailMessage[];
 }

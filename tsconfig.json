@@ -3,19 +3,22 @@
         "baseUrl": "./packages",
         "paths": {
             "@wavesrcool/flows-core/*": [
-                "core/src/*"
+                "flows-core/src/*"
+            ],
+            "@wavesrcool/flows-database/*": [
+                "flows-database/src/*"
             ],
             "@wavesrcool/flows-functions/*": [
-                "functions/src/*"
+                "flows-functions/src/*"
             ],
             "@wavesrcool/flows-io/*": [
-                "io/src/*"
+                "flows-io/src/*"
             ],
             "@wavesrcool/flows-models/*": [
-                "models/src/*"
+                "flows-models/src/*"
             ],
             "@wavesrcool/flows-types/*": [
-                "types/src/*"
+                "flows-types/src/*"
             ],
         }
     },
@@ -23,6 +26,9 @@
     "references": [
         {
             "path": "packages/flows-core"
+        },
+        {
+            "path": "packages/flows-database"
         },
         {
             "path": "packages/flows-functions"

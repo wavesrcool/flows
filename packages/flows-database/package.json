@@ -1,5 +1,5 @@
 {
-  "name": "@wavesrcool/flows-types",
+  "name": "@wavesrcool/flows-database",
   "version": "0.6.3",
   "author": "Tyson Lupul <wavesrcool@icloud.com>",
   "license": "MIT",
@@ -7,7 +7,7 @@
   "types": "bin/index.d.ts",
   "repository": {
     "type": "git",
-    "directory": "packages/flows-types",
+    "directory": "packages/flows-database",
     "url": "https://github.com/wavesrcool/flows.git"
   },
   "publishConfig": {
@@ -40,5 +40,9 @@
     "glob": "^8.0.3",
     "prettier": "^2.7.1"
   },
-  "gitHead": "316a829827b489b2ff94b8c1d25c64319d0952f4"
+  "gitHead": "316a829827b489b2ff94b8c1d25c64319d0952f4",
+  "dependencies": {
+    "@wavesrcool/flows-models": "^0.6.2",
+    "typeorm": "^0.3.9"
+  }
 }

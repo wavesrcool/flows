@@ -9,13 +9,13 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
-import { FlowsModelsEmail } from "../email/FlowsModelsEmail";
-import { FlowsModelsLocal } from "../local/FlowsModelsLocal";
-import { FlowsModelsMessageRecords } from "./_objects/records/FlowsModelsMessageRecords";
+import { FlowsModelsEmailAddress } from "../email-address/FlowsModelsEmailAddress";
+import { FlowsModelsEmailLocal } from "../email-local/FlowsModelsEmailLocal";
+import { FlowsModelsEmailMessageRecords } from "./_objects/records/FlowsModelsEmailMessageRecords";
 
 @ObjectType()
 @Entity()
-export class FlowsModelsMessage extends BaseEntity {
+export class FlowsModelsEmailMessage extends BaseEntity {
   @Field(() => Int)
   @PrimaryGeneratedColumn()
   id!: number;
@@ -40,9 +40,9 @@ export class FlowsModelsMessage extends BaseEntity {
   //
   // * * * * * * * * * * * * * * * * * * *
 
-  @Field(() => FlowsModelsMessageRecords, { nullable: true })
+  @Field(() => FlowsModelsEmailMessageRecords, { nullable: true })
   @Column({ type: "json", nullable: true })
-  records!: FlowsModelsMessageRecords | null;
+  records!: FlowsModelsEmailMessageRecords | null;
 
   // * * * * * * * * * * * * * * * * * * *
   //
@@ -55,15 +55,15 @@ export class FlowsModelsMessage extends BaseEntity {
   @Column({ type: "int8", nullable: true })
   emailId!: number;
 
-  @Field(() => FlowsModelsEmail)
-  @ManyToOne(() => FlowsModelsEmail, (email) => email.messages)
-  email!: FlowsModelsEmail;
+  @Field(() => FlowsModelsEmailAddress)
+  @ManyToOne(() => FlowsModelsEmailAddress, (email) => email.messages)
+  email!: FlowsModelsEmailAddress;
 
   @Field(() => Int, { nullable: true })
   @Column({ type: "int8", nullable: true })
   localId!: number;
 
-  @Field(() => FlowsModelsLocal)
-  @ManyToOne(() => FlowsModelsLocal, (local) => local.messages)
-  local!: FlowsModelsLocal;
+  @Field(() => FlowsModelsEmailLocal)
+  @ManyToOne(() => FlowsModelsEmailLocal, (local) => local.messages)
+  local!: FlowsModelsEmailLocal;
 }

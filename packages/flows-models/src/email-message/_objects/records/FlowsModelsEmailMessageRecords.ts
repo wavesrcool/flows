@@ -1,7 +1,7 @@
-import { Field, InputType } from "type-graphql";
+import { Field, ObjectType } from "type-graphql";
 
-@InputType()
-export class FlowsModelsMessageRecordsInput {
+@ObjectType()
+export class FlowsModelsEmailMessageRecords {
   @Field(() => String)
   subject!: string;
 

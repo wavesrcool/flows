@@ -1,4 +1,4 @@
-import { FlowsModelsMessage } from "@wavesrcool/flows-models";
+import { FlowsModelsEmailMessage } from "@wavesrcool/flows-models";
 import { DataSource } from "typeorm";
 
 export type TypesFiguresFlowsFunctionsModelsMessageReadKey = {
@@ -10,13 +10,13 @@ export const FlowsFunctionsModelsMessageReadKey = async ({
   ds,
   key,
 }: TypesFiguresFlowsFunctionsModelsMessageReadKey): Promise<
-  FlowsModelsMessage | undefined
+  FlowsModelsEmailMessage | undefined
 > => {
   try {
     const read = await ds
       .createQueryBuilder()
       .select("local")
-      .from(FlowsModelsMessage, "message")
+      .from(FlowsModelsEmailMessage, "message")
       .where("message.key = :key", { key })
       .getOne();
 

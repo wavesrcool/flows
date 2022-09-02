@@ -1,11 +1,11 @@
 import {
-  FlowsModelsLocalCreateInput,
-  FlowsModelsLocal,
+  FlowsModelsEmailLocalCreateInput,
+  FlowsModelsEmailLocal,
 } from "@wavesrcool/flows-models";
 import { DataSource } from "typeorm";
 
 export type TypesFiguresFlowsFunctionsModelsLocalCreate = {
-  input: FlowsModelsLocalCreateInput;
+  input: FlowsModelsEmailLocalCreateInput;
   ds: DataSource;
 };
 
@@ -19,7 +19,7 @@ export const FlowsFunctionsModelsLocalCreate = async ({
     const create = await ds
       .createQueryBuilder()
       .insert()
-      .into(FlowsModelsLocal)
+      .into(FlowsModelsEmailLocal)
       .values({ value })
       .execute();
 

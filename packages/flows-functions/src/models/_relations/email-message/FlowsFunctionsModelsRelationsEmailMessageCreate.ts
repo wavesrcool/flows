@@ -1,4 +1,7 @@
-import { FlowsModelsEmail, FlowsModelsMessage } from "@wavesrcool/flows-models";
+import {
+  FlowsModelsEmailAddress,
+  FlowsModelsEmailMessage,
+} from "@wavesrcool/flows-models";
 import { DataSource } from "typeorm";
 
 export type TypesFiguresFlowsFunctionsModelsRelationsEmailMessageCreate = {
@@ -15,13 +18,13 @@ export const FlowsFunctionsModelsRelationsEmailMessageCreate = async ({
   try {
     await ds
       .createQueryBuilder()
-      .relation(FlowsModelsEmail, "messages")
+      .relation(FlowsModelsEmailAddress, "messages")
       .of(pkEmail)
       .add(pkMessage);
 
     await ds
       .createQueryBuilder()
-      .relation(FlowsModelsMessage, "email")
+      .relation(FlowsModelsEmailMessage, "email")
       .of(pkMessage)
       .set(pkEmail);
 
