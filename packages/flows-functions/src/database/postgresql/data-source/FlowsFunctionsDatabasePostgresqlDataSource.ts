@@ -13,11 +13,11 @@ export type TypesFiguresFlowsFunctionsDatabasePostgresqlDataSource = {
 export const FlowsFunctionsDatabasePostgresqlDataSource = ({
   migrations,
 }: TypesFiguresFlowsFunctionsDatabasePostgresqlDataSource): DataSource => {
-  const url = process.env.POSTGRES_URL;
+  const url = process.env.FLOWS_GLOBAL_POSTGRES_URL;
 
   if (!url) {
     throw new Error(
-      `[flows-database] Error. FlowsFunctionsDatabasePostgresqlDataSource. process.env.POSTGRES_URL`
+      `[flows-database] Error. FlowsFunctionsDatabasePostgresqlDataSource. process.env.FLOWS_GLOBAL_POSTGRES_URL`
     );
   }
 
