@@ -27,8 +27,6 @@ export const routes = (app: Express) => {
       middleware.request.headers.xFlowsAccount,
       middleware.response.locals.xFlowsAccount,
       middleware.request.headers.xFlowsToken,
-      middleware.response.locals.xFlowsToken.encoded,
-      middleware.response.locals.xFlowsToken.records,
     ],
     controllers.keys.access.verify
   );

@@ -19,8 +19,6 @@ export { FlowsFunctionsIoMiddlewareRequestHeadersXFlowsToken } from './io/middle
 export { FlowsFunctionsIoMiddlewareRequestIpAddress } from './io/middleware/request/ip-address/FlowsFunctionsIoMiddlewareRequestIpAddress'
 export { FlowsFunctionsIoMiddlewareResponseLocalsIpAddress } from './io/middleware/response/locals/ip-address/FlowsFunctionsIoMiddlewareResponseLocalsIpAddress'
 export { FlowsFunctionsIoMiddlewareResponseLocalsXFlowsAccount } from './io/middleware/response/locals/x-flows-account/FlowsFunctionsIoMiddlewareResponseLocalsXFlowsAccount'
-export { FlowsFunctionsIoMiddlewareResponseLocalsXFlowsTokenEncoded } from './io/middleware/response/locals/x-flows-token/encoded/FlowsFunctionsIoMiddlewareResponseLocalsXFlowsTokenEncoded'
-export { FlowsFunctionsIoMiddlewareResponseLocalsXFlowsTokenRecords } from './io/middleware/response/locals/x-flows-token/records/FlowsFunctionsIoMiddlewareResponseLocalsXFlowsTokenRecords'
 export { FlowsFunctionsJwtSign } from './jwt/sign/FlowsFunctionsJwtSign'
 export { FlowsFunctionsJwtVerify } from './jwt/verify/FlowsFunctionsJwtVerify'
 export { FlowsFunctionsMailgunVerifySignKey } from './mailgun/verify/sign-key/FlowsFunctionsMailgunVerifySignKey'

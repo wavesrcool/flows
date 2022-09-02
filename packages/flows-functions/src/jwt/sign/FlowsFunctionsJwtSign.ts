@@ -93,7 +93,7 @@ export const FlowsFunctionsJwtSign = async ({
       });
     });
   } catch (e) {
-    console.log(e, "FlowsFlowsFunctionsJwtSign");
+    console.log(e, "FlowsFunctionsJwtSign");
     return {
       complete: false,
       message: `catch`,

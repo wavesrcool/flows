@@ -6,6 +6,7 @@ export const FlowsFunctionsIoMiddlewareRequestHeadersXFlowsToken: RequestHandler
   async (req, res, next): Promise<ReturnType<RequestHandler>> => {
     try {
       const routesUnsecured = process.env.FLOWS_GLOBAL_ROUTES_UNSECURED;
+
       if (routesUnsecured && typeof routesUnsecured === "string") {
         const routesUnsecuredList = String(routesUnsecured).split(",");
         if (
@@ -19,17 +20,12 @@ export const FlowsFunctionsIoMiddlewareRequestHeadersXFlowsToken: RequestHandler
 
         const xFlowsToken = req.headers["x-flows-token"];
         if (xFlowsToken && typeof xFlowsToken === "string") {
-          const {
-            complete: jwtVerifyComplete,
-            message: jwtVerifyMessage,
-            records: jwtVerifyRecords,
-          } = await FlowsFunctionsJwtVerify({
-            encoded: xFlowsToken,
-          });
+          const { complete: jwtVerifyComplete, message: jwtVerifyMessage } =
+            await FlowsFunctionsJwtVerify({
+              encoded: xFlowsToken,
+            });
 
-          if (jwtVerifyComplete && !jwtVerifyMessage && jwtVerifyRecords) {
-            res.locals.xFlowsTokenRecords = jwtVerifyRecords;
-            res.locals.xFlowsTokenEncoded = xFlowsToken;
+          if (jwtVerifyComplete && !jwtVerifyMessage) {
             next();
             return;
           }
