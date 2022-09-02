@@ -12,10 +12,10 @@ export class FlowsCoreIoKeys {
   public async start() {
     FlowsIoKeys(this.ioKeysFigure)
       .then(() => {
-        console.log(`[flows-core] Running. Keys.`);
+        console.log(`[flows-core] Running. IoKeys.`);
       })
       .catch((e: any) => {
-        console.log(`[flows-core] Error. Keys. ${String(e)}`);
+        console.log(`[flows-core] Error. IoKeys. ${String(e)}`);
       });
   }
 }

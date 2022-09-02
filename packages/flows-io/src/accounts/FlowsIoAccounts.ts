@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import helmet from "helmet";
 import { FlowsTypesIoAccountsFigure } from "@wavesrcool/flows-types";
+import { FlowsFunctionsDatabasePostgresqlDataSource } from "@wavesrcool/flows-functions";
 import { routes } from "./routes/routes";
 
 export const FlowsIoAccounts = async ({
@@ -10,6 +11,20 @@ export const FlowsIoAccounts = async ({
   port,
 }: FlowsTypesIoAccountsFigure): Promise<typeof app> => {
   const PROD = env === "production";
+
+  const cwd = process.cwd();
+
+  console.log(cwd, `cwd`);
+
+  const fig = {
+    migrations: [""], // @tmp
+  };
+
+  const datasource = FlowsFunctionsDatabasePostgresqlDataSource(fig);
+
+  await datasource.initialize().then(async () => {
+    console.log("[flow-accounts] Database initialization complete.");
+  });
 
   const app = express();
   app.use(helmet());
