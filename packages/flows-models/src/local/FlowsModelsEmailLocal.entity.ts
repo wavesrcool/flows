@@ -10,8 +10,8 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
-import { FlowsModelsAccount } from "../account/FlowsModelsAccount";
-import { FlowsModelsEmailMessage } from "../email-message/FlowsModelsEmailMessage";
+import { FlowsModelsAccount } from "../account/FlowsModelsAccount.entity";
+import { FlowsModelsEmailMessage } from "../message/FlowsModelsEmailMessage.entity";
 
 @ObjectType()
 @Entity()

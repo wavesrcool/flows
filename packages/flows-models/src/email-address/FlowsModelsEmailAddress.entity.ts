@@ -9,12 +9,12 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
-import { FlowsModelsEmailLocal } from "../email-local/FlowsModelsEmailLocal";
-import { FlowsModelsAccountRecords } from "./_objects/records/FlowsModelsAccountRecords";
+import { FlowsModelsEmailMessage } from "../message/FlowsModelsEmailMessage.entity";
+import { FlowsModelsEmailAddressRecords } from "./_objects/records/FlowsModelsEmailAddressRecords";
 
 @ObjectType()
 @Entity()
-export class FlowsModelsAccount extends BaseEntity {
+export class FlowsModelsEmailAddress extends BaseEntity {
   @Field(() => Int)
   @PrimaryGeneratedColumn()
   id!: number;
@@ -41,11 +41,7 @@ export class FlowsModelsAccount extends BaseEntity {
 
   @Field(() => String)
   @Column({ type: "varchar", unique: true })
-  value!: string;
-
-  @Field(() => Boolean)
-  @Column({ type: "boolean", default: false })
-  isAdmin!: boolean;
+  address!: string;
 
   @Field(() => Boolean)
   @Column({ type: "boolean", default: false })
@@ -64,9 +60,9 @@ export class FlowsModelsAccount extends BaseEntity {
   //  records
   //
   // * * * * * * * * * * * * * * * * * * *
-  @Field(() => FlowsModelsAccountRecords, { nullable: true })
+  @Field(() => FlowsModelsEmailAddressRecords, { nullable: true })
   @Column({ type: "json", nullable: true })
-  records!: FlowsModelsAccountRecords | null;
+  records!: FlowsModelsEmailAddressRecords | null;
 
   // * * * * * * * * * * * * * * * * * * *
   //
@@ -75,7 +71,7 @@ export class FlowsModelsAccount extends BaseEntity {
   //
   // * * * * * * * * * * * * * * * * * * *
 
-  @Field(() => [FlowsModelsEmailLocal])
-  @OneToMany(() => FlowsModelsEmailLocal, (local) => local.account)
-  locals!: FlowsModelsEmailLocal[];
+  @Field(() => [FlowsModelsEmailMessage])
+  @OneToMany(() => FlowsModelsEmailMessage, (message) => message.email)
+  messages!: FlowsModelsEmailMessage[];
 }

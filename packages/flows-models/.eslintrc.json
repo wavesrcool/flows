@@ -17,7 +17,7 @@
     "no-nested-ternary": "off",
     "no-useless-return": "off",
     "no-bitwise": ["error", { "allow": ["~"] }],
-    "import/extensions": ["error", "never", { "json": "always" }],
+    "import/extensions": ["error", "never", { "json": "always", "entity": "always"  }],
     "import/no-unresolved": 0,
     "prettier/prettier": ["error"],
     "no-use-before-define": "off",

@@ -24,6 +24,8 @@ writeIndex("src", (err, res) => {
     const month = `${date.getMonth()}`;
     const year = date.getFullYear();
 
+    const modelsList: string[] = [];
+
     fs.writeFileSync(
       filepath,
       `import "reflect-metadata";
@@ -37,11 +39,12 @@ writeIndex("src", (err, res) => {
       
       `
     );
+
     (res as string[]).map((line0) => {
       const line = String(line0);
       const writable = line.replace("src/", "./").replace(".ts", "");
       const split = writable.split("/");
-      const name = split.pop();
+      let name = split.pop();
 
       if (
         !name?.includes(libraryPrefix) ||
@@ -52,8 +55,22 @@ writeIndex("src", (err, res) => {
         return;
       }
 
+      if (name.includes(".entity")) {
+        name = name.slice(0, -`.entity`.length);
+        modelsList.push(name);
+      }
+
       const libraryExport = `export { ${name} } from '${writable}'`;
       fs.appendFileSync(filepath, `${libraryExport}\n`);
+
+      return;
+    });
+
+    const modelsListFilePath = `models-list.flows.txt`;
+    fs.writeFileSync(modelsListFilePath, ``);
+
+    modelsList.map((model) => {
+      fs.appendFileSync(modelsListFilePath, `${model},\n`);
       return;
     });
   }
