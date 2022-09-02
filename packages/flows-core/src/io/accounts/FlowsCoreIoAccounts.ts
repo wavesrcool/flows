@@ -1,16 +1,16 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { FlowsIoSimple } from "@wavesrcool/flows-io";
-import { FlowsTypesIoSimpleFigure } from "@wavesrcool/flows-types";
+import { FlowsIoAccounts } from "@wavesrcool/flows-io";
+import { FlowsTypesIoAccountsFigure } from "@wavesrcool/flows-types";
 
-export class FlowsCoreIoSimple {
-  private ioSimpleFigure: FlowsTypesIoSimpleFigure;
+export class FlowsCoreIoAccounts {
+  private ioSimpleFigure: FlowsTypesIoAccountsFigure;
 
-  constructor(figure: FlowsTypesIoSimpleFigure) {
+  constructor(figure: FlowsTypesIoAccountsFigure) {
     this.ioSimpleFigure = figure;
   }
 
   public async start() {
-    FlowsIoSimple(this.ioSimpleFigure)
+    FlowsIoAccounts(this.ioSimpleFigure)
       .then(() => {
         console.log(`[flows-core] Running. Simple.`);
       })

@@ -1,14 +1,14 @@
 import express from "express";
 import cors from "cors";
 import helmet from "helmet";
-import { FlowsTypesIoSimpleFigure } from "@wavesrcool/flows-types";
+import { FlowsTypesIoAccountsFigure } from "@wavesrcool/flows-types";
 import { routes } from "./routes/routes";
 
-export const FlowsIoSimple = async ({
+export const FlowsIoAccounts = async ({
   env,
   corsOrigin,
   port,
-}: FlowsTypesIoSimpleFigure): Promise<typeof app> => {
+}: FlowsTypesIoAccountsFigure): Promise<typeof app> => {
   const PROD = env === "production";
 
   const app = express();
@@ -27,8 +27,8 @@ export const FlowsIoSimple = async ({
   routes(app);
 
   app.listen(port, (): void => {
-    console.log(`[flow-io] (env) ${env}`);
-    console.log(`[flow-io] (port) ${port}`);
+    console.log(`[flow-accounts] (env) ${env}`);
+    console.log(`[flow-accounts] (port) ${port}`);
   });
 
   return app;

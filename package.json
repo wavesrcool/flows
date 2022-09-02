@@ -12,7 +12,7 @@
     "build": "lerna run build --stream",
     "lint": "lerna run lint --stream --parallel",
     "test": "yarn jest --coverage",
-    "rmnm": "npm exec --workspaces -- npx rimraf node_modules && npx rimraf node_modules",
+    "rma": "rm -f yarn.lock && npm exec --workspaces -- npx rimraf node_modules && npx rimraf node_modules",
     "flc": "code packages/flows-core",
     "flf": "code packages/flows-functions",
     "flm": "code packages/flows-models",

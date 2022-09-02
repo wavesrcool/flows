@@ -5,5 +5,5 @@
  *
  */
       
-      export { FlowsCoreIoKeys } from './io/keys/FlowsCoreIoKeys'
-export { FlowsCoreIoSimple } from './io/simple/FlowsCoreIoSimple'
+      export { FlowsCoreIoAccounts } from './io/accounts/FlowsCoreIoAccounts'
+export { FlowsCoreIoKeys } from './io/keys/FlowsCoreIoKeys'
