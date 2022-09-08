@@ -1,53 +1,53 @@
 {
-    "name": "@wavesrcool/flows-io",
-    "version": "6.30.3",
-    "author": "Tyson Lupul <wavesrcool@icloud.com>",
-    "license": "MIT",
-    "main": "lib/index.js",
-    "types": "lib/index.d.ts",
-    "files": [
-      "./lib"
-    ],
-    "repository": {
-      "type": "git",
-      "directory": "packages/flows-io",
-      "url": "https://github.com/wavesrcool/flows.git"
-    },
-    "publishConfig": {
-      "access": "public"
-    },
-    "scripts": {
-      "_0lib": "rm -rf lib",
-      "_0tsc": "rm -f tsconfig.tsbuildinfo",
-      "w": "tsc -w",
-      "c": "yarn _0lib && yarn _0tsc && yarn wl && tsc --build",
-      "build": "yarn && yarn lint && yarn c",
-      "prepack": "yarn build",
-      "test": "yarn jest",
-      "lint": "eslint \"./src/**/*.{ts,tsx}\" --max-warnings=0 --fix",
-      "wl": "node --loader ts-node/esm write-lib.ts"
-    },
-    "devDependencies": {
-      "@types/cors": "^2.8.12",
-      "@types/express": "^4.17.13",
-      "@types/glob": "^7.2.0",
-      "@typescript-eslint/eslint-plugin": "^5.36.1",
-      "@typescript-eslint/parser": "^5.36.1",
-      "eslint": "^8.23.0",
-      "eslint-config-airbnb": "^19.0.4",
-      "eslint-config-prettier": "^8.5.0",
-      "eslint-plugin-import": "^2.26.0",
-      "eslint-plugin-jsx-a11y": "^6.6.1",
-      "eslint-plugin-prettier": "^4.2.1",
-      "eslint-plugin-react": "^7.30.1",
-      "eslint-plugin-react-hooks": "^4.6.0",
-      "eslint-plugin-unused-imports": "^2.0.0",
-      "glob": "^8.0.3",
-      "prettier": "^2.7.1"
-    },
-    "gitHead": "316a829827b489b2ff94b8c1d25c64319d0952f4",
-    "dependencies": {
-      "@wavesrcool/flows-functions": "^6.30.2",
-      "@wavesrcool/flows-types": "^6.30.1"
-    }
+  "name": "@wavesrcool/flows-io",
+  "version": "6.30.4",
+  "author": "Tyson Lupul <wavesrcool@icloud.com>",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "./lib"
+  ],
+  "repository": {
+    "type": "git",
+    "directory": "packages/flows-io",
+    "url": "https://github.com/wavesrcool/flows.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "_0lib": "rm -rf lib",
+    "_0tsc": "rm -f tsconfig.tsbuildinfo",
+    "w": "tsc -w",
+    "c": "yarn _0lib && yarn _0tsc && yarn wl && tsc --build",
+    "build": "yarn && yarn lint && yarn c",
+    "prepack": "yarn build",
+    "test": "yarn jest",
+    "lint": "eslint \"./src/**/*.{ts,tsx}\" --max-warnings=0 --fix",
+    "wl": "node --loader ts-node/esm write-lib.ts"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
+    "@types/glob": "^7.2.0",
+    "@typescript-eslint/eslint-plugin": "^5.36.1",
+    "@typescript-eslint/parser": "^5.36.1",
+    "eslint": "^8.23.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.30.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-unused-imports": "^2.0.0",
+    "glob": "^8.0.3",
+    "prettier": "^2.7.1"
+  },
+  "gitHead": "316a829827b489b2ff94b8c1d25c64319d0952f4",
+  "dependencies": {
+    "@wavesrcool/flows-functions": "^6.30.3",
+    "@wavesrcool/flows-types": "^6.30.2"
   }
+}
