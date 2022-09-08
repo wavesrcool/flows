@@ -17,8 +17,11 @@ const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const helmet_1 = __importDefault(require("helmet"));
 const routes_1 = require("./routes/routes");
-const FlowsIoKeys = ({ env, corsOrigin, port, }) => __awaiter(void 0, void 0, void 0, function* () {
+const FlowsIoKeys = ({ env, corsOrigin, port, dataSource, }) => __awaiter(void 0, void 0, void 0, function* () {
     const PROD = env === "production";
+    yield dataSource
+        .initialize()
+        .then(() => console.log(`[flows-keys]: Database connection established.`));
     const app = (0, express_1.default)();
     app.use((0, helmet_1.default)());
     if (PROD) {

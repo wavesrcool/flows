@@ -8,8 +8,13 @@ export const FlowsIoKeys = async ({
   env,
   corsOrigin,
   port,
+  dataSource,
 }: TypesFiguresFlowsIoKeys): Promise<typeof app> => {
   const PROD = env === "production";
+
+  await dataSource
+    .initialize()
+    .then(() => console.log(`[flows-keys]: Database connection established.`));
 
   const app = express();
   app.use(helmet());
