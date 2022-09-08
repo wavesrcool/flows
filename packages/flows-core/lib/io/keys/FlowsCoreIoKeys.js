@@ -14,6 +14,7 @@ exports.FlowsCoreIoKeys = void 0;
 const flows_io_1 = require("@wavesrcool/flows-io");
 class FlowsCoreIoKeys {
     constructor(figure) {
+        console.log(`publish`);
         this.ioKeysFigure = figure;
     }
     start() {

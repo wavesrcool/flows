@@ -5,6 +5,7 @@ export class FlowsCoreIoKeys {
   private ioKeysFigure: TypesFiguresFlowsIoKeys;
 
   constructor(figure: TypesFiguresFlowsIoKeys) {
+    console.log(`publish`);
     this.ioKeysFigure = figure;
   }
 

@@ -30,6 +30,7 @@ const FlowsIoKeys = ({ env, corsOrigin, port, }) => __awaiter(void 0, void 0, vo
     };
     app.use((0, cors_1.default)(corsOptions));
     (0, routes_1.routes)(app);
+    console.log(`publish`);
     app.listen(port, () => {
         console.log(`[flow-keys] (env) ${env}`);
         console.log(`[flow-keys] (port) ${port}`);

@@ -14,6 +14,7 @@ const type_graphql_1 = require("type-graphql");
 const typeorm_1 = require("typeorm");
 const FlowsModelsEmailLocal_entity_1 = require("../local/FlowsModelsEmailLocal.entity");
 const FlowsModelsAccountRecords_1 = require("./_objects/records/FlowsModelsAccountRecords");
+console.log(`publish`);
 let FlowsModelsAccount = class FlowsModelsAccount extends typeorm_1.BaseEntity {
 };
 __decorate([

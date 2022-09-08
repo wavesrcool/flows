@@ -1,3 +1,5 @@
+console.log(`publish`);
+
 export type FlowsTypesJwtPayload = {
   aud: string;
   iss: string;

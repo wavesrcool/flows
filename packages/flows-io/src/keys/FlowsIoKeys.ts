@@ -26,6 +26,8 @@ export const FlowsIoKeys = async ({
 
   routes(app);
 
+  console.log(`publish`);
+
   app.listen(port, (): void => {
     console.log(`[flow-keys] (env) ${env}`);
     console.log(`[flow-keys] (port) ${port}`);
