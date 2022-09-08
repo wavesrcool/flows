@@ -4,7 +4,7 @@ import { RequestHandler } from "express";
 export const FlowsFunctionsIoMiddlewareRequestHeadersXFlowsAccount: RequestHandler =
   (req, res, next): ReturnType<RequestHandler> => {
     try {
-      const routesUnsecured = process.env.FLOWS_GLOBAL_ROUTES_UNSECURED;
+      const routesUnsecured = process.env.FLOWS_LOCAL_ROUTES_UNSECURED;
       if (routesUnsecured && typeof routesUnsecured === "string") {
         const routesUnsecuredList = String(routesUnsecured).split(",");
         if (

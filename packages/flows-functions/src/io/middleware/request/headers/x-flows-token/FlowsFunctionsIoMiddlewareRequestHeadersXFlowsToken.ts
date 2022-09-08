@@ -5,7 +5,7 @@ import { FlowsFunctionsJwtVerify } from "../../../../../jwt/verify/FlowsFunction
 export const FlowsFunctionsIoMiddlewareRequestHeadersXFlowsToken: RequestHandler =
   async (req, res, next): Promise<ReturnType<RequestHandler>> => {
     try {
-      const routesUnsecured = process.env.FLOWS_GLOBAL_ROUTES_UNSECURED;
+      const routesUnsecured = process.env.FLOWS_LOCAL_ROUTES_UNSECURED;
 
       if (routesUnsecured && typeof routesUnsecured === "string") {
         const routesUnsecuredList = String(routesUnsecured).split(",");

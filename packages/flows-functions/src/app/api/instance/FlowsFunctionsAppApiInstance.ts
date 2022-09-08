@@ -4,7 +4,7 @@ import helmet from "helmet";
 
 export const FlowsFunctionsAppApiInstance = (): express.Express => {
   const PROD = process.env.NODE_ENV === "production";
-  const CORS_ORIGIN = process.env.FLOWS_IO_APP_CORS_ORIGIN;
+  const CORS_ORIGIN = process.env.FLOWS_LOCAL_CORS_ORIGIN;
 
   const app = express();
   app.use(helmet());
