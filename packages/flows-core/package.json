@@ -42,6 +42,7 @@
     "prettier": "^2.7.1"
   },
   "dependencies": {
+    "@wavesrcool/flows-functions": "^0.6.13",
     "@wavesrcool/flows-io": "^0.6.13",
     "@wavesrcool/flows-types": "^0.6.5"
   },

@@ -1,6 +1,6 @@
-import { DataSourceOptions } from "typeorm";
+import { DataSource, DataSourceOptions } from "typeorm";
 export declare type TypesFiguresFlowsFunctionsDatabaseConnection = {
     migrations: DataSourceOptions["migrations"];
 };
-export declare const FlowsFunctionsDatabaseConnection: ({ migrations, }: TypesFiguresFlowsFunctionsDatabaseConnection) => DataSourceOptions;
+export declare const FlowsFunctionsDatabaseConnection: ({ migrations, }: TypesFiguresFlowsFunctionsDatabaseConnection) => DataSource;
 //# sourceMappingURL=FlowsFunctionsDatabaseConnection.d.ts.map

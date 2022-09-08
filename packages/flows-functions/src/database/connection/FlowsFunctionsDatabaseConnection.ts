@@ -4,7 +4,7 @@ import {
   FlowsModelsEmailLocal,
   FlowsModelsEmailMessage,
 } from "@wavesrcool/flows-models";
-import { DataSourceOptions } from "typeorm";
+import { DataSource, DataSourceOptions } from "typeorm";
 
 export type TypesFiguresFlowsFunctionsDatabaseConnection = {
   migrations: DataSourceOptions["migrations"];
@@ -12,7 +12,7 @@ export type TypesFiguresFlowsFunctionsDatabaseConnection = {
 
 export const FlowsFunctionsDatabaseConnection = ({
   migrations,
-}: TypesFiguresFlowsFunctionsDatabaseConnection): DataSourceOptions => {
+}: TypesFiguresFlowsFunctionsDatabaseConnection): DataSource => {
   const url = process.env.FLOWS_GLOBAL_POSTGRES_URL;
 
   if (!url) {
@@ -41,5 +41,6 @@ export const FlowsFunctionsDatabaseConnection = ({
     ssl: true,
   };
 
-  return options;
+  const connection = new DataSource(options);
+  return connection;
 };

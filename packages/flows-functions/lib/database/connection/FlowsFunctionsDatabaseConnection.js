@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FlowsFunctionsDatabaseConnection = void 0;
 const flows_models_1 = require("@wavesrcool/flows-models");
+const typeorm_1 = require("typeorm");
 const FlowsFunctionsDatabaseConnection = ({ migrations, }) => {
     const url = process.env.FLOWS_GLOBAL_POSTGRES_URL;
     if (!url) {
@@ -26,6 +27,7 @@ const FlowsFunctionsDatabaseConnection = ({ migrations, }) => {
         migrationsTableName: "history",
         ssl: true,
     };
-    return options;
+    const connection = new typeorm_1.DataSource(options);
+    return connection;
 };
 exports.FlowsFunctionsDatabaseConnection = FlowsFunctionsDatabaseConnection;
