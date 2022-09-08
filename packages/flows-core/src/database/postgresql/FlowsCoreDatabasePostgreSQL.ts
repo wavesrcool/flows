@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { FlowsFunctionsDatabaseConnection } from "@wavesrcool/flows-functions";
+import { TypesFiguresFlowsFunctionsDatabaseConnection } from "@wavesrcool/flows-functions";
 import { FlowsCoreDatabasePostgreSQLConnection } from "./connection/FlowsCoreDatabasePostgreSQLConnection";
 
 export type TypesFiguresFlowsCoreDatabasePostgreSQL = {
-  figureConnection: ReturnType<typeof FlowsFunctionsDatabaseConnection>;
+  figureConnection: TypesFiguresFlowsFunctionsDatabaseConnection;
 };
 
 export class FlowsCoreDatabasePostgreSQL {

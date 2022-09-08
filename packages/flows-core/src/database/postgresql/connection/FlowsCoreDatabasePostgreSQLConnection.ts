@@ -1,10 +1,23 @@
-import { FlowsFunctionsDatabaseConnection } from "@wavesrcool/flows-functions";
+import {
+  FlowsFunctionsDatabaseConnection,
+  TypesFiguresFlowsFunctionsDatabaseConnection,
+} from "@wavesrcool/flows-functions";
 
 export class FlowsCoreDatabasePostgreSQLConnection {
-  private db: ReturnType<typeof FlowsFunctionsDatabaseConnection>;
+  private databaseConnection: ReturnType<
+    typeof FlowsFunctionsDatabaseConnection
+  >;
 
   constructor(f: TypesFiguresFlowsFunctionsDatabaseConnection) {
-    const db = FlowsFunctionsDatabaseConnection(f);
-    this.db = db;
+    const databaseConnection = FlowsFunctionsDatabaseConnection(f);
+    this.databaseConnection = databaseConnection;
+  }
+
+  public async initialize(): Promise<void> {
+    this.databaseConnection
+      .initialize()
+      .then(() =>
+        console.log(`[flows-core]: Database (PostgreSQL) initialized.`)
+      );
   }
 }
