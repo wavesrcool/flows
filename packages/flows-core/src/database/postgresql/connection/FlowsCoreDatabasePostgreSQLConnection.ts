@@ -13,11 +13,7 @@ export class FlowsCoreDatabasePostgreSQLConnection {
     this.databaseConnection = databaseConnection;
   }
 
-  public async initialize(): Promise<void> {
-    this.databaseConnection
-      .initialize()
-      .then(() =>
-        console.log(`[flows-core]: Database (PostgreSQL) initialized.`)
-      );
+  public get instance() {
+    return this.databaseConnection;
   }
 }

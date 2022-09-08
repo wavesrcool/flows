@@ -2,6 +2,6 @@ import { TypesFiguresFlowsFunctionsDatabaseConnection } from "@wavesrcool/flows-
 export declare class FlowsCoreDatabasePostgreSQLConnection {
     private databaseConnection;
     constructor(f: TypesFiguresFlowsFunctionsDatabaseConnection);
-    initialize(): Promise<void>;
+    get instance(): import("typeorm").DataSource;
 }
 //# sourceMappingURL=FlowsCoreDatabasePostgreSQLConnection.d.ts.map
