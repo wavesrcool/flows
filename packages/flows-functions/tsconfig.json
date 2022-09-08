@@ -3,7 +3,9 @@
     "compilerOptions": {
         "outDir": "./lib",
         "rootDir": "./src",
-        "composite": true
+        "composite": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
     },
     "include": [
         "src/**/*"
@@ -14,6 +16,6 @@
         },
         {
             "path": "../flows-models"
-        }
+        },
     ]
 }

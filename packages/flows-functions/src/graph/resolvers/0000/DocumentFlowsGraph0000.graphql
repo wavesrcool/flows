@@ -1,0 +1,7 @@
+query FlowsGraph0000() {
+  FlowsGraph0000() {
+    pass
+    message
+    timestamp
+  }
+}

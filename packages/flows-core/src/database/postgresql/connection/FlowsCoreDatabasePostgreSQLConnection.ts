@@ -1,6 +1,6 @@
 import {
   FlowsFunctionsDatabaseConnection,
-  TypesFiguresFlowsFunctionsDatabaseConnection,
+  TypesFlowsFunctionsFiguresDatabaseConnection,
 } from "@wavesrcool/flows-functions";
 
 export class FlowsCoreDatabasePostgreSQLConnection {
@@ -8,7 +8,7 @@ export class FlowsCoreDatabasePostgreSQLConnection {
     typeof FlowsFunctionsDatabaseConnection
   >;
 
-  constructor(f: TypesFiguresFlowsFunctionsDatabaseConnection) {
+  constructor(f: TypesFlowsFunctionsFiguresDatabaseConnection) {
     const databaseConnection = FlowsFunctionsDatabaseConnection(f);
     this.databaseConnection = databaseConnection;
   }

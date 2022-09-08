@@ -15,7 +15,7 @@
     "test": "yarn jest --coverage",
     "rename": "node --loader ts-node/esm rename.ts",
     "rma": "rm -f yarn.lock && npm exec --workspaces -- npx rimraf node_modules && npx rimraf node_modules",
-    "rmbin": "rm -f yarn.lock && npm exec --workspaces -- npx rimraf bin && npx rimraf bin",
+    "rmlib": "rm -f yarn.lock && npm exec --workspaces -- npx rimraf lib && npx rimraf lib",
     "flc": "code packages/flows-core",
     "flf": "code packages/flows-functions",
     "flm": "code packages/flows-models",

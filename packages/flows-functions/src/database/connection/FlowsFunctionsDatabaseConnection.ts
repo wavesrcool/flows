@@ -5,11 +5,11 @@ import {
   FlowsModelsEmailMessage,
 } from "@wavesrcool/flows-models";
 import { DataSource, DataSourceOptions } from "typeorm";
-import { TypesFiguresFlowsFunctionsDatabaseConnection } from "./TypesFiguresFlowsFunctionsDatabaseConnection";
+import { TypesFlowsFunctionsFiguresDatabaseConnection } from "./TypesFlowsFunctionsFiguresDatabaseConnection";
 
 export const FlowsFunctionsDatabaseConnection = ({
   migrations,
-}: TypesFiguresFlowsFunctionsDatabaseConnection): DataSource => {
+}: TypesFlowsFunctionsFiguresDatabaseConnection): DataSource => {
   const url = process.env.FLOWS_GLOBAL_POSTGRES_URL;
 
   if (!url) {

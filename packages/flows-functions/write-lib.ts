@@ -4,6 +4,7 @@ import * as fs from "fs";
 import glob from "glob";
 
 const libraryPrefix = "FlowsFunctions";
+const typesPrefix = "TypesFlowsFunctions";
 
 export default function writeIndex(
   src: string,
@@ -39,15 +40,27 @@ writeIndex("src", (err, res) => {
       const line = String(line0);
       const writable = line.replace("src/", "./").replace(".ts", "");
       const split = writable.split("/");
-      const name = split.pop();
+      let name = split.pop() || "";
+      const namePrefix = name.slice(0, `${libraryPrefix}`.length);
+      const namePrefixTypes = name.slice(0, `${typesPrefix}`.length);
 
       if (
-        !name?.includes(libraryPrefix) ||
+        !(namePrefix === libraryPrefix || namePrefixTypes === typesPrefix) ||
         name.includes(".txt") ||
         name.includes(".test") ||
-        name.includes(".spec")
+        name.includes(".spec") ||
+        name.includes(".evaluate") ||
+        name.includes(".graphql")
       ) {
         return;
+      }
+
+      if (name.includes(".resolver")) {
+        name = name.slice(0, -`.resolver`.length);
+      }
+
+      if (name.includes(".class")) {
+        name = name.slice(0, -`.class`.length);
       }
 
       const libraryExport = `export { ${name} } from '${writable}'`;

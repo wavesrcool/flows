@@ -1,0 +1,7 @@
+mutation flowAccounts0001($flow: flowAccounts0001i!) {
+  flowAccounts0001(flow: $flow) {
+    pass
+    message
+    timestamp
+  }
+}
