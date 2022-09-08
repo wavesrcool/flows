@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "[Flows]: Publishing new release [PATCH]."
+echo "[Flows]: Publishing new release (patch)."
 
 ARG1="$1"
 
