@@ -1,6 +1,6 @@
 {
   "name": "@wavesrcool/flows-core",
-  "version": "0.6.13",
+  "version": "0.6.14",
   "author": "Tyson Lupul <wavesrcool@icloud.com>",
   "license": "MIT",
   "main": "lib/index.js",
@@ -42,7 +42,7 @@
     "prettier": "^2.7.1"
   },
   "dependencies": {
-    "@wavesrcool/flows-io": "^0.6.12",
+    "@wavesrcool/flows-io": "^0.6.13",
     "@wavesrcool/flows-types": "^0.6.5"
   },
   "gitHead": "316a829827b489b2ff94b8c1d25c64319d0952f4"
