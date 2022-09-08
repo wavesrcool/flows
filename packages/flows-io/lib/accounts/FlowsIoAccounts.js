@@ -19,9 +19,13 @@ const helmet_1 = __importDefault(require("helmet"));
 const routes_1 = require("./routes/routes");
 const FlowsIoAccounts = ({ env, corsOrigin, port, datasource, }) => __awaiter(void 0, void 0, void 0, function* () {
     const PROD = env === "production";
-    yield datasource.initialize().then(() => __awaiter(void 0, void 0, void 0, function* () {
-        console.log("[flow-accounts] Database initialization complete.");
-    }));
+    console.log(!!datasource);
+    /*
+    await datasource.initialize().then(async () => {
+      console.log("[flow-accounts] Database initialization complete.");
+    })
+  
+    */
     const app = (0, express_1.default)();
     app.use((0, helmet_1.default)());
     if (PROD) {

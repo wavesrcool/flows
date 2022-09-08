@@ -12,10 +12,14 @@ export const FlowsIoAccounts = async ({
 }: TypesFiguresFlowsIoAccounts): Promise<typeof app> => {
   const PROD = env === "production";
 
+  console.log(!!datasource);
+
+  /*
   await datasource.initialize().then(async () => {
     console.log("[flow-accounts] Database initialization complete.");
-  });
+  })
 
+  */
   const app = express();
   app.use(helmet());
 

@@ -4,7 +4,7 @@
  * @created 8 7 2022
  *
  */
-export { FlowsFunctionsDatabasePostgresqlDataSource } from './database/postgresql/data-source/FlowsFunctionsDatabasePostgresqlDataSource';
+export { FlowsFunctionsDatabaseConnection } from './database/connection/FlowsFunctionsDatabaseConnection';
 export { FlowsFunctionsEncryptionTextDecode } from './encryption/text/decode/FlowsFunctionsEncryptionTextDecode';
 export { FlowsFunctionsEncryptionTextEncode } from './encryption/text/encode/FlowsFunctionsEncryptionTextEncode';
 export { FlowsFunctionsHashText } from './hash/text/FlowsFunctionsHashText';

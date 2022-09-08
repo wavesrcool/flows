@@ -1,1 +1,1 @@
-{"version":3,"file":"FlowsIoAccounts.d.ts","sourceRoot":"","sources":["../../src/accounts/FlowsIoAccounts.ts"],"names":[],"mappings":"AAIA,OAAO,EAAE,2BAA2B,EAAE,MAAM,+BAA+B,CAAC;AAE5E,eAAO,MAAM,eAAe,2CAKzB,2BAA2B,yDA4B7B,CAAC"}
+{"version":3,"file":"FlowsIoAccounts.d.ts","sourceRoot":"","sources":["../../src/accounts/FlowsIoAccounts.ts"],"names":[],"mappings":"AAIA,OAAO,EAAE,2BAA2B,EAAE,MAAM,+BAA+B,CAAC;AAE5E,eAAO,MAAM,eAAe,2CAKzB,2BAA2B,yDAgC7B,CAAC"}
