@@ -1,14 +1,18 @@
 /**
  * * Flows Documentation
  *
- * @created 8 7 2022
+ * @created 8 8 2022
  *
  */
       
-      export { FlowsFunctionsDatabaseConnection } from './database/connection/FlowsFunctionsDatabaseConnection'
+      export { FlowsFunctionsAppApiInstance } from './app/api/instance/FlowsFunctionsAppApiInstance'
+export { FlowsFunctionsAppApiRouter } from './app/api/router/FlowsFunctionsAppApiRouter'
+export { FlowsFunctionsDatabaseConnection } from './database/connection/FlowsFunctionsDatabaseConnection'
 export { TypesFiguresFlowsFunctionsDatabaseConnection } from './database/connection/TypesFiguresFlowsFunctionsDatabaseConnection'
 export { FlowsFunctionsEncryptionTextDecode } from './encryption/text/decode/FlowsFunctionsEncryptionTextDecode'
 export { FlowsFunctionsEncryptionTextEncode } from './encryption/text/encode/FlowsFunctionsEncryptionTextEncode'
+export { FlowsFunctionsGraphInstance } from './graph/instance/FlowsFunctionsGraphInstance'
+export { TypesFlowsFunctionsGraphInstanceContext } from './graph/instance/TypesFlowsFunctionsGraphInstanceContext'
 export { FlowsFunctionsHashText } from './hash/text/FlowsFunctionsHashText'
 export { FlowsFunctionsIoControllersBreathe } from './io/controllers/breathe/FlowsFunctionsIoControllersBreathe'
 export { FlowsFunctionsIoControllersIndexSimple } from './io/controllers/index/simple/FlowsFunctionsIoControllersIndexSimple'

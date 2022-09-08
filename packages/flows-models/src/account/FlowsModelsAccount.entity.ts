@@ -12,8 +12,6 @@ import {
 import { FlowsModelsEmailLocal } from "../local/FlowsModelsEmailLocal.entity";
 import { FlowsModelsAccountRecords } from "./_objects/records/FlowsModelsAccountRecords";
 
-console.log(`publish`);
-
 @ObjectType()
 @Entity()
 export class FlowsModelsAccount extends BaseEntity {
