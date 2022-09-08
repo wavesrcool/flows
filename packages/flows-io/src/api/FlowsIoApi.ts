@@ -31,7 +31,7 @@ export const FlowsIoApi = async ({
     path: `/graph`,
   });
 
-  const port = process.env.FLOWS_LOCAL_PORT || 4000;
+  const port = process.env.PORT || process.env.FLOWS_LOCAL_PORT || 4000;
 
   app.listen(port, (): void => {
     console.log(`[flows-api] (env) ${process.env.NODE_ENV || "no env"}`);
