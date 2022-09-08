@@ -1,6 +1,6 @@
 {
   "name": "@wavesrcool/flows-io",
-  "version": "6.30.2",
+  "version": "6.30.3",
   "author": "Tyson Lupul <wavesrcool@icloud.com>",
   "license": "MIT",
   "main": "lib/index.js",
