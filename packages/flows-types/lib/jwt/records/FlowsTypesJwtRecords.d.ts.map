@@ -1,1 +1,0 @@
-{"version":3,"file":"FlowsTypesJwtRecords.d.ts","sourceRoot":"","sources":["../../../src/jwt/records/FlowsTypesJwtRecords.ts"],"names":[],"mappings":"AAAA,oBAAY,oBAAoB,GAAG;IACjC,OAAO,EAAE;QACP,KAAK,EAAE,MAAM,CAAC;QACd,GAAG,EAAE,MAAM,CAAC;KACb,CAAC;CACH,CAAC"}
