@@ -1,11 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { FlowsIoAccounts } from "@wavesrcool/flows-io";
-import { FlowsTypesIoAccountsFigure } from "@wavesrcool/flows-types";
+import {
+  FlowsIoAccounts,
+  TypesFiguresFlowsIoAccounts,
+} from "@wavesrcool/flows-io";
 
 export class FlowsCoreIoAccounts {
-  private ioAccountsFigure: FlowsTypesIoAccountsFigure;
+  private ioAccountsFigure: TypesFiguresFlowsIoAccounts;
 
-  constructor(figure: FlowsTypesIoAccountsFigure) {
+  constructor(figure: TypesFiguresFlowsIoAccounts) {
     this.ioAccountsFigure = figure;
   }
 

@@ -3,8 +3,11 @@
   "version": "0.6.4",
   "author": "Tyson Lupul <wavesrcool@icloud.com>",
   "license": "MIT",
-  "main": "bin/index.js",
-  "types": "bin/index.d.ts",
+    "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "./lib"
+  ],
   "repository": {
     "type": "git",
     "directory": "packages/flows-types",
@@ -14,10 +17,10 @@
     "access": "public"
   },
   "scripts": {
-    "_0bin": "rm -rf bin",
+    "_0lib": "rm -rf bin",
     "_0tsc": "rm -f tsconfig.tsbuildinfo",
     "w": "tsc -w",
-    "c": "yarn _0bin && yarn _0tsc && yarn wl && tsc --build",
+    "c": "yarn _0lib && yarn _0tsc && yarn wl && tsc --build",
     "build": "yarn && yarn lint && yarn c",
     "prepack": "yarn build",
     "test": "yarn jest",

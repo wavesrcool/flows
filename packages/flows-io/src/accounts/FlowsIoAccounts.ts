@@ -1,26 +1,16 @@
 import express from "express";
 import cors from "cors";
 import helmet from "helmet";
-import { FlowsTypesIoAccountsFigure } from "@wavesrcool/flows-types";
-import { FlowsFunctionsDatabasePostgresqlDataSource } from "@wavesrcool/flows-functions";
 import { routes } from "./routes/routes";
+import { TypesFiguresFlowsIoAccounts } from "./TypesFiguresFlowsIoAccounts";
 
 export const FlowsIoAccounts = async ({
   env,
   corsOrigin,
   port,
-}: FlowsTypesIoAccountsFigure): Promise<typeof app> => {
+  datasource,
+}: TypesFiguresFlowsIoAccounts): Promise<typeof app> => {
   const PROD = env === "production";
-
-  const cwd = process.cwd();
-
-  console.log(cwd, `cwd`);
-
-  const fig = {
-    migrations: [""], // @tmp
-  };
-
-  const datasource = FlowsFunctionsDatabasePostgresqlDataSource(fig);
 
   await datasource.initialize().then(async () => {
     console.log("[flow-accounts] Database initialization complete.");
