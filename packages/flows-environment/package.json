@@ -1,0 +1,43 @@
+{
+  "name": "@wavesrcool/flows-environment",
+  "version": "0.0.0",
+  "description": "Simple executable script to write \"flows\" .env.example environment configuration file.",
+  "author": "Tyson Lupul <wavesrcool@icloud.com>",
+  "license": "MIT",
+  "files": [
+    "./lib"
+  ],
+  "bin": "lib/bin.js",
+  "repository": {
+    "type": "git",
+    "directory": "packages/flows-environment",
+    "url": "https://github.com/wavesrcool/flows.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "_0lib": "rm -rf lib",
+    "_0tsc": "rm -f tsconfig.tsbuildinfo",
+    "w": "tsc -w",
+    "c": "yarn _0lib && yarn _0tsc && tsc --build",
+    "build": "yarn && yarn lint && yarn c",
+    "prepack": "yarn build",
+    "test": "yarn jest",
+    "lint": "eslint \"./src/**/*.{ts,tsx}\" --max-warnings=0 --fix"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.36.1",
+    "@typescript-eslint/parser": "^5.36.1",
+    "eslint": "^8.23.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.30.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-unused-imports": "^2.0.0",
+    "prettier": "^2.7.1"
+  }
+}

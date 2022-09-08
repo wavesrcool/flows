@@ -5,6 +5,9 @@
             "@wavesrcool/flows-core/*": [
                 "flows-core/src/*"
             ],
+            "@wavesrcool/flows-environment/*": [
+                "flows-environment/src/*"
+            ],
             "@wavesrcool/flows-functions/*": [
                 "flows-functions/src/*"
             ],
@@ -23,6 +26,9 @@
     "references": [
         {
             "path": "packages/flows-core"
+        },
+        {
+            "path": "packages/flows-environment"
         },
         {
             "path": "packages/flows-functions"
