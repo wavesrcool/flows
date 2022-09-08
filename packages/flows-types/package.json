@@ -17,7 +17,7 @@
     "access": "public"
   },
   "scripts": {
-    "_0lib": "rm -rf bin",
+    "_0lib": "rm -rf lib",
     "_0tsc": "rm -f tsconfig.tsbuildinfo",
     "w": "tsc -w",
     "c": "yarn _0lib && yarn _0tsc && yarn wl && tsc --build",
