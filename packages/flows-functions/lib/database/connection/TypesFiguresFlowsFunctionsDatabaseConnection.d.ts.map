@@ -1,0 +1,1 @@
+{"version":3,"file":"TypesFiguresFlowsFunctionsDatabaseConnection.d.ts","sourceRoot":"","sources":["../../../src/database/connection/TypesFiguresFlowsFunctionsDatabaseConnection.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,iBAAiB,EAAE,MAAM,SAAS,CAAC;AAE5C,oBAAY,4CAA4C,GAAG;IACzD,UAAU,EAAE,iBAAiB,CAAC,YAAY,CAAC,CAAC;CAC7C,CAAC"}

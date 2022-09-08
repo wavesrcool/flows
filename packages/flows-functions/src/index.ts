@@ -6,6 +6,7 @@
  */
       
       export { FlowsFunctionsDatabaseConnection } from './database/connection/FlowsFunctionsDatabaseConnection'
+export { TypesFiguresFlowsFunctionsDatabaseConnection } from './database/connection/TypesFiguresFlowsFunctionsDatabaseConnection'
 export { FlowsFunctionsEncryptionTextDecode } from './encryption/text/decode/FlowsFunctionsEncryptionTextDecode'
 export { FlowsFunctionsEncryptionTextEncode } from './encryption/text/encode/FlowsFunctionsEncryptionTextEncode'
 export { FlowsFunctionsHashText } from './hash/text/FlowsFunctionsHashText'

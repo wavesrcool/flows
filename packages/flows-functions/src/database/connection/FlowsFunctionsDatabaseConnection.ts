@@ -5,10 +5,7 @@ import {
   FlowsModelsEmailMessage,
 } from "@wavesrcool/flows-models";
 import { DataSource, DataSourceOptions } from "typeorm";
-
-export type TypesFiguresFlowsFunctionsDatabaseConnection = {
-  migrations: DataSourceOptions["migrations"];
-};
+import { TypesFiguresFlowsFunctionsDatabaseConnection } from "./TypesFiguresFlowsFunctionsDatabaseConnection";
 
 export const FlowsFunctionsDatabaseConnection = ({
   migrations,
