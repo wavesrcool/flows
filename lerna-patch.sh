@@ -4,12 +4,6 @@ echo "[Flows]: Publishing new release [PATCH]."
 
 ARG1="$1"
 
-yb
-
-ga
-gcu
-gp
-
 if [ ARG1 == "all" ]; then
     echo "[Flows]: ... using --force-publish"
     npx lerna version patch --force-publish
