@@ -1,6 +1,6 @@
 {
   "name": "@wavesrcool/flows-functions",
-  "version": "6.30.3",
+  "version": "6.30.4",
   "author": "Tyson Lupul <wavesrcool@icloud.com>",
   "license": "MIT",
   "main": "lib/index.js",
@@ -48,8 +48,8 @@
   },
   "gitHead": "316a829827b489b2ff94b8c1d25c64319d0952f4",
   "dependencies": {
-    "@wavesrcool/flows-models": "^6.30.2",
-    "@wavesrcool/flows-types": "^6.30.2",
+    "@wavesrcool/flows-models": "^6.30.3",
+    "@wavesrcool/flows-types": "^6.30.3",
     "apollo-server-express": "2.16.1",
     "class-validator": "^0.13.2",
     "cors": "^2.8.5",
