@@ -1,14 +1,14 @@
 import { Router, Express } from "express";
-import { FlowsFunctionsIoControllersBreathe } from "../../../../src/io/controllers/breathe/FlowsFunctionsIoControllersBreathe";
-import { FlowsFunctionsIoControllersIndexSimple } from "../../../../src/io/controllers/index/simple/FlowsFunctionsIoControllersIndexSimple";
-import { FlowsFunctionsIoControllersKeysAccessSign } from "../../../../src/io/controllers/keys/access/sign/FlowsFunctionsIoControllersKeysAccessSign";
-import { FlowsFunctionsIoControllersKeysAccessVerify } from "../../../../src/io/controllers/keys/access/verify/FlowsFunctionsIoControllersKeysAccessVerify";
-import { FlowsFunctionsIoMiddlewareRequestHeadersXFlowsAccess } from "../../../../src/io/middleware/request/headers/x-flows-access/FlowsFunctionsIoMiddlewareRequestHeadersXFlowsAccess";
-import { FlowsFunctionsIoMiddlewareRequestHeadersXFlowsAccount } from "../../../../src/io/middleware/request/headers/x-flows-account/FlowsFunctionsIoMiddlewareRequestHeadersXFlowsAccount";
-import { FlowsFunctionsIoMiddlewareRequestHeadersXFlowsToken } from "../../../../src/io/middleware/request/headers/x-flows-token/FlowsFunctionsIoMiddlewareRequestHeadersXFlowsToken";
-import { FlowsFunctionsIoMiddlewareRequestIpAddress } from "../../../../src/io/middleware/request/ip-address/FlowsFunctionsIoMiddlewareRequestIpAddress";
-import { FlowsFunctionsIoMiddlewareResponseLocalsIpAddress } from "../../../../src/io/middleware/response/locals/ip-address/FlowsFunctionsIoMiddlewareResponseLocalsIpAddress";
-import { FlowsFunctionsIoMiddlewareResponseLocalsXFlowsAccount } from "../../../../src/io/middleware/response/locals/x-flows-account/FlowsFunctionsIoMiddlewareResponseLocalsXFlowsAccount";
+import { FlowsFunctionsIoControllersBreathe } from "../../../io/controllers/breathe/FlowsFunctionsIoControllersBreathe";
+import { FlowsFunctionsIoControllersIndexSimple } from "../../../io/controllers/index/simple/FlowsFunctionsIoControllersIndexSimple";
+import { FlowsFunctionsIoControllersKeysAccessSign } from "../../../io/controllers/keys/access/sign/FlowsFunctionsIoControllersKeysAccessSign";
+import { FlowsFunctionsIoControllersKeysAccessVerify } from "../../../io/controllers/keys/access/verify/FlowsFunctionsIoControllersKeysAccessVerify";
+import { FlowsFunctionsIoMiddlewareRequestHeadersXFlowsAccess } from "../../../io/middleware/request/headers/x-flows-access/FlowsFunctionsIoMiddlewareRequestHeadersXFlowsAccess";
+import { FlowsFunctionsIoMiddlewareRequestHeadersXFlowsAccount } from "../../../io/middleware/request/headers/x-flows-account/FlowsFunctionsIoMiddlewareRequestHeadersXFlowsAccount";
+import { FlowsFunctionsIoMiddlewareRequestHeadersXFlowsToken } from "../../../io/middleware/request/headers/x-flows-token/FlowsFunctionsIoMiddlewareRequestHeadersXFlowsToken";
+import { FlowsFunctionsIoMiddlewareRequestIpAddress } from "../../../io/middleware/request/ip-address/FlowsFunctionsIoMiddlewareRequestIpAddress";
+import { FlowsFunctionsIoMiddlewareResponseLocalsIpAddress } from "../../../io/middleware/response/locals/ip-address/FlowsFunctionsIoMiddlewareResponseLocalsIpAddress";
+import { FlowsFunctionsIoMiddlewareResponseLocalsXFlowsAccount } from "../../../io/middleware/response/locals/x-flows-account/FlowsFunctionsIoMiddlewareResponseLocalsXFlowsAccount";
 
 const controllers = {
   index: FlowsFunctionsIoControllersIndexSimple,
@@ -43,6 +43,7 @@ const router = Router();
 export type TypesFiguresFlowsFunctionsAppApiRouter = {
   app: Express;
 };
+
 export const FlowsFunctionsAppApiRouter = ({
   app,
 }: TypesFiguresFlowsFunctionsAppApiRouter): void => {
