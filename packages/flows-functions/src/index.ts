@@ -5,9 +5,10 @@
  *
  */
       
-      export { FlowsFunctionsDatabaseConnectionApi } from './database/connection/api/FlowsFunctionsDatabaseConnectionApi'
-export { TypesFiguresFlowsFunctionsDatabaseConnectionApi } from './database/connection/api/TypesFiguresFlowsFunctionsDatabaseConnectionApi'
-export { FlowsFunctionsDatabaseConnectionKeys } from './database/connection/keys/FlowsFunctionsDatabaseConnectionKeys'
+      export { FlowsFunctionsDatabaseConnectionKeys } from './database/connection/keys/FlowsFunctionsDatabaseConnectionKeys'
+export { FlowsFunctionsDatabaseConnectionRoot } from './database/connection/root/FlowsFunctionsDatabaseConnectionRoot'
+export { TypesFiguresFlowsFunctionsDatabaseConnectionRoot } from './database/connection/root/TypesFiguresFlowsFunctionsDatabaseConnectionRoot'
+export { FlowsFunctionsDatabaseUrl } from './database/url/FlowsFunctionsDatabaseUrl'
 export { FlowsFunctionsEncryptionTextDecode } from './encryption/text/decode/FlowsFunctionsEncryptionTextDecode'
 export { FlowsFunctionsEncryptionTextEncode } from './encryption/text/encode/FlowsFunctionsEncryptionTextEncode'
 export { FlowsFunctionsGraphInstance } from './graph/instance/FlowsFunctionsGraphInstance'

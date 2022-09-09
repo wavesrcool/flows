@@ -1,13 +1,8 @@
 import { DataSource, DataSourceOptions } from "typeorm";
+import { FlowsFunctionsDatabaseUrl } from "../../url/FlowsFunctionsDatabaseUrl";
 
 export const FlowsFunctionsDatabaseConnectionKeys = (): DataSource => {
-  const url = process.env.FLOWS_GLOBAL_POSTGRES_URL;
-
-  if (!url) {
-    throw new Error(
-      `[flows]: Error. FlowsFunctionsDatabaseConnectionKeys. process.env.FLOWS_GLOBAL_POSTGRES_URL`
-    );
-  }
+  const url = FlowsFunctionsDatabaseUrl();
 
   const options: DataSourceOptions = {
     name: "default",

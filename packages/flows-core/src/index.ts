@@ -5,4 +5,6 @@
  *
  */
       
-      export { FlowsCoreIoKeys } from './io/keys/FlowsCoreIoKeys'
+      export { FlowsCoreKeys } from './keys/FlowsCoreKeys'
+export { FlowsCoreRoot } from './root/FlowsCoreRoot'
+export { TypesFiguresFlowsCoreRoot } from './root/TypesFiguresFlowsCoreRoot'

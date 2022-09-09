@@ -3,7 +3,7 @@
 import { FlowsFunctionsDatabaseConnectionKeys } from "@wavesrcool/flows-functions";
 import { FlowsIoKeys } from "@wavesrcool/flows-io";
 
-export class FlowsCoreIoKeys {
+export class FlowsCoreKeys {
   private dbConnectionKeys: ReturnType<
     typeof FlowsFunctionsDatabaseConnectionKeys
   >;
