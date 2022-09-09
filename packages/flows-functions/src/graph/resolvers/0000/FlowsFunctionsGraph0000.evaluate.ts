@@ -1,9 +1,9 @@
-import { TypesFlowsFunctionsGraphInstanceContext } from "../../instance/TypesFlowsFunctionsGraphInstanceContext";
+import { TypesFlowsFunctionsGraphInstancesAccountsContext } from "../../instances/accounts/TypesFlowsFunctionsGraphInstancesAccountsContext";
 import { FlowsFunctionsGraph0000Response } from "./FlowsFunctionsGraph0000Response.class";
 import { TypesFlowsGraphComplete0000 } from "./TypesFlowsGraphComplete0000";
 
 export const FlowsFunctionsGraph0000e = async (
-  ctx: TypesFlowsFunctionsGraphInstanceContext
+  ctx: TypesFlowsFunctionsGraphInstancesAccountsContext
 ): Promise<FlowsFunctionsGraph0000Response> => {
   try {
     console.log(!!ctx, `0000`);

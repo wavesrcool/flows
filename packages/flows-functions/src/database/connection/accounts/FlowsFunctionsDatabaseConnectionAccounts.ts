@@ -5,13 +5,13 @@ import {
   FlowsModelsEmailMessage,
 } from "@wavesrcool/flows-models";
 import { DataSource, DataSourceOptions } from "typeorm";
-import { FlowsFunctionsDatabaseUrl } from "../../url/FlowsFunctionsDatabaseUrl";
+import { FlowsFunctionsEnvironmentGlobalPostgresUrl } from "../../../environment/global-postgres-url/FlowsFunctionsEnvironmentGlobalPostgresUrl";
 import { TypesFiguresFlowsFunctionsDatabaseConnectionAccounts } from "./TypesFiguresFlowsFunctionsDatabaseConnectionAccounts";
 
 export const FlowsFunctionsDatabaseConnectionAccounts = ({
   migrations,
 }: TypesFiguresFlowsFunctionsDatabaseConnectionAccounts): DataSource => {
-  const url = FlowsFunctionsDatabaseUrl();
+  const url = FlowsFunctionsEnvironmentGlobalPostgresUrl();
 
   const options: DataSourceOptions = {
     name: "default",

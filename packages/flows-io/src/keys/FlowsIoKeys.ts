@@ -11,7 +11,7 @@ export const FlowsIoKeys = async ({
 
   const { app, router } = FlowsFunctionsIoInstanceKeys();
 
-  routes({ app, router });
+  routes({ app, router, connection });
 
   const port = process.env.PORT || process.env.FLOWS_LOCAL_PORT || 4444;
 

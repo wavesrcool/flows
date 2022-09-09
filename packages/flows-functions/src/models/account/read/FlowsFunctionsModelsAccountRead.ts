@@ -3,17 +3,17 @@ import { DataSource } from "typeorm";
 
 export type TypesFiguresFlowsFunctionsModelsAccountRead = {
   value: string;
-  ds: DataSource;
+  connection: DataSource;
 };
 
 export const FlowsFunctionsModelsAccountRead = async ({
-  ds,
+  connection,
   value,
 }: TypesFiguresFlowsFunctionsModelsAccountRead): Promise<
   FlowsModelsAccount | undefined
 > => {
   try {
-    const read = await ds
+    const read = await connection
       .createQueryBuilder()
       .select("account")
       .from(FlowsModelsAccount, "account")

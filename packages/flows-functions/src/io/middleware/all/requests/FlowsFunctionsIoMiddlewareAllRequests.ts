@@ -1,5 +1,7 @@
 /* eslint-disable no-param-reassign */
 import { RequestHandler } from "express";
+import { FlowsFunctionsEnvironmentGlobalXFlowsAccess } from "../../../../environment/global-x-flows-access/FlowsFunctionsEnvironmentGlobalXFlowsAccess";
+import { FlowsFunctionsEnvironmentLocalRoutesUnsecured } from "../../../../environment/local-routes-unsecured/FlowsFunctionsEnvironmentLocalRoutesUnsecured";
 
 export const FlowsFunctionsIoMiddlewareAllRequests: RequestHandler = (
   req,
@@ -7,11 +9,7 @@ export const FlowsFunctionsIoMiddlewareAllRequests: RequestHandler = (
   next
 ): ReturnType<RequestHandler> => {
   try {
-    const routesUnsecured = process.env.FLOWS_LOCAL_ROUTES_UNSECURED;
-    if (!routesUnsecured) {
-      throw new Error(`[flows]: Error. FLOWS_LOCAL_ROUTES_UNSECURED`);
-    }
-
+    const routesUnsecured = FlowsFunctionsEnvironmentLocalRoutesUnsecured();
     const { ip: ip0 } = req;
     const iplist = ip0.split(":");
     let ip: string;
@@ -46,11 +44,7 @@ export const FlowsFunctionsIoMiddlewareAllRequests: RequestHandler = (
       return;
     }
 
-    const access = process.env.FLOWS_GLOBAL_X_FLOWS_ACCESS;
-    if (!access) {
-      throw new Error(`[flows]: Error. FLOWS_GLOBAL_X_FLOWS_ACCESS`);
-    }
-
+    const access = FlowsFunctionsEnvironmentGlobalXFlowsAccess();
     if (!(xFlowsAccess === access)) {
       res.status(400).send({ error: "access invalidated" });
       return;

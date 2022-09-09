@@ -1,5 +1,5 @@
 import { Ctx, Query, Resolver } from "type-graphql";
-import { TypesFlowsFunctionsGraphInstanceContext } from "../../instance/TypesFlowsFunctionsGraphInstanceContext";
+import { TypesFlowsFunctionsGraphInstancesAccountsContext } from "../../instances/accounts/TypesFlowsFunctionsGraphInstancesAccountsContext";
 import { FlowsFunctionsGraph0000e } from "./FlowsFunctionsGraph0000.evaluate";
 import { FlowsFunctionsGraph0000Response } from "./FlowsFunctionsGraph0000Response.class";
 
@@ -7,7 +7,7 @@ import { FlowsFunctionsGraph0000Response } from "./FlowsFunctionsGraph0000Respon
 export class FlowsFunctionsGraph0000 {
   @Query(() => FlowsFunctionsGraph0000Response)
   async FlowsFunctionsGraph0000(
-    @Ctx() ctx: TypesFlowsFunctionsGraphInstanceContext
+    @Ctx() ctx: TypesFlowsFunctionsGraphInstancesAccountsContext
   ): Promise<FlowsFunctionsGraph0000Response> {
     try {
       const evaluate = await FlowsFunctionsGraph0000e(ctx);

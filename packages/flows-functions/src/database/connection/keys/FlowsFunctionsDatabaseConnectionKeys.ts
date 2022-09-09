@@ -1,8 +1,8 @@
 import { DataSource, DataSourceOptions } from "typeorm";
-import { FlowsFunctionsDatabaseUrl } from "../../url/FlowsFunctionsDatabaseUrl";
+import { FlowsFunctionsEnvironmentGlobalPostgresUrl } from "../../../environment/global-postgres-url/FlowsFunctionsEnvironmentGlobalPostgresUrl";
 
 export const FlowsFunctionsDatabaseConnectionKeys = (): DataSource => {
-  const url = FlowsFunctionsDatabaseUrl();
+  const url = FlowsFunctionsEnvironmentGlobalPostgresUrl();
 
   const options: DataSourceOptions = {
     name: "default",

@@ -1,17 +1,17 @@
 import { DataSource } from "typeorm";
 import { ApolloServer } from "apollo-server-express";
 import { buildSchema } from "type-graphql";
-import { TypesFlowsFunctionsGraphInstanceContext } from "./TypesFlowsFunctionsGraphInstanceContext";
-import { FlowsFunctionsGraph0000 } from "../resolvers/0000/FlowsFunctionsGraph0000.resolver";
-import { FlowsFunctionsGraph0001 } from "../resolvers/0001/FlowsFunctionsGraph0001.resolver";
+import { FlowsFunctionsGraph0000 } from "../../resolvers/0000/FlowsFunctionsGraph0000.resolver";
+import { FlowsFunctionsGraph0001 } from "../../resolvers/0001/FlowsFunctionsGraph0001.resolver";
+import { TypesFlowsFunctionsGraphInstancesAccountsContext } from "./TypesFlowsFunctionsGraphInstancesAccountsContext";
 
-export type TypesFiguresFlowsFunctionsGraphInstance = {
+export type TypesFiguresFlowsFunctionsGraphInstancesAccounts = {
   connection: DataSource;
 };
 
-export const FlowsFunctionsGraphInstance = async ({
+export const FlowsFunctionsGraphInstancesAccounts = async ({
   connection,
-}: TypesFiguresFlowsFunctionsGraphInstance): Promise<
+}: TypesFiguresFlowsFunctionsGraphInstancesAccounts): Promise<
   ApolloServer | undefined
 > => {
   try {
@@ -25,7 +25,7 @@ export const FlowsFunctionsGraphInstance = async ({
       context: async ({
         req,
         res,
-      }): Promise<TypesFlowsFunctionsGraphInstanceContext> => {
+      }): Promise<TypesFlowsFunctionsGraphInstancesAccountsContext> => {
         return {
           req,
           res,
@@ -36,7 +36,7 @@ export const FlowsFunctionsGraphInstance = async ({
 
     return apollo;
   } catch (e) {
-    console.log(e, "FlowsFunctionsGraphInstance");
+    console.log(e, "FlowsFunctionsGraphInstancesAccounts");
     return undefined;
   }
 };

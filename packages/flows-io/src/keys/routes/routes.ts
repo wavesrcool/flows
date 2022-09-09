@@ -1,11 +1,12 @@
 import { TypesResolveFlowsFunctionsIoInstanceKeys } from "@wavesrcool/flows-functions";
 import { controllers } from "../controllers/controllers";
 import { middleware } from "../middleware/middleware";
+import { TypesFiguresFlowsIoKeys } from "../TypesFiguresFlowsIoKeys";
 
-export const routes = ({
-  app,
-  router,
-}: TypesResolveFlowsFunctionsIoInstanceKeys): void => {
+export const routes = async (
+  figure: TypesFiguresFlowsIoKeys & TypesResolveFlowsFunctionsIoInstanceKeys
+): Promise<void> => {
+  const { app, router, connection } = figure;
   // all
   router.all("*", [middleware.all.requests, middleware.all.locals]);
 
@@ -15,11 +16,15 @@ export const routes = ({
   // breathe
   router.get("/breathe", controllers.breathe);
 
-  router.post(
-    "/keys/access/sign",
-    [middleware.keys.access.sign.requests, middleware.keys.access.sign.locals],
-    controllers.keys.access.sign
-  );
+  router
+    .route("/keys/access/sign")
+    .post(
+      [
+        middleware.keys.access.sign.requests,
+        middleware.keys.access.sign.locals,
+      ],
+      await controllers.keys.access.sign(connection)
+    );
 
   router.post(
     "/keys/access/verify",
