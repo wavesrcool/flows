@@ -14,6 +14,7 @@ export const FlowsFunctionsDatabaseConnectionAccounts = ({
   const url = FlowsFunctionsEnvironmentGlobalPostgresUrl();
 
   const options: DataSourceOptions = {
+    ssl: true,
     name: "default",
     type: "postgres",
     url,
@@ -30,7 +31,6 @@ export const FlowsFunctionsDatabaseConnectionAccounts = ({
     migrations,
     migrationsRun: true,
     migrationsTableName: "history",
-    ssl: true,
   };
 
   const connection = new DataSource(options);
