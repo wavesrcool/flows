@@ -4,7 +4,8 @@ import * as fs from "fs";
 import glob from "glob";
 
 const libraryPrefix = "FlowsFunctions";
-const typesPrefix = "TypesFlowsFunctions";
+const typesFiguresPrefix = "TypesFiguresFlowsFunctions";
+const typesResolvePrefix = "TypesResolveFlowsFunctions";
 
 export default function writeIndex(
   src: string,
@@ -15,7 +16,7 @@ export default function writeIndex(
 
 writeIndex("src", (err, res) => {
   if (err) {
-    console.log(`[flows] Error. ${err}`);
+    console.log(`[flows]: Error. ${err}`);
   } else {
     const filepath = "src/index.ts";
 
@@ -42,10 +43,21 @@ writeIndex("src", (err, res) => {
       const split = writable.split("/");
       let name = split.pop() || "";
       const namePrefix = name.slice(0, `${libraryPrefix}`.length);
-      const namePrefixTypes = name.slice(0, `${typesPrefix}`.length);
+      const namePrefixTypesFigures = name.slice(
+        0,
+        `${typesFiguresPrefix}`.length
+      );
+      const namePrefixTypesResolve = name.slice(
+        0,
+        `${typesResolvePrefix}`.length
+      );
 
       if (
-        !(namePrefix === libraryPrefix || namePrefixTypes === typesPrefix) ||
+        !(
+          namePrefix === libraryPrefix ||
+          namePrefixTypesFigures === typesFiguresPrefix ||
+          namePrefixTypesResolve === typesResolvePrefix
+        ) ||
         name.includes(".txt") ||
         name.includes(".test") ||
         name.includes(".spec") ||

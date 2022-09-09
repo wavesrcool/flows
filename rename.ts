@@ -33,17 +33,17 @@ const replace = process.argv[4]
 const packagesList = ['core', 'database', 'functions', 'io', 'models', 'types']
 
 if(!packagesList.includes(package)) {
-  const message = `[flows] Error. Not a valid package in argv[2]. Received: "${package}".`
+  const message = `[flows]: Error. Not a valid package in argv[2]. Received: "${package}".`
   throw new Error(message)
 }
 
 if(!find || !(typeof find === 'string')) {
-    const message = `[flows] Error. Not a valid find string in argv[3]. Received: "${find}".`
+    const message = `[flows]: Error. Not a valid find string in argv[3]. Received: "${find}".`
     throw new Error(message)
 }
 
 if(!replace || !(typeof replace === 'string')) {
-    const message = `[flows] Error. Not a valid replace string in argv[4]. Received: "${replace}".`
+    const message = `[flows]: Error. Not a valid replace string in argv[4]. Received: "${replace}".`
     throw new Error(message)
 }
 

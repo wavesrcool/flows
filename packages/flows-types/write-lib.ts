@@ -14,7 +14,7 @@ export default function writeIndex(
 
 writeIndex("src", (err, res) => {
   if (err) {
-    console.log(`[flows] Error. ${err}`);
+    console.log(`[flows]: Error. ${err}`);
   } else {
     const filepath = "src/index.ts";
 

@@ -9,7 +9,7 @@ export const FlowsFunctionsIoControllersBreathe = async (
     return;
   } catch (e) {
     console.log(
-      `[flows-io] Error. FlowsFunctionsIoControllersBreathe. ${String(e)}`
+      `[flows]: Error. FlowsFunctionsIoControllersBreathe. ${String(e)}`
     );
     res.status(500).send();
     return;

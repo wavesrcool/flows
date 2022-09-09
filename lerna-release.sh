@@ -1,9 +1,9 @@
 #!/bin/bash
 
-echo "[Flows]: Publishing new release."
+echo "[flows]: Publishing new release."
 
 if [ $1 == "all" ]; then
-    echo "[Flows]: ... using --force-publish"
+    echo "[flows]: ... using --force-publish"
     npx lerna version --force-publish
 else
     npx lerna version 

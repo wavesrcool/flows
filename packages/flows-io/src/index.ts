@@ -5,5 +5,5 @@
  *
  */
       
-      export { FlowsIoApi } from './api/FlowsIoApi'
-export { TypesFiguresFlowsIoApi } from './api/TypesFiguresFlowsIoApi'
+      export { FlowsIoKeys } from './keys/FlowsIoKeys'
+export { TypesFiguresFlowsIoKeys } from './keys/TypesFiguresFlowsIoKeys'

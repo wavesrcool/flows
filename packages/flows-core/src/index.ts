@@ -7,4 +7,4 @@
       
       export { FlowsCoreDatabasePostgreSQLConnection } from './database/postgresql/connection/FlowsCoreDatabasePostgreSQLConnection'
 export { FlowsCoreDatabasePostgreSQL } from './database/postgresql/FlowsCoreDatabasePostgreSQL'
-export { FlowsCoreIoApi } from './io/api/FlowsCoreIoApi'
+export { FlowsCoreIoKeys } from './io/keys/FlowsCoreIoKeys'
