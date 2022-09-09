@@ -1,5 +1,5 @@
-import { FlowsFunctionsDatabaseConnection } from "@wavesrcool/flows-functions";
+import { FlowsFunctionsDatabaseConnectionKeys } from "@wavesrcool/flows-functions";
 
 export type TypesFiguresFlowsIoKeys = {
-  connection: ReturnType<typeof FlowsFunctionsDatabaseConnection>;
+  connection: ReturnType<typeof FlowsFunctionsDatabaseConnectionKeys>;
 };

@@ -5,16 +5,16 @@ import {
   FlowsModelsEmailMessage,
 } from "@wavesrcool/flows-models";
 import { DataSource, DataSourceOptions } from "typeorm";
-import { TypesFiguresFlowsFunctionsDatabaseConnection } from "./TypesFiguresFlowsFunctionsDatabaseConnection";
+import { TypesFiguresFlowsFunctionsDatabaseConnectionApi } from "./TypesFiguresFlowsFunctionsDatabaseConnectionApi";
 
-export const FlowsFunctionsDatabaseConnection = ({
+export const FlowsFunctionsDatabaseConnectionApi = ({
   migrations,
-}: TypesFiguresFlowsFunctionsDatabaseConnection): DataSource => {
+}: TypesFiguresFlowsFunctionsDatabaseConnectionApi): DataSource => {
   const url = process.env.FLOWS_GLOBAL_POSTGRES_URL;
 
   if (!url) {
     throw new Error(
-      `[flows-database] Error. FlowsFunctionsDatabaseConnection. process.env.FLOWS_GLOBAL_POSTGRES_URL`
+      `[flows]: Error. FlowsFunctionsDatabaseConnectionApi. process.env.FLOWS_GLOBAL_POSTGRES_URL`
     );
   }
 

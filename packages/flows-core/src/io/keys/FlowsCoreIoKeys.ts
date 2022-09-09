@@ -1,16 +1,24 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { FlowsIoKeys, TypesFiguresFlowsIoKeys } from "@wavesrcool/flows-io";
+import { FlowsFunctionsDatabaseConnectionKeys } from "@wavesrcool/flows-functions";
+import { FlowsIoKeys } from "@wavesrcool/flows-io";
 
 export class FlowsCoreIoKeys {
-  private ioApiFigure: TypesFiguresFlowsIoKeys;
+  private dbConnectionKeys: ReturnType<
+    typeof FlowsFunctionsDatabaseConnectionKeys
+  >;
 
-  constructor(figure: TypesFiguresFlowsIoKeys) {
-    this.ioApiFigure = figure;
+  constructor() {
+    const dbConnectionKeys = FlowsFunctionsDatabaseConnectionKeys();
+    this.dbConnectionKeys = dbConnectionKeys;
+  }
+
+  public get connection() {
+    return this.dbConnectionKeys;
   }
 
   public async start() {
-    FlowsIoKeys(this.ioApiFigure)
+    FlowsIoKeys({ connection: this.dbConnectionKeys })
       .then(() => {
         console.log(`[flows]: Started. Keys.`);
       })
