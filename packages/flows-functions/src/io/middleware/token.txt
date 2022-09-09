@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
 import { RequestHandler } from "express";
-import { FlowsFunctionsJwtVerify } from "../../../../../jwt/verify/FlowsFunctionsJwtVerify";
+import { FlowsFunctionsJwtVerify } from "../../jwt/verify/FlowsFunctionsJwtVerify";
 
 export const FlowsFunctionsIoMiddlewareRequestHeadersXFlowsToken: RequestHandler =
   async (req, res, next): Promise<ReturnType<RequestHandler>> => {

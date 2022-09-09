@@ -7,17 +7,23 @@ export const FlowsFunctionsIoControllersKeysAccessSign = async (
   res: Response
 ) => {
   try {
-    const { xFlowsAccount } = res.locals;
+    const { xFlowsAccount, xFlowsRefresh } = res.locals;
 
-    if (!xFlowsAccount || !(typeof xFlowsAccount === "string")) {
-      res.status(400).send({ error: "keys-sign-xFlowsAccount" });
-      return;
-    }
+    console.log(xFlowsAccount, xFlowsRefresh);
+
+    // 1. lookup
+    console.log(`@todo lookup xFlowsAccount`);
+
+    // 2. validate
+    console.log(`@todo validate xFlowsRefresh`);
+
+    const value = `${xFlowsAccount}`.trim();
+    const key = `${`account-unique`}`.trim();
 
     const records: FlowsTypesJwtRecords = {
       account: {
-        value: xFlowsAccount,
-        key: "@todo-add-database-lookup-on-xFlowsAccount",
+        value,
+        key,
       },
     };
 
@@ -31,7 +37,7 @@ export const FlowsFunctionsIoControllersKeysAccessSign = async (
 
     if (jwtSignComplete && jwtSignEncoded && !jwtSignMessage) {
       res.status(200).send({
-        message: `[flow-io] Received. (${
+        message: `[flows]: Received. (${
           res.locals.ipAddress || "no-ip-address"
         })`,
         "keys-access-sign": true,
@@ -48,8 +54,8 @@ export const FlowsFunctionsIoControllersKeysAccessSign = async (
     res.status(400).send({ error: "keys-access-sign" });
   } catch (e) {
     console.log(
-      `[flow-io] Error. FlowsFunctionsIoControllersKeysAccessSign. ${String(e)}`
+      `[flows]: Error. FlowsFunctionsIoControllersKeysAccessSign. ${String(e)}`
     );
-    res.status(500).send({ error: "flow-io" });
+    res.status(500).send({ error: "[flows]" });
   }
 };

@@ -1,25 +1,27 @@
 import {
-  FlowsFunctionsIoMiddlewareRequestHeadersXFlowsAccess,
-  FlowsFunctionsIoMiddlewareRequestHeadersXFlowsAccount,
-  FlowsFunctionsIoMiddlewareRequestHeadersXFlowsToken,
-  FlowsFunctionsIoMiddlewareRequestIpAddress,
-  FlowsFunctionsIoMiddlewareResponseLocalsIpAddress,
-  FlowsFunctionsIoMiddlewareResponseLocalsXFlowsAccount,
+  FlowsFunctionsIoMiddlewareAllLocals,
+  FlowsFunctionsIoMiddlewareAllRequests,
+  FlowsFunctionsIoMiddlewareKeysAccessSignLocals,
+  FlowsFunctionsIoMiddlewareKeysAccessSignRequests,
+  FlowsFunctionsIoMiddlewareKeysAccessVerifyLocals,
+  FlowsFunctionsIoMiddlewareKeysAccessVerifyRequests,
 } from "@wavesrcool/flows-functions";
 
 export const middleware = {
-  request: {
-    headers: {
-      xFlowsAccess: FlowsFunctionsIoMiddlewareRequestHeadersXFlowsAccess,
-      xFlowsAccount: FlowsFunctionsIoMiddlewareRequestHeadersXFlowsAccount,
-      xFlowsToken: FlowsFunctionsIoMiddlewareRequestHeadersXFlowsToken,
-    },
-    ipAddress: FlowsFunctionsIoMiddlewareRequestIpAddress,
+  all: {
+    requests: FlowsFunctionsIoMiddlewareAllRequests,
+    locals: FlowsFunctionsIoMiddlewareAllLocals,
   },
-  response: {
-    locals: {
-      ipAddress: FlowsFunctionsIoMiddlewareResponseLocalsIpAddress,
-      xFlowsAccount: FlowsFunctionsIoMiddlewareResponseLocalsXFlowsAccount,
+  keys: {
+    access: {
+      sign: {
+        requests: FlowsFunctionsIoMiddlewareKeysAccessSignRequests,
+        locals: FlowsFunctionsIoMiddlewareKeysAccessSignLocals,
+      },
+      verify: {
+        requests: FlowsFunctionsIoMiddlewareKeysAccessVerifyRequests,
+        locals: FlowsFunctionsIoMiddlewareKeysAccessVerifyLocals,
+      },
     },
   },
 };
