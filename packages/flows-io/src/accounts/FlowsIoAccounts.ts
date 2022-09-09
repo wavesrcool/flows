@@ -3,11 +3,11 @@ import {
   FlowsFunctionsIoInstanceKeys,
 } from "@wavesrcool/flows-functions";
 import { routes } from "./routes/routes";
-import { TypesFiguresFlowsIoRoot } from "./TypesFiguresFlowsIoRoot";
+import { TypesFiguresFlowsIoAccounts } from "./TypesFiguresFlowsIoAccounts";
 
-export const FlowsIoRoot = async ({
+export const FlowsIoAccounts = async ({
   connection,
-}: TypesFiguresFlowsIoRoot): Promise<typeof apollo> => {
+}: TypesFiguresFlowsIoAccounts): Promise<typeof apollo> => {
   await connection
     .initialize()
     .then(() => console.log(`[flows]: Database connection established.`));

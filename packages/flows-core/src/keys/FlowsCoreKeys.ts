@@ -4,21 +4,19 @@ import { FlowsFunctionsDatabaseConnectionKeys } from "@wavesrcool/flows-function
 import { FlowsIoKeys } from "@wavesrcool/flows-io";
 
 export class FlowsCoreKeys {
-  private dbConnectionKeys: ReturnType<
-    typeof FlowsFunctionsDatabaseConnectionKeys
-  >;
+  private dbconnection: ReturnType<typeof FlowsFunctionsDatabaseConnectionKeys>;
 
   constructor() {
-    const dbConnectionKeys = FlowsFunctionsDatabaseConnectionKeys();
-    this.dbConnectionKeys = dbConnectionKeys;
+    const dbconnection = FlowsFunctionsDatabaseConnectionKeys();
+    this.dbconnection = dbconnection;
   }
 
   public get connection() {
-    return this.dbConnectionKeys;
+    return this.dbconnection;
   }
 
   public async start() {
-    FlowsIoKeys({ connection: this.dbConnectionKeys })
+    FlowsIoKeys({ connection: this.dbconnection })
       .then(() => {
         console.log(`[flows]: Complete. Keys.`);
       })

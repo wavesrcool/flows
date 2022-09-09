@@ -1,5 +1,5 @@
 import { DataSourceOptions } from "typeorm";
 
-export type TypesFiguresFlowsFunctionsDatabaseConnectionRoot = {
+export type TypesFiguresFlowsFunctionsDatabaseConnectionAccounts = {
   migrations: DataSourceOptions["migrations"];
 };

@@ -6,11 +6,11 @@ import {
 } from "@wavesrcool/flows-models";
 import { DataSource, DataSourceOptions } from "typeorm";
 import { FlowsFunctionsDatabaseUrl } from "../../url/FlowsFunctionsDatabaseUrl";
-import { TypesFiguresFlowsFunctionsDatabaseConnectionRoot } from "./TypesFiguresFlowsFunctionsDatabaseConnectionRoot";
+import { TypesFiguresFlowsFunctionsDatabaseConnectionAccounts } from "./TypesFiguresFlowsFunctionsDatabaseConnectionAccounts";
 
-export const FlowsFunctionsDatabaseConnectionRoot = ({
+export const FlowsFunctionsDatabaseConnectionAccounts = ({
   migrations,
-}: TypesFiguresFlowsFunctionsDatabaseConnectionRoot): DataSource => {
+}: TypesFiguresFlowsFunctionsDatabaseConnectionAccounts): DataSource => {
   const url = FlowsFunctionsDatabaseUrl();
 
   const options: DataSourceOptions = {
