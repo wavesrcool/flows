@@ -20,7 +20,7 @@ export class FlowsCoreKeys {
   public async start() {
     FlowsIoKeys({ connection: this.dbConnectionKeys })
       .then(() => {
-        console.log(`[flows]: Started. Keys.`);
+        console.log(`[flows]: Complete. Keys.`);
       })
       .catch((e: any) => {
         console.log(`[flows]: Error. Keys. ${String(e)}`);

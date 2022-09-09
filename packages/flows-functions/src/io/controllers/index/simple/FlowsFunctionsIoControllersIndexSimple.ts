@@ -7,8 +7,8 @@ export const FlowsFunctionsIoControllersIndexSimple = async (
   try {
     const ip = res.locals.ipAddress || "no-ip-address";
     const message = `[flows]: Received. (${ip})`;
-    res.setHeader("Content-Type", "text/html");
-    res.status(200).send(`<p>${message}</p>`);
+    res.set("Content-Type", "text/html");
+    res.send(Buffer.from(`<p>${message}</p>`));
     return;
   } catch (e) {
     console.log(

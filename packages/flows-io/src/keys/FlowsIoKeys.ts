@@ -23,7 +23,7 @@ export const FlowsIoKeys = async ({
   }
 
   await apollo.start().then(() => {
-    console.log("[flows]: Started apollo server.");
+    console.log("[flows]: Apollo server running.");
   });
 
   apollo.applyMiddleware({
