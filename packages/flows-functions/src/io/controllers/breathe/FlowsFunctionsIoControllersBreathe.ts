@@ -5,6 +5,7 @@ export const FlowsFunctionsIoControllersBreathe = async (
   res: Response
 ) => {
   try {
+    console.log(`[flows]: Breathe.`);
     res.status(200).send();
     return;
   } catch (e) {

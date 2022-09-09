@@ -12,20 +12,6 @@ export const FlowsFunctionsIoMiddlewareAllRequests: RequestHandler = (
       throw new Error(`[flows]: Error. FLOWS_LOCAL_ROUTES_UNSECURED`);
     }
 
-    const routesUnsecuredList = String(routesUnsecured).split(",");
-
-    console.log(routesUnsecuredList, "routesUnsecuredList");
-
-    if (
-      routesUnsecuredList &&
-      routesUnsecuredList.length &&
-      routesUnsecuredList.includes(req.path)
-    ) {
-      console.log(`[flows]: Message. Handing Unsecured route '${req.path}'.`);
-      next();
-      return;
-    }
-
     const { ip: ip0 } = req;
     const iplist = ip0.split(":");
     let ip: string;
@@ -42,6 +28,33 @@ export const FlowsFunctionsIoMiddlewareAllRequests: RequestHandler = (
       ipAddress = ip;
     }
     res.locals.ipAddress = ipAddress;
+
+    const routesUnsecuredList = String(routesUnsecured).split(",");
+
+    if (
+      routesUnsecuredList &&
+      routesUnsecuredList.length &&
+      routesUnsecuredList.includes(req.path)
+    ) {
+      next();
+      return;
+    }
+
+    const xFlowsAccess = req.headers["x-flows-access"];
+    if (!(xFlowsAccess && typeof xFlowsAccess === "string")) {
+      res.status(400).send({ error: "x-flows-access" });
+      return;
+    }
+
+    const access = process.env.FLOWS_GLOBAL_X_FLOWS_ACCESS;
+    if (!access) {
+      throw new Error(`[flows]: Error. FLOWS_GLOBAL_X_FLOWS_ACCESS`);
+    }
+
+    if (!(xFlowsAccess === access)) {
+      res.status(400).send({ error: "access invalidated" });
+      return;
+    }
 
     next();
   } catch (e) {
