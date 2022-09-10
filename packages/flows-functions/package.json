@@ -1,6 +1,6 @@
 {
   "name": "@wavesrcool/flows-functions",
-  "version": "6.30.29",
+  "version": "6.30.30",
   "author": "Tyson Lupul <wavesrcool@icloud.com>",
   "license": "MIT",
   "main": "lib/index.js",
@@ -49,7 +49,7 @@
   },
   "gitHead": "1b97707ad8d6458e54ea4c6824cafce3d6ace859",
   "dependencies": {
-    "@wavesrcool/flows-models": "^6.30.12",
+    "@wavesrcool/flows-models": "^6.30.13",
     "@wavesrcool/flows-types": "^6.30.10",
     "apollo-server-express": "2.16.1",
     "argon2": "^0.29.1",
