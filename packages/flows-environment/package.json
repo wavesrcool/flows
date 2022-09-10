@@ -1,6 +1,6 @@
 {
   "name": "@wavesrcool/flows-environment",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Simple executable script to write \"flows\" .env.example environment configuration file.",
   "author": "Tyson Lupul <wavesrcool@icloud.com>",
   "license": "MIT",
