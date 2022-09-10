@@ -1,6 +1,6 @@
 import { Express, Router } from "express";
 
-export type TypesResolveFlowsFunctionsIoInstanceKeys = {
+export type TypesResolveFlowsFunctionsIoInstancesKeys = {
   app: Express;
   router: Router;
 };

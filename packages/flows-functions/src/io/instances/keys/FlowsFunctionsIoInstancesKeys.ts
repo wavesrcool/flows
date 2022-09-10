@@ -1,15 +1,16 @@
 import cors from "cors";
 import express from "express";
 import helmet from "helmet";
-import { TypesResolveFlowsFunctionsIoInstanceKeys } from "./TypesResolveFlowsFunctionsIoInstanceKeys";
+import { TypesResolveFlowsFunctionsIoInstancesKeys } from "./TypesResolveFlowsFunctionsIoInstancesKeys";
 
-export const FlowsFunctionsIoInstanceKeys =
-  (): TypesResolveFlowsFunctionsIoInstanceKeys => {
+export const FlowsFunctionsIoInstancesKeys =
+  (): TypesResolveFlowsFunctionsIoInstancesKeys => {
     const PROD = process.env.NODE_ENV === "production";
     const CORS_ORIGIN = process.env.FLOWS_LOCAL_CORS_ORIGIN;
 
     const app = express();
     app.use(helmet());
+    app.use(express.json());
 
     if (PROD) {
       app.set("trust proxy", 1);
