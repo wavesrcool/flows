@@ -13,12 +13,12 @@ export const FlowsFunctionsIoMiddlewareKeysAccessSignRequests: RequestHandler =
 
       const { account, password } = body;
 
-      if (!account && typeof account === "string") {
+      if (!(account && typeof account === "string")) {
         res.status(400).send({ error: "request body account undefined" });
         return;
       }
 
-      if (!password && typeof password === "string") {
+      if (!(password && typeof password === "string")) {
         res.status(400).send({ error: "request body password undefined" });
         return;
       }
