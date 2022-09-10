@@ -172,7 +172,7 @@ The request to create an account for the email emailAddress "${emailAddress}" wa
     const figureMailSend: TypesFiguresFlowsFunctionsMailSend = {
       connection,
       mail,
-      local: "help",
+      local: emailLocal,
       toName,
       toEmail: emailAddress,
       subject: `Your request to add email "${emailAddress}" was successful.`,
