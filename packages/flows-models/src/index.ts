@@ -3,7 +3,7 @@ import "reflect-metadata";
       /**
  * * Flows Documentation
  *
- * @created 8 9 2022
+ * @created 8 10 2022
  *
  */
       
@@ -16,6 +16,8 @@ export { FlowsModelsEmailAddressRecordsInput } from './email-address/_inputs/rec
 export { FlowsModelsEmailAddressRecords } from './email-address/_objects/records/FlowsModelsEmailAddressRecords'
 export { FlowsModelsEmailAddress } from './email-address/FlowsModelsEmailAddress.entity'
 export { FlowsModelsEmailLocalCreateInput } from './email-local/_inputs/create/FlowsModelsEmailLocalCreateInput'
+export { FlowsModelsEmailLocalRecordsInput } from './email-local/_inputs/records/FlowsModelsEmailLocalRecordsInput'
+export { FlowsModelsEmailLocalRecords } from './email-local/_objects/records/FlowsModelsEmailLocalRecords'
 export { FlowsModelsEmailLocal } from './email-local/FlowsModelsEmailLocal.entity'
 export { FlowsModelsEmailMessageCreateInput } from './email-message/_inputs/create/FlowsModelsEmailMessageCreateInput'
 export { FlowsModelsEmailMessageRecordsInput } from './email-message/_inputs/records/FlowsModelsEmailMessageRecordsInput'

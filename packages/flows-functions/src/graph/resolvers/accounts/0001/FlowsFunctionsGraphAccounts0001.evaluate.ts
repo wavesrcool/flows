@@ -2,6 +2,8 @@ import {
   FlowsModelsEmailAddressCreateInput,
   FlowsModelsEmailAddressRecordsInput,
 } from "@wavesrcool/flows-models";
+import { FlowsFunctionsMailSend } from "../../../../mail/send/FlowsFunctionsMailSend";
+import { TypesFiguresFlowsFunctionsMailSend } from "../../../../mail/send/TypesFiguresFlowsFunctionsMailSend";
 import {
   FlowsFunctionsModelsEmailAddressCreate,
   TypesFiguresFlowsFunctionsModelsEmailAddressCreate,
@@ -14,6 +16,7 @@ import { TypesFlowsGraphComplete0001 } from "./TypesFlowsGraphAccountsComplete00
 export const FlowsFunctionsGraphAccounts0001e = async (
   {
     connection,
+    mail,
     res: { locals },
   }: TypesFlowsFunctionsGraphInstancesAccountsContext,
   flow: FlowsFunctionsGraphAccounts0001Input
@@ -59,6 +62,35 @@ export const FlowsFunctionsGraphAccounts0001e = async (
       JSON.stringify(modelsCreateEmail, null, 4),
       `modelsCreateEmail`
     );
+
+    const toName = `${nameFirst} ${nameLast}`;
+
+    const text = `Hello ${toName},
+    
+The request to create an account for the email address "${address}" was successful.
+  
+  -- sent automatically at ${new Date().toISOString()}`;
+
+    const figureMailSend: TypesFiguresFlowsFunctionsMailSend = {
+      connection,
+      mail,
+      local: "help",
+      toName,
+      toEmail: address,
+      subject: `Your request to add email "${address}" was successful.`,
+      text,
+      html: `<p>${text}</p>`,
+    };
+
+    const mailSend = await FlowsFunctionsMailSend(figureMailSend);
+
+    if (!mailSend.pass || mailSend.message) {
+      return {
+        pass: false,
+        message: mailSend.message || "mail send error",
+        timestamp: Date.now(),
+      };
+    }
 
     const complete: TypesFlowsGraphComplete0001 = {
       pass: true,

@@ -1,7 +1,7 @@
 /**
  * * Flows Documentation
  *
- * @created 8 9 2022
+ * @created 8 10 2022
  *
  */
       
@@ -10,8 +10,11 @@ export { TypesFiguresFlowsFunctionsDatabaseConnectionAccounts } from './database
 export { FlowsFunctionsDatabaseConnectionKeys } from './database/connection/keys/FlowsFunctionsDatabaseConnectionKeys'
 export { FlowsFunctionsEncryptionTextDecode } from './encryption/text/decode/FlowsFunctionsEncryptionTextDecode'
 export { FlowsFunctionsEncryptionTextEncode } from './encryption/text/encode/FlowsFunctionsEncryptionTextEncode'
+export { FlowsFunctionsEnvironmentGlobalMailgunKey } from './environment/global-mailgun-key/FlowsFunctionsEnvironmentGlobalMailgunKey'
 export { FlowsFunctionsEnvironmentGlobalPostgresUrl } from './environment/global-postgres-url/FlowsFunctionsEnvironmentGlobalPostgresUrl'
 export { FlowsFunctionsEnvironmentGlobalXFlowsCredential } from './environment/global-x-flows-credential/FlowsFunctionsEnvironmentGlobalXFlowsCredential'
+export { FlowsFunctionsEnvironmentLocalInstanceJurisdiction } from './environment/local-instance-jurisdiction/FlowsFunctionsEnvironmentLocalInstanceJurisdiction'
+export { FlowsFunctionsEnvironmentLocalMailDomain } from './environment/local-mail-domain/FlowsFunctionsEnvironmentLocalMailDomain'
 export { FlowsFunctionsEnvironmentLocalRoutesUnsecured } from './environment/local-routes-unsecured/FlowsFunctionsEnvironmentLocalRoutesUnsecured'
 export { FlowsFunctionsGraphInstancesAccounts } from './graph/instances/accounts/FlowsFunctionsGraphInstancesAccounts'
 export { FlowsFunctionsGraphAccounts0000 } from './graph/resolvers/accounts/0000/FlowsFunctionsGraphAccounts0000.resolver'
@@ -36,6 +39,9 @@ export { FlowsFunctionsIoMiddlewareKeysAccessVerifyLocals } from './io/middlewar
 export { FlowsFunctionsIoMiddlewareKeysAccessVerifyRequests } from './io/middleware/keys/access/verify/requests/FlowsFunctionsIoMiddlewareKeysAccessVerifyRequests'
 export { FlowsFunctionsJwtSign } from './jwt/sign/FlowsFunctionsJwtSign'
 export { FlowsFunctionsJwtVerify } from './jwt/verify/FlowsFunctionsJwtVerify'
+export { FlowsFunctionsMailInstance } from './mail/instance/FlowsFunctionsMailInstance'
+export { FlowsFunctionsMailSend } from './mail/send/FlowsFunctionsMailSend'
+export { TypesFiguresFlowsFunctionsMailSend } from './mail/send/TypesFiguresFlowsFunctionsMailSend'
 export { FlowsFunctionsMailgunVerifySignKey } from './mailgun/verify/sign-key/FlowsFunctionsMailgunVerifySignKey'
 export { FlowsFunctionsModelsRelationsAccountLocalCreate } from './models/_relations/account-local/FlowsFunctionsModelsRelationsAccountLocalCreate'
 export { FlowsFunctionsModelsRelationsAccountLocalRemove } from './models/_relations/account-local/FlowsFunctionsModelsRelationsAccountLocalRemove'

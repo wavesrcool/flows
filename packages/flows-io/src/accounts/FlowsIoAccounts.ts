@@ -1,6 +1,7 @@
 import {
   FlowsFunctionsGraphInstancesAccounts,
   FlowsFunctionsIoInstancesAccounts,
+  FlowsFunctionsMailInstance,
 } from "@wavesrcool/flows-functions";
 import { routes } from "./routes/routes";
 import { TypesFiguresFlowsIoAccounts } from "./TypesFiguresFlowsIoAccounts";
@@ -12,10 +13,15 @@ export const FlowsIoAccounts = async ({
     .initialize()
     .then(() => console.log(`[flows]: Database connection established.`));
 
+  const mail = FlowsFunctionsMailInstance();
+
   const { app, router } = FlowsFunctionsIoInstancesAccounts();
   routes({ app, router, connection });
 
-  const apollo = await FlowsFunctionsGraphInstancesAccounts({ connection });
+  const apollo = await FlowsFunctionsGraphInstancesAccounts({
+    connection,
+    mail,
+  });
 
   if (!apollo) {
     throw new Error(`[flows]: Error. No graph instance.`);

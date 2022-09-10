@@ -12,6 +12,7 @@ import {
 } from "typeorm";
 import { FlowsModelsAccount } from "../account/FlowsModelsAccount.entity";
 import { FlowsModelsEmailMessage } from "../email-message/FlowsModelsEmailMessage.entity";
+import { FlowsModelsEmailLocalRecords } from "./_objects/records/FlowsModelsEmailLocalRecords";
 
 @ObjectType()
 @Entity()
@@ -43,6 +44,16 @@ export class FlowsModelsEmailLocal extends BaseEntity {
   @Field(() => String)
   @Column({ type: "varchar", unique: true })
   value!: string;
+
+  // * * * * * * * * * * * * * * * * * * *
+  //
+  //
+  //  records
+  //
+  // * * * * * * * * * * * * * * * * * * *
+  @Field(() => FlowsModelsEmailLocalRecords, { nullable: true })
+  @Column({ type: "json", nullable: true })
+  records!: FlowsModelsEmailLocalRecords | null;
 
   // * * * * * * * * * * * * * * * * * * *
   //
