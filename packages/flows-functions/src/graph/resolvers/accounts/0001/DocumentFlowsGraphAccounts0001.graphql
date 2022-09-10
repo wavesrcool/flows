@@ -1,5 +1,5 @@
-mutation FlowsFunctionsGraph0001($flow: FlowsFunctionsGraph0001Input!) {
-  FlowsFunctionsGraph0001(flow: $flow) {
+mutation FlowsFunctionsGraphAccounts0001($flow: FlowsFunctionsGraphAccounts0001Input!) {
+  FlowsFunctionsGraphAccounts0001(flow: $flow) {
     pass
     message
     timestamp

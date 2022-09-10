@@ -1,5 +1,5 @@
-query FlowsFunctionsGraph0000 {
-  FlowsFunctionsGraph0000 {
+query FlowsFunctionsGraphAccounts0000 {
+  FlowsFunctionsGraphAccounts0000 {
     pass
     message
     timestamp
