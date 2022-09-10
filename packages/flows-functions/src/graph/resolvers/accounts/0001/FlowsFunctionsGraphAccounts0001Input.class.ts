@@ -9,5 +9,14 @@ export class FlowsFunctionsGraphAccounts0001Input {
   lastName!: string;
 
   @Field(() => String)
-  email!: string;
+  emailAddress!: string;
+
+  @Field(() => String)
+  emailLocal!: string;
+
+  @Field(() => String)
+  account!: string;
+
+  @Field(() => String)
+  password!: string;
 }

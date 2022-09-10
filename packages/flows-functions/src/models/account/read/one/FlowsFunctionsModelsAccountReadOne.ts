@@ -1,15 +1,10 @@
 import { FlowsModelsAccount } from "@wavesrcool/flows-models";
-import { DataSource } from "typeorm";
+import { TypesFiguresFlowsFunctionsModelsAccountReadOne } from "./TypesFiguresFlowsFunctionsModelsAccountReadOne";
 
-export type TypesFiguresFlowsFunctionsModelsAccountRead = {
-  value: string;
-  connection: DataSource;
-};
-
-export const FlowsFunctionsModelsAccountRead = async ({
+export const FlowsFunctionsModelsAccountReadOne = async ({
   connection,
   value,
-}: TypesFiguresFlowsFunctionsModelsAccountRead): Promise<
+}: TypesFiguresFlowsFunctionsModelsAccountReadOne): Promise<
   FlowsModelsAccount | undefined
 > => {
   try {
@@ -26,7 +21,7 @@ export const FlowsFunctionsModelsAccountRead = async ({
 
     return read;
   } catch (e) {
-    console.log(e, "FlowsFunctionsModelsAccountRead");
+    console.log(e, "FlowsFunctionsModelsAccountReadOne");
     return undefined;
   }
 };

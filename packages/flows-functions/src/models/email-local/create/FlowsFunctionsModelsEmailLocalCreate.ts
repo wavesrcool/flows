@@ -11,7 +11,7 @@ export type TypesFiguresFlowsFunctionsModelsEmailLocalCreate = {
 
 export const FlowsFunctionsModelsEmailLocalCreate = async ({
   connection,
-  input: { value },
+  input: { value, records },
 }: TypesFiguresFlowsFunctionsModelsEmailLocalCreate): Promise<
   number | undefined
 > => {
@@ -20,7 +20,7 @@ export const FlowsFunctionsModelsEmailLocalCreate = async ({
       .createQueryBuilder()
       .insert()
       .into(FlowsModelsEmailLocal)
-      .values({ value })
+      .values({ value, records })
       .execute();
 
     const { id: pkCreate } = create.raw[0];

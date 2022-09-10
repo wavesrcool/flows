@@ -39,9 +39,9 @@ export const FlowsFunctionsMailSend = async (
       };
     }
 
-    const { localContactName, replyToLocal } = records;
+    const { contactName, replyToLocal } = records;
 
-    const from = `${localContactName} <${replyToLocal}@${domain}>`;
+    const from = `${contactName} <${replyToLocal}@${domain}>`;
 
     const { toName, toEmail } = figure;
     const to = `${toName} <${toEmail}>`;

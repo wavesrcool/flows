@@ -9,8 +9,8 @@ export class FlowsModelsAccountCreateInput {
   @Field(() => String)
   ipAddress!: string;
 
-  @Field(() => Boolean)
-  isAdmin!: boolean;
+  @Field(() => String)
+  password!: string;
 
   @Field(() => FlowsModelsAccountRecordsInput)
   records!: FlowsModelsAccountRecordsInput;

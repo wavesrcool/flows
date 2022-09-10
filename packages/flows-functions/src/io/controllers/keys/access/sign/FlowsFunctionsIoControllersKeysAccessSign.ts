@@ -3,7 +3,7 @@ import { Request, Response } from "express";
 import { DataSource } from "typeorm";
 import argon2 from "argon2";
 import { FlowsFunctionsJwtSign } from "../../../../../jwt/sign/FlowsFunctionsJwtSign";
-import { FlowsFunctionsModelsAccountRead } from "../../../../../models/account/read/FlowsFunctionsModelsAccountRead";
+import { FlowsFunctionsModelsAccountReadOne } from "../../../../../models/account/read/one/FlowsFunctionsModelsAccountReadOne";
 
 export type TypesFiguresFlowsFunctionsIoControllersKeysAccessSignSuccess = {
   pass: boolean;
@@ -25,7 +25,7 @@ export const FlowsFunctionsIoControllersKeysAccessSign = async (
       const password = String(keysSignPassword || "");
 
       // 1. lookup account
-      const readAccount = await FlowsFunctionsModelsAccountRead({
+      const readAccount = await FlowsFunctionsModelsAccountReadOne({
         connection,
         value: account,
       });

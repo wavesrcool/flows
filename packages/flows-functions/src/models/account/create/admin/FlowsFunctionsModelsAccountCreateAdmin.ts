@@ -1,20 +1,20 @@
-import argon2 from "argon2";
 import {
   FlowsModelsAccount,
   FlowsModelsAccountCreateInput,
 } from "@wavesrcool/flows-models";
 import { DataSource } from "typeorm";
 import { v4 } from "uuid";
+import argon2 from "argon2";
 
-export type TypesFiguresFlowsFunctionsModelsAccountCreate = {
+export type TypesFiguresFlowsFunctionsModelsAccountCreateAdmin = {
   input: FlowsModelsAccountCreateInput;
   connection: DataSource;
 };
 
-export const FlowsFunctionsModelsAccountCreate = async ({
+export const FlowsFunctionsModelsAccountCreateAdmin = async ({
   connection,
   input,
-}: TypesFiguresFlowsFunctionsModelsAccountCreate): Promise<
+}: TypesFiguresFlowsFunctionsModelsAccountCreateAdmin): Promise<
   number | undefined
 > => {
   try {
@@ -33,10 +33,10 @@ export const FlowsFunctionsModelsAccountCreate = async ({
       .into(FlowsModelsAccount)
       .values({
         value,
-        ipList,
         password,
         passwordDate: date.toISOString(),
-        isAdmin: false,
+        ipList,
+        isAdmin: true,
         refreshToken,
         refreshTokenDate: date,
         records,
@@ -51,7 +51,7 @@ export const FlowsFunctionsModelsAccountCreate = async ({
 
     return pkCreate;
   } catch (e) {
-    console.log(e, "FlowsFunctionsModelsAccountCreate");
+    console.log(e, "FlowsFunctionsModelsAccountCreateAdmin");
     return undefined;
   }
 };
