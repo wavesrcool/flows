@@ -37,9 +37,9 @@ export const FlowsFunctionsIoControllersKeysAccessVerify = async (
       }
     }
 
-    const message = `unauthorized request`;
+    const message = `invalidated request`;
     const failure: TypesFiguresFlowsFunctionsIoControllersKeysAccessSign = {
-      pass: true,
+      pass: false,
       message,
     };
 
