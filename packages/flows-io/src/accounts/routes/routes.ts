@@ -1,20 +1,25 @@
-import { TypesResolveFlowsFunctionsIoInstancesAccounts } from "@wavesrcool/flows-functions";
+import { TypesResolveFlowsFunctionsIoInstancesKeys } from "@wavesrcool/flows-functions";
+import { TypesFiguresFlowsIoKeys } from "../../keys/TypesFiguresFlowsIoKeys";
 import { controllers } from "../controllers/controllers";
 import { middleware } from "../middleware/middleware";
 
-export const routes = ({
-  app,
-  router,
-}: TypesResolveFlowsFunctionsIoInstancesAccounts): void => {
+export const routes = async (
+  figure: TypesFiguresFlowsIoKeys & TypesResolveFlowsFunctionsIoInstancesKeys
+): Promise<void> => {
   // all
-  router.all("*", [middleware.all.requests, middleware.all.locals]);
+  figure.router.all("*", [middleware.all.requests, middleware.all.locals]);
 
   // index
-  router.get("/", controllers.index);
+  figure.router.get("/", controllers.index);
 
   // breathe
-  router.get("/breathe", controllers.breathe);
+  figure.router.get("/breathe", controllers.breathe);
 
-  app.use(router);
+  figure.router.route("/accounts/create").post(
+    // [middleware.accounts.create.requests, middleware.accounts.create.locals],
+    await controllers.accounts.create(figure.connection)
+  );
+
+  figure.app.use(figure.router);
   return;
 };

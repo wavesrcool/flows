@@ -13,7 +13,7 @@ export const FlowsIoAccounts = async ({
     .then(() => console.log(`[flows]: Database connection established.`));
 
   const { app, router } = FlowsFunctionsIoInstancesAccounts();
-  routes({ app, router });
+  routes({ app, router, connection });
 
   const apollo = await FlowsFunctionsGraphInstancesAccounts({ connection });
 

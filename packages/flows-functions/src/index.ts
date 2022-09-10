@@ -20,6 +20,7 @@ export { FlowsFunctionsGraph0001 } from './graph/resolvers/0001/FlowsFunctionsGr
 export { FlowsFunctionsGraph0001Input } from './graph/resolvers/0001/FlowsFunctionsGraph0001Input.class'
 export { FlowsFunctionsGraph0001Response } from './graph/resolvers/0001/FlowsFunctionsGraph0001Response.class'
 export { FlowsFunctionsHashText } from './hash/text/FlowsFunctionsHashText'
+export { FlowsFunctionsIoControllersAccountsCreate } from './io/controllers/accounts/create/FlowsFunctionsIoControllersAccountsCreate'
 export { FlowsFunctionsIoControllersBreathe } from './io/controllers/breathe/FlowsFunctionsIoControllersBreathe'
 export { FlowsFunctionsIoControllersIndexSimple } from './io/controllers/index/simple/FlowsFunctionsIoControllersIndexSimple'
 export { FlowsFunctionsIoControllersKeysAccessSign } from './io/controllers/keys/access/sign/FlowsFunctionsIoControllersKeysAccessSign'
