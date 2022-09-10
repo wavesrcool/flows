@@ -1,4 +1,4 @@
-import { FlowsFunctionsIoInstanceKeys } from "@wavesrcool/flows-functions";
+import { FlowsFunctionsIoInstancesKeys } from "@wavesrcool/flows-functions";
 import { routes } from "./routes/routes";
 import { TypesFiguresFlowsIoKeys } from "./TypesFiguresFlowsIoKeys";
 
@@ -9,7 +9,7 @@ export const FlowsIoKeys = async ({
     .initialize()
     .then(() => console.log(`[flows]: Database connection established.`));
 
-  const { app, router } = FlowsFunctionsIoInstanceKeys();
+  const { app, router } = FlowsFunctionsIoInstancesKeys();
 
   routes({ app, router, connection });
 

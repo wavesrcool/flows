@@ -43,7 +43,7 @@
     "glob": "^8.0.3",
     "prettier": "^2.7.1"
   },
-  "gitHead": "316a829827b489b2ff94b8c1d25c64319d0952f4",
+  "gitHead": "1b97707ad8d6458e54ea4c6824cafce3d6ace859",
   "dependencies": {
     "class-validator": "^0.13.2",
     "graphql": "15.5.0",

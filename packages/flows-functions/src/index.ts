@@ -24,6 +24,8 @@ export { FlowsFunctionsIoControllersBreathe } from './io/controllers/breathe/Flo
 export { FlowsFunctionsIoControllersIndexSimple } from './io/controllers/index/simple/FlowsFunctionsIoControllersIndexSimple'
 export { FlowsFunctionsIoControllersKeysAccessSign } from './io/controllers/keys/access/sign/FlowsFunctionsIoControllersKeysAccessSign'
 export { FlowsFunctionsIoControllersKeysAccessVerify } from './io/controllers/keys/access/verify/FlowsFunctionsIoControllersKeysAccessVerify'
+export { FlowsFunctionsIoInstancesAccounts } from './io/instances/accounts/FlowsFunctionsIoInstancesAccounts'
+export { TypesResolveFlowsFunctionsIoInstancesAccounts } from './io/instances/accounts/TypesResolveFlowsFunctionsIoInstancesAccounts'
 export { FlowsFunctionsIoInstancesKeys } from './io/instances/keys/FlowsFunctionsIoInstancesKeys'
 export { TypesResolveFlowsFunctionsIoInstancesKeys } from './io/instances/keys/TypesResolveFlowsFunctionsIoInstancesKeys'
 export { FlowsFunctionsIoMiddlewareAllLocals } from './io/middleware/all/locals/FlowsFunctionsIoMiddlewareAllLocals'

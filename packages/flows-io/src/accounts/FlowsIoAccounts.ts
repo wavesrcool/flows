@@ -1,6 +1,6 @@
 import {
   FlowsFunctionsGraphInstancesAccounts,
-  FlowsFunctionsIoInstanceKeys,
+  FlowsFunctionsIoInstancesAccounts,
 } from "@wavesrcool/flows-functions";
 import { routes } from "./routes/routes";
 import { TypesFiguresFlowsIoAccounts } from "./TypesFiguresFlowsIoAccounts";
@@ -12,7 +12,7 @@ export const FlowsIoAccounts = async ({
     .initialize()
     .then(() => console.log(`[flows]: Database connection established.`));
 
-  const { app, router } = FlowsFunctionsIoInstanceKeys();
+  const { app, router } = FlowsFunctionsIoInstancesAccounts();
   routes({ app, router });
 
   const apollo = await FlowsFunctionsGraphInstancesAccounts({ connection });

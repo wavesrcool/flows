@@ -1,11 +1,11 @@
-import { TypesResolveFlowsFunctionsIoInstanceKeys } from "@wavesrcool/flows-functions";
+import { TypesResolveFlowsFunctionsIoInstancesAccounts } from "@wavesrcool/flows-functions";
 import { controllers } from "../controllers/controllers";
 import { middleware } from "../middleware/middleware";
 
 export const routes = ({
   app,
   router,
-}: TypesResolveFlowsFunctionsIoInstanceKeys): void => {
+}: TypesResolveFlowsFunctionsIoInstancesAccounts): void => {
   // all
   router.all("*", [middleware.all.requests, middleware.all.locals]);
 

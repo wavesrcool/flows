@@ -1,10 +1,10 @@
-import { TypesResolveFlowsFunctionsIoInstanceKeys } from "@wavesrcool/flows-functions";
+import { TypesResolveFlowsFunctionsIoInstancesKeys } from "@wavesrcool/flows-functions";
 import { controllers } from "../controllers/controllers";
 import { middleware } from "../middleware/middleware";
 import { TypesFiguresFlowsIoKeys } from "../TypesFiguresFlowsIoKeys";
 
 export const routes = async (
-  figure: TypesFiguresFlowsIoKeys & TypesResolveFlowsFunctionsIoInstanceKeys
+  figure: TypesFiguresFlowsIoKeys & TypesResolveFlowsFunctionsIoInstancesKeys
 ): Promise<void> => {
   const { app, router, connection } = figure;
   // all
