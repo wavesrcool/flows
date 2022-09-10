@@ -1,15 +1,10 @@
 import { FlowsModelsEmailAddress } from "@wavesrcool/flows-models";
-import { DataSource } from "typeorm";
+import { TypesFiguresFlowsFunctionsModelsEmailAddressReadOne } from "./TypesFiguresFlowsFunctionsModelsEmailAddressReadOne";
 
-export type TypesFiguresFlowsFunctionsModelsEmailRead = {
-  address: string;
-  connection: DataSource;
-};
-
-export const FlowsFunctionsModelsEmailRead = async ({
+export const FlowsFunctionsModelsEmailAddressReadOne = async ({
   connection,
-  address,
-}: TypesFiguresFlowsFunctionsModelsEmailRead): Promise<
+  value,
+}: TypesFiguresFlowsFunctionsModelsEmailAddressReadOne): Promise<
   FlowsModelsEmailAddress | undefined
 > => {
   try {
@@ -17,12 +12,12 @@ export const FlowsFunctionsModelsEmailRead = async ({
       .createQueryBuilder()
       .select("email")
       .from(FlowsModelsEmailAddress, "email")
-      .where("email.address = :address", { address })
+      .where("email.value = :value", { value })
       .getOne();
 
     console.log(
       JSON.stringify(read, null, 4),
-      `read FlowsFunctionsModelsEmailRead`
+      `read FlowsFunctionsModelsEmailAddressReadOne`
     );
 
     if (!read || !read.id) {
@@ -31,7 +26,7 @@ export const FlowsFunctionsModelsEmailRead = async ({
 
     return read;
   } catch (e) {
-    console.log(e, "FlowsFunctionsModelsEmailRead");
+    console.log(e, "FlowsFunctionsModelsEmailAddressReadOne");
     return undefined;
   }
 };

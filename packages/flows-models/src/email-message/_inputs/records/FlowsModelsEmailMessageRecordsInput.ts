@@ -1,22 +1,5 @@
-import { Field, InputType } from "type-graphql";
+import { InputType } from "type-graphql";
+import { FlowsModelsEmailMessageRecordsBasis } from "../../_basis/FlowsModelsEmailMessageRecordsBasis.basis";
 
 @InputType()
-export class FlowsModelsEmailMessageRecordsInput {
-  @Field(() => String)
-  subject!: string;
-
-  @Field(() => String)
-  strippedText!: string;
-
-  @Field(() => String, { nullable: true })
-  strippedSignature!: string;
-
-  @Field(() => String)
-  signature!: string;
-
-  @Field(() => String)
-  timestamp!: string;
-
-  @Field(() => String)
-  token!: string;
-}
+export class FlowsModelsEmailMessageRecordsInput extends FlowsModelsEmailMessageRecordsBasis {}

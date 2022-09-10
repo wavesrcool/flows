@@ -1,10 +1,5 @@
-import { Field, ObjectType } from "type-graphql";
+import { ObjectType } from "type-graphql";
+import { FlowsModelsEmailLocalRecordsBasis } from "../../_basis/FlowsModelsEmailLocalRecordsBasis.basis";
 
 @ObjectType()
-export class FlowsModelsEmailLocalRecords {
-  @Field(() => String)
-  contactName!: string;
-
-  @Field(() => String)
-  replyToLocal!: string;
-}
+export class FlowsModelsEmailLocalRecords extends FlowsModelsEmailLocalRecordsBasis {}

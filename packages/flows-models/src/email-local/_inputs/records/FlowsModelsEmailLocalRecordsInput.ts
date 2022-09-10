@@ -1,10 +1,5 @@
-import { Field, InputType } from "type-graphql";
+import { InputType } from "type-graphql";
+import { FlowsModelsEmailLocalRecordsBasis } from "../../_basis/FlowsModelsEmailLocalRecordsBasis.basis";
 
 @InputType()
-export class FlowsModelsEmailLocalRecordsInput {
-  @Field(() => String)
-  contactName!: string;
-
-  @Field(() => String)
-  replyToLocal!: string;
-}
+export class FlowsModelsEmailLocalRecordsInput extends FlowsModelsEmailLocalRecordsBasis {}

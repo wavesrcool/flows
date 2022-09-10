@@ -1,10 +1,5 @@
-import { Field, ObjectType } from "type-graphql";
+import { ObjectType } from "type-graphql";
+import { FlowsModelsAccountRecordsBasis } from "../../_basis/FlowsModelsAccountRecordsBasis.basis";
 
 @ObjectType()
-export class FlowsModelsAccountRecords {
-  @Field(() => String)
-  nameFirst!: string;
-
-  @Field(() => String)
-  nameLast!: string;
-}
+export class FlowsModelsAccountRecords extends FlowsModelsAccountRecordsBasis {}

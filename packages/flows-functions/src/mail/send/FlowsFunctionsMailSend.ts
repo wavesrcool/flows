@@ -1,6 +1,6 @@
 import { MailgunMessageData } from "mailgun.js/interfaces/Messages";
 import { FlowsFunctionsEnvironmentLocalMailDomain } from "../../environment/local-mail-domain/FlowsFunctionsEnvironmentLocalMailDomain";
-import { FlowsFunctionsModelsEmailLocalRead } from "../../models/email-local/read/FlowsFunctionsModelsEmailLocalRead";
+import { FlowsFunctionsModelsEmailLocalReadOne } from "../../models/email-local/read/one/FlowsFunctionsModelsEmailLocalReadOne";
 import { TypesFiguresFlowsFunctionsMailSend } from "./TypesFiguresFlowsFunctionsMailSend";
 
 export const FlowsFunctionsMailSend = async (
@@ -16,7 +16,7 @@ export const FlowsFunctionsMailSend = async (
     const { connection, local } = figure;
 
     // lookup email local
-    const modelsReadEmailLocal = await FlowsFunctionsModelsEmailLocalRead({
+    const modelsReadEmailLocal = await FlowsFunctionsModelsEmailLocalReadOne({
       connection,
       value: local,
     });

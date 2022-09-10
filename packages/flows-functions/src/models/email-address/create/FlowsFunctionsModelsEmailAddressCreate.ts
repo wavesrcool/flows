@@ -11,18 +11,19 @@ export type TypesFiguresFlowsFunctionsModelsEmailAddressCreate = {
 
 export const FlowsFunctionsModelsEmailAddressCreate = async ({
   connection,
-  input: { address, ipAddress, records },
+  input,
 }: TypesFiguresFlowsFunctionsModelsEmailAddressCreate): Promise<
   number | undefined
 > => {
   try {
+    const { address: value, ipAddress, records } = input;
     const ipList = [ipAddress];
 
     const create = await connection
       .createQueryBuilder()
       .insert()
       .into(FlowsModelsEmailAddress)
-      .values({ address, ipList, records })
+      .values({ value, ipList, records })
       .execute();
 
     console.log(

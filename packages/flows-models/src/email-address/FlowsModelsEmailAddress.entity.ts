@@ -41,7 +41,7 @@ export class FlowsModelsEmailAddress extends BaseEntity {
 
   @Field(() => String)
   @Column({ type: "varchar", unique: true })
-  address!: string;
+  value!: string;
 
   @Field(() => Boolean)
   @Column({ type: "boolean", default: false })

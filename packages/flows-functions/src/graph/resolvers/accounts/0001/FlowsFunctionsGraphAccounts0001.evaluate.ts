@@ -6,22 +6,25 @@ import {
   FlowsModelsEmailLocalCreateInput,
   FlowsModelsEmailLocalRecordsInput,
 } from "@wavesrcool/flows-models";
-import { FlowsFunctionsModelsRelationsAccountLocalCreate } from "../../../..";
 import { FlowsFunctionsMailSend } from "../../../../mail/send/FlowsFunctionsMailSend";
 import { TypesFiguresFlowsFunctionsMailSend } from "../../../../mail/send/TypesFiguresFlowsFunctionsMailSend";
 import {
   FlowsFunctionsModelsAccountCreate,
   TypesFiguresFlowsFunctionsModelsAccountCreate,
 } from "../../../../models/account/create/FlowsFunctionsModelsAccountCreate";
+import { FlowsFunctionsModelsAccountReadOne } from "../../../../models/account/read/one/FlowsFunctionsModelsAccountReadOne";
 import {
   FlowsFunctionsModelsEmailAddressCreate,
   TypesFiguresFlowsFunctionsModelsEmailAddressCreate,
 } from "../../../../models/email-address/create/FlowsFunctionsModelsEmailAddressCreate";
+import { FlowsFunctionsModelsEmailAddressReadOne } from "../../../../models/email-address/read/one/FlowsFunctionsModelsEmailAddressReadOne";
 
 import {
   TypesFiguresFlowsFunctionsModelsEmailLocalCreate,
   FlowsFunctionsModelsEmailLocalCreate,
 } from "../../../../models/email-local/create/FlowsFunctionsModelsEmailLocalCreate";
+import { FlowsFunctionsModelsEmailLocalReadOne } from "../../../../models/email-local/read/one/FlowsFunctionsModelsEmailLocalReadOne";
+import { FlowsFunctionsModelsRelationsAccountLocalCreate } from "../../../../models/_relations/account-local/FlowsFunctionsModelsRelationsAccountLocalCreate";
 import { TypesFlowsFunctionsGraphInstancesAccountsContext } from "../../../instances/accounts/TypesFlowsFunctionsGraphInstancesAccountsContext";
 import { FlowsFunctionsGraphAccounts0001Input } from "./FlowsFunctionsGraphAccounts0001Input.class";
 import { FlowsFunctionsGraphAccounts0001Response } from "./FlowsFunctionsGraphAccounts0001Response.class";
@@ -51,6 +54,48 @@ export const FlowsFunctionsGraphAccounts0001e = async (
       return { pass: false, message: "ip emailAddress", timestamp: Date.now() };
     }
 
+    // 0-1. check email address doesn't exist
+    const existsEmailAddress = await FlowsFunctionsModelsEmailAddressReadOne({
+      connection,
+      value: emailAddress,
+    });
+
+    if (existsEmailAddress) {
+      return {
+        pass: false,
+        message: `email address "${existsEmailAddress.value}" is registered`,
+        timestamp: Date.now(),
+      };
+    }
+
+    // 0-2. check email local doesn't exist
+    const existsEmailLocal = await FlowsFunctionsModelsEmailLocalReadOne({
+      connection,
+      value: emailLocal,
+    });
+
+    if (existsEmailLocal) {
+      return {
+        pass: false,
+        message: `email local "${existsEmailLocal.value}" is registered`,
+        timestamp: Date.now(),
+      };
+    }
+
+    // 0-3. check account doesn't exist
+    const existsAccount = await FlowsFunctionsModelsAccountReadOne({
+      connection,
+      value: account,
+    });
+
+    if (existsAccount) {
+      return {
+        pass: false,
+        message: `account "${existsAccount.value}" is registered`,
+        timestamp: Date.now(),
+      };
+    }
+
     //
     // 1. create email
     const recordsEmailAddress: FlowsModelsEmailAddressRecordsInput = {
@@ -73,15 +118,10 @@ export const FlowsFunctionsGraphAccounts0001e = async (
     if (!modelsCreateEmailAddress) {
       return {
         pass: false,
-        message: "email emailAddress registered",
+        message: "!modelsCreateEmailAddress",
         timestamp: Date.now(),
       };
     }
-
-    console.log(
-      JSON.stringify(modelsCreateEmailAddress, null, 4),
-      `modelsCreateEmailAddress`
-    );
 
     //
     // 2. create local
@@ -104,15 +144,10 @@ export const FlowsFunctionsGraphAccounts0001e = async (
     if (!modelsCreateEmailLocal) {
       return {
         pass: false,
-        message: "email emailLocal registered",
+        message: "!modelsCreateEmailLocal",
         timestamp: Date.now(),
       };
     }
-
-    console.log(
-      JSON.stringify(modelsCreateEmailLocal, null, 4),
-      `modelsCreateEmailLocal`
-    );
 
     //
     // 3. create account
@@ -137,15 +172,10 @@ export const FlowsFunctionsGraphAccounts0001e = async (
     if (!modelsCreateAccount) {
       return {
         pass: false,
-        message: "account registered",
+        message: "!modelsCreateAccount",
         timestamp: Date.now(),
       };
     }
-
-    console.log(
-      JSON.stringify(modelsCreateAccount, null, 4),
-      `modelsCreateAccount`
-    );
 
     //
     // 4. relation account-local
@@ -163,12 +193,17 @@ export const FlowsFunctionsGraphAccounts0001e = async (
 
     const toName = `${nameFirst} ${nameLast}`;
 
-    const text = `Hello ${toName},
-    
-The request to create an account for the email emailAddress "${emailAddress}" was successful.
-  
-  -- sent automatically at ${new Date().toISOString()}`;
+    const contentGap = " ";
+    const greeting = `Hello ${toName},`;
+    const content1 = `The request to create an account for the email emailAddress "${emailAddress}" was successful.`;
+    const closing = `-- Sent automatically by "flows-accounts" (${new Date().toISOString()})`;
 
+    const textList = [greeting, contentGap, content1, contentGap, closing];
+
+    const text = textList.join("\r\n");
+
+    // add white-space: pre-wrap;
+    const html = `<p>${textList.map((s) => `<p>${s}</p>`)}</p>`;
     const figureMailSend: TypesFiguresFlowsFunctionsMailSend = {
       connection,
       mail,
@@ -177,7 +212,7 @@ The request to create an account for the email emailAddress "${emailAddress}" wa
       toEmail: emailAddress,
       subject: `Your request to add email "${emailAddress}" was successful.`,
       text,
-      html: `<p>${text}</p>`,
+      html,
     };
 
     const mailSend = await FlowsFunctionsMailSend(figureMailSend);

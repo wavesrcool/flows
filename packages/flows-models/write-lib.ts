@@ -48,6 +48,7 @@ writeIndex("src", (err, res) => {
 
       if (
         !name?.includes(libraryPrefix) ||
+        name.includes(".basis") ||
         name.includes(".txt") ||
         name.includes(".test") ||
         name.includes(".spec")

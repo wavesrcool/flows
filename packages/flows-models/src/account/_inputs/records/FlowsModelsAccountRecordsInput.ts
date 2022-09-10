@@ -1,10 +1,5 @@
-import { Field, InputType } from "type-graphql";
+import { InputType } from "type-graphql";
+import { FlowsModelsAccountRecordsBasis } from "../../_basis/FlowsModelsAccountRecordsBasis.basis";
 
 @InputType()
-export class FlowsModelsAccountRecordsInput {
-  @Field(() => String)
-  nameFirst!: string;
-
-  @Field(() => String)
-  nameLast!: string;
-}
+export class FlowsModelsAccountRecordsInput extends FlowsModelsAccountRecordsBasis {}
