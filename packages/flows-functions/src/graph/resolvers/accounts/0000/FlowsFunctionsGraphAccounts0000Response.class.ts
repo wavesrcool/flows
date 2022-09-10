@@ -1,7 +1,7 @@
 import { Field, ObjectType } from "type-graphql";
 
 @ObjectType()
-export class FlowsFunctionsGraph0000Response {
+export class FlowsFunctionsGraphAccounts0000Response {
   @Field(() => Boolean)
   pass!: boolean;
 

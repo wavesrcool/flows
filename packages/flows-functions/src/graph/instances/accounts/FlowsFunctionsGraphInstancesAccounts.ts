@@ -1,9 +1,9 @@
 import { DataSource } from "typeorm";
 import { ApolloServer } from "apollo-server-express";
 import { buildSchema } from "type-graphql";
-import { FlowsFunctionsGraph0000 } from "../../resolvers/0000/FlowsFunctionsGraph0000.resolver";
-import { FlowsFunctionsGraph0001 } from "../../resolvers/0001/FlowsFunctionsGraph0001.resolver";
+import { FlowsFunctionsGraphAccounts0000 } from "../../resolvers/accounts/0000/FlowsFunctionsGraphAccounts0000.resolver";
 import { TypesFlowsFunctionsGraphInstancesAccountsContext } from "./TypesFlowsFunctionsGraphInstancesAccountsContext";
+import { FlowsFunctionsGraphAccounts0001 } from "../../resolvers/accounts/0001/FlowsFunctionsGraphAccounts0001.resolver";
 
 export type TypesFiguresFlowsFunctionsGraphInstancesAccounts = {
   connection: DataSource;
@@ -17,7 +17,10 @@ export const FlowsFunctionsGraphInstancesAccounts = async ({
   try {
     const apollo = new ApolloServer({
       schema: await buildSchema({
-        resolvers: [FlowsFunctionsGraph0000, FlowsFunctionsGraph0001],
+        resolvers: [
+          FlowsFunctionsGraphAccounts0000,
+          FlowsFunctionsGraphAccounts0001,
+        ],
         scalarsMap: [],
         validate: false,
       }),

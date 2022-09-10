@@ -3,22 +3,27 @@ import { DataSource } from "typeorm";
 
 export type TypesFiguresFlowsFunctionsModelsEmailRead = {
   address: string;
-  ds: DataSource;
+  connection: DataSource;
 };
 
 export const FlowsFunctionsModelsEmailRead = async ({
-  ds,
+  connection,
   address,
 }: TypesFiguresFlowsFunctionsModelsEmailRead): Promise<
   FlowsModelsEmailAddress | undefined
 > => {
   try {
-    const read = await ds
+    const read = await connection
       .createQueryBuilder()
       .select("email")
       .from(FlowsModelsEmailAddress, "email")
       .where("email.address = :address", { address })
       .getOne();
+
+    console.log(
+      JSON.stringify(read, null, 4),
+      `read FlowsFunctionsModelsEmailRead`
+    );
 
     if (!read || !read.id) {
       return undefined;

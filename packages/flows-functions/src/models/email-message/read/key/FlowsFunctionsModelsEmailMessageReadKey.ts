@@ -1,19 +1,19 @@
 import { FlowsModelsEmailMessage } from "@wavesrcool/flows-models";
 import { DataSource } from "typeorm";
 
-export type TypesFiguresFlowsFunctionsModelsMessageReadKey = {
+export type TypesFiguresFlowsFunctionsModelsEmailMessageReadKey = {
   key: string;
-  ds: DataSource;
+  connection: DataSource;
 };
 
-export const FlowsFunctionsModelsMessageReadKey = async ({
-  ds,
+export const FlowsFunctionsModelsEmailMessageReadKey = async ({
+  connection,
   key,
-}: TypesFiguresFlowsFunctionsModelsMessageReadKey): Promise<
+}: TypesFiguresFlowsFunctionsModelsEmailMessageReadKey): Promise<
   FlowsModelsEmailMessage | undefined
 > => {
   try {
-    const read = await ds
+    const read = await connection
       .createQueryBuilder()
       .select("local")
       .from(FlowsModelsEmailMessage, "message")
@@ -26,7 +26,7 @@ export const FlowsFunctionsModelsMessageReadKey = async ({
 
     return read;
   } catch (e) {
-    console.log(e, "FlowsFunctionsModelsMessageReadKey");
+    console.log(e, "FlowsFunctionsModelsEmailMessageReadKey");
     return undefined;
   }
 };

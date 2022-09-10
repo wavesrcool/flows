@@ -1,19 +1,19 @@
 import { FlowsModelsEmailLocal } from "@wavesrcool/flows-models";
 import { DataSource } from "typeorm";
 
-export type TypesFiguresFlowsFunctionsModelsLocalRead = {
+export type TypesFiguresFlowsFunctionsModelsEmailLocalRead = {
   value: string;
-  ds: DataSource;
+  connection: DataSource;
 };
 
-export const FlowsFunctionsModelsLocalRead = async ({
-  ds,
+export const FlowsFunctionsModelsEmailLocalRead = async ({
+  connection,
   value,
-}: TypesFiguresFlowsFunctionsModelsLocalRead): Promise<
+}: TypesFiguresFlowsFunctionsModelsEmailLocalRead): Promise<
   FlowsModelsEmailLocal | undefined
 > => {
   try {
-    const read = await ds
+    const read = await connection
       .createQueryBuilder()
       .select("local")
       .from(FlowsModelsEmailLocal, "local")
@@ -26,7 +26,7 @@ export const FlowsFunctionsModelsLocalRead = async ({
 
     return read;
   } catch (e) {
-    console.log(e, "FlowsFunctionsModelsLocalRead");
+    console.log(e, "FlowsFunctionsModelsEmailLocalRead");
     return undefined;
   }
 };

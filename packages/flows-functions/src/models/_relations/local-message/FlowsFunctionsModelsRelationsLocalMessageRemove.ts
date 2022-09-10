@@ -5,24 +5,24 @@ import {
 import { DataSource } from "typeorm";
 
 export type TypesFiguresFlowsFunctionsModelsRelationsLocalMessageRemove = {
-  ds: DataSource;
+  connection: DataSource;
   pkLocal: number;
   pkMessage: number;
 };
 
 export const FlowsFunctionsModelsRelationsLocalMessageRemove = async ({
-  ds,
+  connection,
   pkLocal,
   pkMessage,
 }: TypesFiguresFlowsFunctionsModelsRelationsLocalMessageRemove): Promise<boolean> => {
   try {
-    await ds
+    await connection
       .createQueryBuilder()
       .relation(FlowsModelsEmailLocal, "messages")
       .of(pkLocal)
       .remove(pkMessage);
 
-    await ds
+    await connection
       .createQueryBuilder()
       .relation(FlowsModelsEmailMessage, "local")
       .of(pkMessage)

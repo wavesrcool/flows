@@ -15,11 +15,6 @@ export const routes = async (
   // breathe
   figure.router.get("/breathe", controllers.breathe);
 
-  figure.router.route("/accounts/create").post(
-    // [middleware.accounts.create.requests, middleware.accounts.create.locals],
-    await controllers.accounts.create(figure.connection)
-  );
-
   figure.app.use(figure.router);
   return;
 };

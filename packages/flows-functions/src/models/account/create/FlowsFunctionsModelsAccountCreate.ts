@@ -7,11 +7,11 @@ import { v4 } from "uuid";
 
 export type TypesFiguresFlowsFunctionsModelsAccountCreate = {
   input: FlowsModelsAccountCreateInput;
-  ds: DataSource;
+  connection: DataSource;
 };
 
 export const FlowsFunctionsModelsAccountCreate = async ({
-  ds,
+  connection,
   input: { value, ipAddress, isAdmin, records },
 }: TypesFiguresFlowsFunctionsModelsAccountCreate): Promise<
   number | undefined
@@ -22,7 +22,7 @@ export const FlowsFunctionsModelsAccountCreate = async ({
     const refreshToken = v4();
     const refreshTokenDate = new Date();
 
-    const create = await ds
+    const create = await connection
       .createQueryBuilder()
       .insert()
       .into(FlowsModelsAccount)

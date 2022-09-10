@@ -4,26 +4,31 @@ import {
 } from "@wavesrcool/flows-models";
 import { DataSource } from "typeorm";
 
-export type TypesFiguresFlowsFunctionsModelsEmailCreate = {
+export type TypesFiguresFlowsFunctionsModelsEmailAddressCreate = {
   input: FlowsModelsEmailAddressCreateInput;
-  ds: DataSource;
+  connection: DataSource;
 };
 
-export const FlowsFunctionsModelsEmailCreate = async ({
-  ds,
+export const FlowsFunctionsModelsEmailAddressCreate = async ({
+  connection,
   input: { address, ipAddress, records },
-}: TypesFiguresFlowsFunctionsModelsEmailCreate): Promise<
+}: TypesFiguresFlowsFunctionsModelsEmailAddressCreate): Promise<
   number | undefined
 > => {
   try {
     const ipList = [ipAddress];
 
-    const create = await ds
+    const create = await connection
       .createQueryBuilder()
       .insert()
       .into(FlowsModelsEmailAddress)
       .values({ address, ipList, records })
       .execute();
+
+    console.log(
+      JSON.stringify(create, null, 4),
+      `create FlowsFunctionsModelsEmailAddressCreate`
+    );
 
     const { id: pkCreate } = create.raw[0];
 
@@ -33,7 +38,7 @@ export const FlowsFunctionsModelsEmailCreate = async ({
 
     return pkCreate;
   } catch (e) {
-    console.log(e, "FlowsFunctionsModelsEmailCreate");
+    console.log(e, "FlowsFunctionsModelsEmailAddressCreate");
     return undefined;
   }
 };

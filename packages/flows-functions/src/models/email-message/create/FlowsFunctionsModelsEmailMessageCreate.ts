@@ -4,19 +4,19 @@ import {
 } from "@wavesrcool/flows-models";
 import { DataSource } from "typeorm";
 
-export type TypesFiguresFlowsFunctionsModelsMessageCreate = {
+export type TypesFiguresFlowsFunctionsModelsEmailMessageCreate = {
   input: FlowsModelsEmailMessageCreateInput;
-  ds: DataSource;
+  connection: DataSource;
 };
 
-export const FlowsFunctionsModelsMessageCreate = async ({
-  ds,
+export const FlowsFunctionsModelsEmailMessageCreate = async ({
+  connection,
   input: { records },
-}: TypesFiguresFlowsFunctionsModelsMessageCreate): Promise<
+}: TypesFiguresFlowsFunctionsModelsEmailMessageCreate): Promise<
   number | undefined
 > => {
   try {
-    const create = await ds
+    const create = await connection
       .createQueryBuilder()
       .insert()
       .into(FlowsModelsEmailMessage)
@@ -31,7 +31,7 @@ export const FlowsFunctionsModelsMessageCreate = async ({
 
     return pkCreate;
   } catch (e) {
-    console.log(e, "FlowsFunctionsModelsMessageCreate");
+    console.log(e, "FlowsFunctionsModelsEmailMessageCreate");
     return undefined;
   }
 };
