@@ -1,11 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import {
-  FlowsFunctionsDatabaseConnectionAccounts,
-  FlowsFunctionsDatabaseSeed,
-} from "@wavesrcool/flows-functions";
+import { FlowsFunctionsDatabaseConnectionAccounts } from "@wavesrcool/flows-functions";
 import { FlowsIoAccounts } from "@wavesrcool/flows-io";
-import { FlowsModelsAccountCreateInput } from "@wavesrcool/flows-models";
 import { TypesFiguresFlowsCoreAccounts } from "./TypesFiguresFlowsCoreAccounts";
 
 export class FlowsCoreAccounts {
@@ -32,14 +28,5 @@ export class FlowsCoreAccounts {
       .catch((e: any) => {
         console.log(`[flows]: Error. Root. ${String(e)}`);
       });
-  }
-
-  public async seed(input: FlowsModelsAccountCreateInput): Promise<boolean> {
-    const seed = FlowsFunctionsDatabaseSeed({
-      connection: this.connection,
-      input,
-    });
-
-    return seed;
   }
 }

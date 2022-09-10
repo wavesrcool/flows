@@ -1,7 +1,9 @@
 import {
+  FlowsFunctionsDatabaseSeed,
   FlowsFunctionsGraphInstancesAccounts,
   FlowsFunctionsIoInstancesAccounts,
   FlowsFunctionsMailInstance,
+  TypesFiguresFlowsFunctionsDatabaseSeed,
 } from "@wavesrcool/flows-functions";
 import { routes } from "./routes/routes";
 import { TypesFiguresFlowsIoAccounts } from "./TypesFiguresFlowsIoAccounts";
@@ -12,6 +14,26 @@ export const FlowsIoAccounts = async ({
   await connection
     .initialize()
     .then(() => console.log(`[flows]: Database connection established.`));
+
+  const input = {
+    value: process.env.FLOWS_GLOBAL_SEED_ACCOUNT_VALUE || "",
+    ipAddress: "127.0.0.1",
+    password: process.env.FLOWS_GLOBAL_SEED_ACCOUNT_PASSWORD || "",
+    records: {
+      nameFirst: process.env.FLOWS_GLOBAL_SEED_ACCOUNT_NAME_FIRST || "",
+      nameLast: process.env.FLOWS_GLOBAL_SEED_ACCOUNT_NAME_LAST || "",
+    },
+  };
+  const figureDatabaseSeed: TypesFiguresFlowsFunctionsDatabaseSeed = {
+    connection,
+    input,
+  };
+  const seed = await FlowsFunctionsDatabaseSeed(figureDatabaseSeed);
+  if (seed) {
+    console.log(`[flows]: Database seeded.`);
+  } else {
+    console.log(`[flows]: Database exists.`);
+  }
 
   const mail = FlowsFunctionsMailInstance();
 

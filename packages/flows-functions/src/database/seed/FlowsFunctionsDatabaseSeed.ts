@@ -1,12 +1,6 @@
-import { FlowsModelsAccountCreateInput } from "@wavesrcool/flows-models";
-import { DataSource } from "typeorm";
 import { FlowsFunctionsModelsAccountCreateAdmin } from "../../models/account/create/admin/FlowsFunctionsModelsAccountCreateAdmin";
 import { FlowsFunctionsModelsAccountReadAll } from "../../models/account/read/all/FlowsFunctionsModelsAccountReadAll";
-
-export type TypesFiguresFlowsFunctionsDatabaseSeed = {
-  connection: DataSource;
-  input: FlowsModelsAccountCreateInput;
-};
+import { TypesFiguresFlowsFunctionsDatabaseSeed } from "./TypesFiguresFlowsFunctionsDatabaseSeed";
 
 export const FlowsFunctionsDatabaseSeed = async ({
   connection,
