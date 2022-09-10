@@ -11,7 +11,7 @@ import {
   UpdateDateColumn,
 } from "typeorm";
 import { FlowsModelsAccount } from "../account/FlowsModelsAccount.entity";
-import { FlowsModelsEmailMessage } from "../message/FlowsModelsEmailMessage.entity";
+import { FlowsModelsEmailMessage } from "../email-message/FlowsModelsEmailMessage.entity";
 
 @ObjectType()
 @Entity()

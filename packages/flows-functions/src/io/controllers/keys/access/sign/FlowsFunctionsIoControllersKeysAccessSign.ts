@@ -1,31 +1,55 @@
 import { FlowsTypesJwtRecords } from "@wavesrcool/flows-types";
 import { Request, Response } from "express";
 import { DataSource } from "typeorm";
+import argon2 from "argon2";
 import { FlowsFunctionsJwtSign } from "../../../../../jwt/sign/FlowsFunctionsJwtSign";
 import { FlowsFunctionsModelsAccountRead } from "../../../../../models/account/read/FlowsFunctionsModelsAccountRead";
+
+export type TypesFiguresFlowsFunctionsIoControllersKeysAccessSignSuccess = {
+  pass: boolean;
+  message: string;
+  accessToken: string;
+  refreshToken: string;
+};
 
 export const FlowsFunctionsIoControllersKeysAccessSign = async (
   connection: DataSource
 ) => {
   return async (_req: Request, res: Response) => {
     try {
-      const { xFlowsAccount, xFlowsRefresh } = res.locals;
+      let errorMessage: string;
 
-      console.log(xFlowsAccount, xFlowsRefresh);
+      const { keysSignAccount, keysSignPassword } = res.locals;
 
-      // 1. lookup
-      const lookupAccount = await FlowsFunctionsModelsAccountRead({
+      const account = String(keysSignAccount || "");
+      const password = String(keysSignPassword || "");
+
+      // 1. lookup account
+      const readAccount = await FlowsFunctionsModelsAccountRead({
         connection,
-        value: String(xFlowsAccount) || "",
+        value: account,
       });
 
-      console.log(JSON.stringify(lookupAccount, null, 4), `lookupAccount`);
+      if (!readAccount) {
+        errorMessage = `account given is not registered`;
+        res.status(400).send({ error: `${errorMessage}` });
+        return;
+      }
 
-      // 2. validate
-      console.log(`@todo validate xFlowsRefresh`);
+      const passwordCorrect = await argon2.verify(
+        readAccount.password,
+        password
+      );
 
-      const value = `${xFlowsAccount}`.trim();
-      const key = `${`account-unique`}`.trim();
+      if (!passwordCorrect) {
+        errorMessage = `account password is not correct`;
+        res.status(400).send({ error: `${errorMessage}` });
+        return;
+      }
+
+      // 2. validate account refresh token
+
+      const { value, key, refreshToken } = readAccount;
 
       const records: FlowsTypesJwtRecords = {
         account: {
@@ -43,18 +67,26 @@ export const FlowsFunctionsIoControllersKeysAccessSign = async (
       });
 
       if (jwtSignComplete && jwtSignEncoded && !jwtSignMessage) {
+        const message = `[flows]: Received. (${
+          res.locals.ipAddress || "no-ip-address"
+        })`;
+
+        const success: TypesFiguresFlowsFunctionsIoControllersKeysAccessSignSuccess =
+          {
+            pass: true,
+            message,
+            accessToken: jwtSignEncoded,
+            refreshToken,
+          };
         res.status(200).send({
-          message: `[flows]: Received. (${
-            res.locals.ipAddress || "no-ip-address"
-          })`,
-          "keys-access-sign": true,
-          encoded: jwtSignEncoded,
+          ...success,
         });
         return;
       }
 
       if (jwtSignMessage) {
-        res.status(400).send({ error: `keys-access-sign-${jwtSignMessage}` });
+        errorMessage = jwtSignMessage;
+        res.status(400).send({ error: `${errorMessage}` });
         return;
       }
 

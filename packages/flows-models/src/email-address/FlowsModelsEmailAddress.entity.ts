@@ -9,7 +9,7 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
-import { FlowsModelsEmailMessage } from "../message/FlowsModelsEmailMessage.entity";
+import { FlowsModelsEmailMessage } from "../email-message/FlowsModelsEmailMessage.entity";
 import { FlowsModelsEmailAddressRecords } from "./_objects/records/FlowsModelsEmailAddressRecords";
 
 @ObjectType()

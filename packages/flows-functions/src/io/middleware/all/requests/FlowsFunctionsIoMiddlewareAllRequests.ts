@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
 import { RequestHandler } from "express";
-import { FlowsFunctionsEnvironmentGlobalXFlowsAccess } from "../../../../environment/global-x-flows-access/FlowsFunctionsEnvironmentGlobalXFlowsAccess";
+import { FlowsFunctionsEnvironmentGlobalXFlowsCredential } from "../../../../environment/global-x-flows-credential/FlowsFunctionsEnvironmentGlobalXFlowsCredential";
 import { FlowsFunctionsEnvironmentLocalRoutesUnsecured } from "../../../../environment/local-routes-unsecured/FlowsFunctionsEnvironmentLocalRoutesUnsecured";
 
 export const FlowsFunctionsIoMiddlewareAllRequests: RequestHandler = (
@@ -38,15 +38,15 @@ export const FlowsFunctionsIoMiddlewareAllRequests: RequestHandler = (
       return;
     }
 
-    const xFlowsAccess = req.headers["x-flows-access"];
-    if (!(xFlowsAccess && typeof xFlowsAccess === "string")) {
-      res.status(400).send({ error: "x-flows-access" });
+    const xFlowsCredential = req.headers["x-flows-credential"];
+    if (!(xFlowsCredential && typeof xFlowsCredential === "string")) {
+      res.status(400).send({ error: "x-flows-credential" });
       return;
     }
 
-    const access = FlowsFunctionsEnvironmentGlobalXFlowsAccess();
-    if (!(xFlowsAccess === access)) {
-      res.status(400).send({ error: "access invalidated" });
+    const credential = FlowsFunctionsEnvironmentGlobalXFlowsCredential();
+    if (!(xFlowsCredential === credential)) {
+      res.status(400).send({ error: "flows credential invalidated" });
       return;
     }
 

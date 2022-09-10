@@ -7,7 +7,7 @@ FLOWS_GLOBAL_SECRET_ENCRYPTION=
 FLOWS_GLOBAL_SECRET_HASH=
 FLOWS_GLOBAL_SECRET_JWT=
 FLOWS_GLOBAL_POSTGRES_URL=
-FLOWS_GLOBAL_X_FLOWS_ACCESS=`;
+FLOWS_GLOBAL_X_FLOWS_CREDENTIAL=`;
 
 const main = () => {
   console.log(`[flows-environment]: Writing environment configuration.`);

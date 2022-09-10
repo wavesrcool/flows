@@ -7,15 +7,15 @@ export const FlowsFunctionsIoMiddlewareKeysAccessSignLocals: RequestHandler = (
   next
 ): ReturnType<RequestHandler> => {
   try {
-    const { xFlowsAccount, xFlowsRefresh } = res.locals;
+    const { keysSignAccount, keysSignPassword } = res.locals;
 
-    if (!(xFlowsAccount && typeof xFlowsAccount === "string")) {
-      res.status(400).send({ error: "locals-xFlowsAccount" });
+    if (!(keysSignAccount && typeof keysSignAccount === "string")) {
+      res.status(400).send({ error: "locals-keysSignAccount" });
       return;
     }
 
-    if (!(xFlowsRefresh && typeof xFlowsRefresh === "string")) {
-      res.status(400).send({ error: "locals-xFlowsRefresh" });
+    if (!(keysSignPassword && typeof keysSignPassword === "string")) {
+      res.status(400).send({ error: "locals-keysSignPassword" });
       return;
     }
 

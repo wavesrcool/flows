@@ -11,7 +11,7 @@ export { FlowsFunctionsDatabaseConnectionKeys } from './database/connection/keys
 export { FlowsFunctionsEncryptionTextDecode } from './encryption/text/decode/FlowsFunctionsEncryptionTextDecode'
 export { FlowsFunctionsEncryptionTextEncode } from './encryption/text/encode/FlowsFunctionsEncryptionTextEncode'
 export { FlowsFunctionsEnvironmentGlobalPostgresUrl } from './environment/global-postgres-url/FlowsFunctionsEnvironmentGlobalPostgresUrl'
-export { FlowsFunctionsEnvironmentGlobalXFlowsAccess } from './environment/global-x-flows-access/FlowsFunctionsEnvironmentGlobalXFlowsAccess'
+export { FlowsFunctionsEnvironmentGlobalXFlowsCredential } from './environment/global-x-flows-credential/FlowsFunctionsEnvironmentGlobalXFlowsCredential'
 export { FlowsFunctionsEnvironmentLocalRoutesUnsecured } from './environment/local-routes-unsecured/FlowsFunctionsEnvironmentLocalRoutesUnsecured'
 export { FlowsFunctionsGraphInstancesAccounts } from './graph/instances/accounts/FlowsFunctionsGraphInstancesAccounts'
 export { FlowsFunctionsGraph0000 } from './graph/resolvers/0000/FlowsFunctionsGraph0000.resolver'

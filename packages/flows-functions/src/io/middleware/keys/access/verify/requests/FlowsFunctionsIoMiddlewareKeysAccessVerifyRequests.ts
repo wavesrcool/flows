@@ -4,14 +4,14 @@ import { RequestHandler } from "express";
 export const FlowsFunctionsIoMiddlewareKeysAccessVerifyRequests: RequestHandler =
   (req, res, next): ReturnType<RequestHandler> => {
     try {
-      const xFlowsKey = req.headers["x-flows-key"];
-      if (!(xFlowsKey && typeof xFlowsKey === "string")) {
-        res.status(400).send({ error: "x-flows-key" });
+      const xFlowsAccess = req.headers["x-flows-access"];
+      if (!(xFlowsAccess && typeof xFlowsAccess === "string")) {
+        res.status(400).send({ error: "x-flows-access" });
         return;
       }
 
       // set locals
-      res.locals.xFlowsKey = xFlowsKey;
+      res.locals.xFlowsAccess = xFlowsAccess;
 
       next();
     } catch (e) {

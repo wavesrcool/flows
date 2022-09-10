@@ -4,24 +4,28 @@ import { RequestHandler } from "express";
 export const FlowsFunctionsIoMiddlewareKeysAccessSignRequests: RequestHandler =
   (req, res, next): ReturnType<RequestHandler> => {
     try {
-      const xFlowsAccount = req.headers["x-flows-account"];
-      if (!(xFlowsAccount && typeof xFlowsAccount === "string")) {
-        res.status(400).send({ error: "x-flows-account" });
+      const { body } = req;
+
+      if (!body) {
+        res.status(400).send({ error: "request body undefined" });
         return;
       }
 
-      const xFlowsRefresh = req.headers["x-flows-refresh"];
-      if (!(xFlowsRefresh && typeof xFlowsRefresh === "string")) {
-        res.status(400).send({ error: "x-flows-refresh" });
+      const { account, password } = body;
+
+      if (!account && typeof account === "string") {
+        res.status(400).send({ error: "request body account undefined" });
         return;
       }
 
-      // 1. lookup account
-      // 2. validate refresh token
+      if (!password && typeof password === "string") {
+        res.status(400).send({ error: "request body password undefined" });
+        return;
+      }
 
       // set locals
-      res.locals.xFlowsAccount = xFlowsAccount;
-      res.locals.xFlowsRefresh = xFlowsRefresh;
+      res.locals.keysSignAccount = account;
+      res.locals.keysSignPassword = password;
 
       next();
     } catch (e) {

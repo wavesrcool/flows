@@ -3,33 +3,47 @@
 import { Request, Response } from "express";
 import { FlowsFunctionsJwtVerify } from "../../../../../jwt/verify/FlowsFunctionsJwtVerify";
 
+export type TypesFiguresFlowsFunctionsIoControllersKeysAccessSign = {
+  pass: boolean;
+  message: string;
+};
+
 export const FlowsFunctionsIoControllersKeysAccessVerify = async (
   _req: Request,
   res: Response
 ) => {
   try {
-    const { xFlowsKey: xFlowsKey0 } = res.locals;
+    const { xFlowsAccess } = res.locals;
 
-    const xFlowsKey = String(xFlowsKey0);
-
-    if (xFlowsKey) {
+    if (xFlowsAccess && typeof xFlowsAccess === "string") {
       const { complete: jwtVerifyComplete, message: jwtVerifyMessage } =
         await FlowsFunctionsJwtVerify({
-          encoded: xFlowsKey,
+          encoded: xFlowsAccess,
         });
 
       if (jwtVerifyComplete && !jwtVerifyMessage) {
+        const message = `[flows]: Received. (${
+          res.locals.ipAddress || "no-ip-address"
+        })`;
+
+        const success: TypesFiguresFlowsFunctionsIoControllersKeysAccessSign = {
+          pass: true,
+          message,
+        };
         res.status(200).send({
-          message: `[flows]: Received. (${
-            res.locals.ipAddress || "no-ip-address"
-          })`,
-          "keys-access-verify": true,
+          ...success,
         });
         return;
       }
     }
 
-    res.status(400).send({ error: "keys-access-verify" });
+    const message = `unauthorized request`;
+    const failure: TypesFiguresFlowsFunctionsIoControllersKeysAccessSign = {
+      pass: true,
+      message,
+    };
+
+    res.status(400).send({ ...failure });
     return;
   } catch (e) {
     console.log(

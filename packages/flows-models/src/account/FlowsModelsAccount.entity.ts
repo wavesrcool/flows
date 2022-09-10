@@ -9,7 +9,7 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
-import { FlowsModelsEmailLocal } from "../local/FlowsModelsEmailLocal.entity";
+import { FlowsModelsEmailLocal } from "../email-local/FlowsModelsEmailLocal.entity";
 import { FlowsModelsAccountRecords } from "./_objects/records/FlowsModelsAccountRecords";
 
 @ObjectType()
@@ -43,6 +43,14 @@ export class FlowsModelsAccount extends BaseEntity {
   @Column({ type: "varchar", unique: true })
   value!: string;
 
+  @Field(() => String)
+  @Column({ type: "varchar" })
+  password!: string;
+
+  @Field(() => String)
+  @Column({ type: "varchar" })
+  passwordDate!: string;
+
   @Field(() => Boolean)
   @Column({ type: "boolean", default: false })
   isAdmin!: boolean;
@@ -57,6 +65,14 @@ export class FlowsModelsAccount extends BaseEntity {
 
   @Field(() => [String], { nullable: true })
   ipList!: string[] | null;
+
+  @Field(() => String)
+  @Column({ type: "varchar" })
+  refreshToken!: string;
+
+  @Field(() => String)
+  @Column() // @tmp use emitted decorator metadata
+  refreshTokenDate!: Date;
 
   // * * * * * * * * * * * * * * * * * * *
   //

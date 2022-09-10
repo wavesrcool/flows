@@ -3,6 +3,7 @@ import {
   FlowsModelsAccountCreateInput,
 } from "@wavesrcool/flows-models";
 import { DataSource } from "typeorm";
+import { v4 } from "uuid";
 
 export type TypesFiguresFlowsFunctionsModelsAccountCreate = {
   input: FlowsModelsAccountCreateInput;
@@ -18,11 +19,21 @@ export const FlowsFunctionsModelsAccountCreate = async ({
   try {
     const ipList = [ipAddress];
 
+    const refreshToken = v4();
+    const refreshTokenDate = new Date();
+
     const create = await ds
       .createQueryBuilder()
       .insert()
       .into(FlowsModelsAccount)
-      .values({ value, ipList, isAdmin, records })
+      .values({
+        value,
+        ipList,
+        isAdmin,
+        refreshToken,
+        refreshTokenDate,
+        records,
+      })
       .execute();
 
     const { id: pkCreate } = create.raw[0];
