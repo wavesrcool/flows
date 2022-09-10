@@ -24,6 +24,10 @@ export const FlowsFunctionsIoMiddlewareKeysAccessSignRequests: RequestHandler =
       }
 
       // set locals
+
+      console.log(account, `acct`);
+      console.log(password, `pass`);
+
       res.locals.keysSignAccount = account;
       res.locals.keysSignPassword = password;
 
