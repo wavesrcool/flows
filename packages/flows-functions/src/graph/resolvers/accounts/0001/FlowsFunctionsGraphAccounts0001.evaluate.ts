@@ -193,12 +193,11 @@ export const FlowsFunctionsGraphAccounts0001e = async (
 
     const toName = `${nameFirst} ${nameLast}`;
 
-    const contentGap = " ";
     const greeting = `Hello ${toName},`;
     const content1 = `The request to create an account for the email emailAddress "${emailAddress}" was successful.`;
     const closing = `-- Sent automatically by "flows-accounts" (${new Date().toISOString()})`;
 
-    const textList = [greeting, contentGap, content1, contentGap, closing];
+    const textList = [greeting, content1, closing];
 
     const text = textList.join("\r\n");
 

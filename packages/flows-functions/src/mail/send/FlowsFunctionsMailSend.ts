@@ -29,9 +29,9 @@ export const FlowsFunctionsMailSend = async (
       };
     }
 
-    const { records } = modelsReadEmailLocal;
+    const { records: modelsReadEmailLocalRecords } = modelsReadEmailLocal;
 
-    if (!records) {
+    if (!modelsReadEmailLocalRecords) {
       message = `records are absent on this email-local`;
       return {
         pass: false,
@@ -39,9 +39,8 @@ export const FlowsFunctionsMailSend = async (
       };
     }
 
-    const { contactName, replyToLocal } = records;
-
-    const from = `${contactName} <${replyToLocal}@${domain}>`;
+    const { contactName } = modelsReadEmailLocalRecords;
+    const from = `${contactName} <${local}@${domain}>`;
 
     const { toName, toEmail } = figure;
     const to = `${toName} <${toEmail}>`;
@@ -61,6 +60,8 @@ export const FlowsFunctionsMailSend = async (
       "v:flows-version": `testing`,
       "o:tag": otag,
     };
+
+    console.log(JSON.stringify(data, null, 4), `FlowsFunctionsMailSend data`);
 
     const sendResult = await figure.mail.messages.create(domain, data);
 

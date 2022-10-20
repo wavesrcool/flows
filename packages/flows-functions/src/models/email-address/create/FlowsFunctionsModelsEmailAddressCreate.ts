@@ -26,11 +26,6 @@ export const FlowsFunctionsModelsEmailAddressCreate = async ({
       .values({ value, ipList, records })
       .execute();
 
-    console.log(
-      JSON.stringify(create, null, 4),
-      `create FlowsFunctionsModelsEmailAddressCreate`
-    );
-
     const { id: pkCreate } = create.raw[0];
 
     if (!pkCreate) {
